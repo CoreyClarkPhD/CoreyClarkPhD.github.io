@@ -291,17 +291,17 @@ BartleGame = {
 				cat =  BartleGame.Categories.explorer;
 				output = "You Are An EXPLORER!"
 			}
-			else if(BartleGame.Categories.achiever > cat){
+			if(BartleGame.Categories.achiever > cat){
 				cat = BartleGame.Categories.achiever;
 				output = "You Are An ACHIEVER!";
 
 			}
-			else if(BartleGame.Categories.killer > cat){
+			if(BartleGame.Categories.killer > cat){
 				cat = BartleGame.Categories.killer;
 				output = "You Are A KILLER!";
 
 			}
-			else if(BartleGame.Categories.socializer > cat){
+			if(BartleGame.Categories.socializer > cat){
 				cat = BartleGame.Categories.socializer;
 				output = "You Are A SOCIALIZER!";
 
