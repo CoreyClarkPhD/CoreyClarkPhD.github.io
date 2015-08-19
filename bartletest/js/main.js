@@ -235,8 +235,10 @@ BartleGame = {
 	},
 	AddEventListeners: function(){
 		for(var i = 0; i < BartleGame.Questions.length; i++){
-			document.getElementById('q'+i+'a0').addEventListener('click', BartleGame.ProccessClick, false);
-			document.getElementById('q'+i+'a1').addEventListener('click', BartleGame.ProccessClick, false);
+			for(var j = 0; j < BartleGame.Questions[i].options.length; j++){
+				document.getElementById('q'+i+'a'+j).addEventListener('click', BartleGame.ProccessClick, false);
+			}
+			
 		}
 	},
 	AddHTMLQuestions: function(){
@@ -244,8 +246,6 @@ BartleGame = {
 		for(var i = 0; i < BartleGame.Questions.length; i++){
 			var id = i;
 			var question = BartleGame.Questions[i].question;
-			var option1 = BartleGame.Questions[i].options[0].answer;
-			var option2 = BartleGame.Questions[i].options[1].answer;
 			html += 	"<div id='"+ id +"' class='well'>" +
 							'<div class="row">' +
 							  '<div class="col-lg-12">' +
@@ -253,19 +253,16 @@ BartleGame = {
 							  		question +
 							  	'</blockquote>' +
 							  '</div>' +
-							'</div>' +
-							'<div class="row">' +
-							  '<div class="col-md-12">' +
-							  	'<button id="q'+ id +'a0" type="button" class="btn btn-primary btn-lg">' + option1  + '</button>' +
-							  '</div>' +
-							'</div>' +  
-							'<div class="row">' +
-							  '<div class="col-md-6">' +
-							  	'<button id="q'+ id +'a1" type="button" class="btn btn-primary btn-lg">' + option2 + '</button>' +
-							  '</div>' +
-							'</div>' +
-							'</div>' +
-						'</div>';
+							'</div>';
+							for(var j = 0; j < BartleGame.Questions[i].options.length; j++){
+								html += '<div class="row">' +
+										  '<div class="col-md-12">' +
+										  	'<button id="q'+ id + 'a' + j + '" type="button" class="btn btn-primary btn-lg">' + BartleGame.Questions[i].options[j].answer  + '</button>' +
+										  '</div>' +
+										'</div>';
+							}
+							 
+						html += '</div>';
 		}
 
 		document.getElementById('test').innerHTML = html;
