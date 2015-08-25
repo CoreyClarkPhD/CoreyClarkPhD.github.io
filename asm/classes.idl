@@ -1,0 +1,44 @@
+interface PostProcess {
+	void PostProcess();
+
+	void Init();
+	void Update();
+	
+	void setGray(boolean val);
+	void setBlur(boolean val);
+	void setLoG(boolean val);
+	void setStep(boolean val);
+	void setInvert(boolean val);
+	void setMultiply(boolean val);
+	void setCel(boolean val);
+	void setPostGray(boolean val);
+	
+	attribute boolean gray;
+	attribute boolean blur;
+	attribute boolean log;
+	attribute boolean step;
+	attribute boolean invert;
+	attribute boolean multiply;
+	attribute boolean cel;
+	attribute boolean postGray;
+	
+	void setOffset(long val);
+	void setScale(float val);
+	void setThreshold(byte val);
+	
+	attribute long offset;
+	attribute float scale;
+	attribute byte threshold;
+
+	void setWidth(long val);
+	void setHeight(long val);
+	
+	attribute long width;	//number of pixels wide
+	attribute long height; //number of pixes high
+	attribute long pixels;	//number of pixels
+	attribute long length;	//Length of image data array
+	
+	any getDataOutPtr();
+	any getImagePtr();
+	any getCurrentPtr();
+};
