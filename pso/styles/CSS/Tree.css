@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.folder_Img {
+    background-image: url("../../images/tree/folder-open.gif");
+}
+
+.folderOpen_Img {
+    background-image: url("../../images/tree/folder-open.gif");
+}
+
+.elbowEndMinusNL_Img {
+    background-image: url("../../images/tree/elbow-end-minus-nl.gif");
+}
+
+.elbowEndMinus_Img {
+    background-image: url("../../images/tree/elbow-end-minus.gif");
+}
+
+.elbowEndPlusNL_Img {
+    background-image: url("../../images/tree/elbow-end-plus-nl.gif");
+}
+
+.elbowEndPlus_Img {
+    background-image: url("../../images/tree/elbow-end-plus.gif");
+}
+
+.elbowEnd_Img {
+    background-image: url("../../images/tree/elbow-end.gif");
+}
+
+.elbowLine_Img {
+    background-image: url("../../images/tree/elbow-line.gif");
+}
+
+.elbowMinusNL_Img {
+    background-image: url("../../images/tree/elbow-minus-nl.gif");
+}
+
+.elbowMinus_Img {
+    background-image: url("../../images/tree/elbow-minus.gif");
+}
+
+.elbowPlusNL_Img {
+    background-image: url("../../images/tree/elbow-plus-nl.gif");
+}
+
+.elbowPlus_Img {
+    background-image: url("../../images/tree/elbow-plus.gif");
+}
+
+.elbow_Img {
+    background-image: url("../../images/tree/elbow.gif");
+}
+
+.space_Img {
+    background-image: url("../../images/tree/s.gif");
+}
+
+.genericFile_Img {
+    background-image: url("../../images/tree/leaf.gif");
+}
+

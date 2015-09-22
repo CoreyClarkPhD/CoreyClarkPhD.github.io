@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mainContent {
+    position: relative;
+    width: 100%;
+    height: 560px;
+    margin: 0 0;
+    z-index: 0;
+}
+
+/* jahova_sidebar sidebar, vertical tabs and tab text elements */
+
+.folderView {
+    display: none;
+    float: left;
+    width: 250px;
+    height: 548px;
+    margin: 4px 4px 4px 4px;
+    z-index: 0;
+}
+
+.folderViewDisplayed {
+    display: block;
+    float: left;
+    width: 250px;
+    height: 548px;
+    margin: 4px 4px 4px 4px;
+    z-index: 0;
+}
+
+.folderHeader {
+    width: 100%;
+    height: 20px;
+}
+
+.folderH3 { /* .docViewTabs docSection docH3 */
+    float: left;
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 5px;
+}
+
+.folderIconHeader {
+    width: 100%;
+    height: 25px;
+}
+
+.folderContent {
+    width: 100%;
+    height: 503px;
+}
+
+.docView {
+    float: right;
+    width: 806px;
+    height: 332px;
+    margin: 4px 8px 4px 4px;
+}
+
+.docViewNFV {
+    float: right;
+    width: 1064px;
+    height: 332px;
+    margin: 4px 8px 4px 4px;
+}
+
+.docViewTabs {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.docSection { /* .docViewTabs docSection*/
+    float: left;
+    z-index: 1;
+}
+
+.docH3 { /* .docViewTabs docSection docH3 */
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 10px;
+}
+
+.docH3Current { /* .docViewTabs docCurrent docH3 */
+    background: #ced4df;
+    cursor: default;
+    color: #000000;
+}
+
+.docDiv { /* .docViewTabs docSection docDiv */
+    position: absolute;
+    left: 0;
+    top: 24px;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: none;
+    font: 12px Arial;
+}
+
+.docDivCurrent { /* .docViewTabs docCurrent docDiv */
+    position: absolute;
+    left: 0;
+    top: 24px;
+    z-index: 2;
+    width: 100%;
+    height: 308px;
+    font: 12px Arial;
+}
+
+.tabBar {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    height: 4px;
+}
+
+.outputView {
+    float: right;
+    width: 806px;
+    height: 190px;
+    margin: 4px 8px 4px 4px;
+}
+
+.outputViewNFV {
+    float: right;
+    width: 1064px;
+    height: 190px;
+    margin: 4px 8px 4px 4px;
+}
+
+.outputHeader {
+    width: 100%;
+    height: 20px;
+}
+
+.outputHeaderH3 {
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 3px;
+}
+
+.outputViewTabs {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.outputSection { /* .docViewTabs docSection*/
+    float: left;
+    margin-top: 4px;
+    z-index: 1;
+}
+
+.outputH3 { /* .docViewTabs docSection docH3 */
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 10px;
+}
+
+.outputDiv { /* .docViewTabs docSection docDiv */
+    position: absolute;
+    left: 0;
+    top: 28px;
+    z-index: 2;
+    width: 100%;
+    height: 160px;
+    display: none;
+    font: 12px Arial;
+}
+
+.outputDivCurrent { /* .docViewTabs docCurrent docDiv */
+    position: absolute;
+    left: 0;
+    top: 28px;
+    z-index: 2;
+    width: 100%;
+    height: 160px;
+    font: 12px Arial;
+}
+
+.outputTabBar {
+    position: relative;
+    top: 24px;
+    width: 100%;
+    height: 4px;
+}
+
+/*
+.outputSection { 
+    float: left;
+    z-index: 1;
+}
+
+.outputH3 { 
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 10px;
+}
+
+.outputDiv { 
+    z-index: 2;
+    width: 100%;
+    height: 168px;
+    display: none;
+    font: 12px Arial;
+}
+
+.outputDivCurrent { 
+    z-index: 2;
+    width: 100%;
+    height: 168px;
+    font: 12px Arial;
+}
+
+*/
+.ide_pin {                              /* Used to anchor/pin open jahova_sidebar page */
+    visibility: hidden;
+    position: absolute;
+    padding-top: 3px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 95%;
+    background-image: url('../../images/pin.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.ide_pinPin {                           /* Used to anchor/pin open jahova_sidebar page */
+    margin: 3px 5px 0 0;
+    width: 13px;
+    height: 13px;
+    float: right;
+    background-image: url('../../images/pinPin.png');
+    background-repeat: no-repeat;
+}

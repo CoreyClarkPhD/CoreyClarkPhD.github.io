@@ -1,0 +1,189 @@
+.pcWindow{
+	position: absolute;
+    z-index: 20;
+    border: 1px solid #333366;
+    border-radius: 5px;
+    -moz-box-shadow: 3px 3px 10px #373737;
+    -webkit-box-shadow: 3px 3px 10px #373737;
+    resize: both;
+}
+.pcWindow-NoShadow{
+    position: absolute;
+    z-index: 20;
+   
+/*    border: 1px solid #333366;*/
+    border-radius: 5px;
+    resize: both;
+}
+
+.pcWindowMinimized {
+    
+    border-right: 1px solid black;
+    position: relative;
+    z-index: 25;
+    float: left;
+    display: inline-block;
+    
+}
+
+.pcWindowMaximized{
+    width: 100%;
+    border: none;
+    position: absolute;
+}
+
+.pcTitlebar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.pcTitlebarMinimized{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    border-bottom: 1px solid black;
+    background-color: #cccccc;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.pcTitlebarText{
+    padding-top: 2px;
+    padding-left: 7px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+}
+
+.pcButtonContainer {
+    margin-top: 1px;
+    float: right;
+    width:57px;
+    height: 19px;
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.pcButtonClose {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-close-pc.png') no-repeat 0 0;			
+	cursor:pointer;
+        opacity: .6;
+}
+
+.pcButtonClose:hover {
+    opacity: 1.0;
+}
+
+.pcButtonMin {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-minimize-pc.png') no-repeat 0 0;	
+	cursor:pointer;
+	opacity: .6;
+}
+.pcButtonMin:hover {
+    opacity: 1.0;
+}
+
+.pcButtonMax {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-maximize-pc.png') no-repeat 0 0;			
+	cursor:pointer;
+	opacity: .6;
+}
+.pcButtonMax:hover {
+    opacity: 1.0;
+}
+
+.pcMenubar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    background-color: #ABABAB; 
+    border-bottom: 1px solid black;
+
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.pcMenubarElement {
+    float: left;
+    margin: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+    cursor:pointer;
+}
+
+.pcToolbar{
+    
+}
+
+.pcToolbarElement{
+    
+}
+
+.pcContent {
+    background-color: #CCC;
+    /*background-image: url('../images/background.bmp');*/
+    background-repeat: no-repeat;
+    background-size: "100%";
+	overflow: auto;
+}
+
+.pcStatusbar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #cccccc;
+    border-top: 1px solid black;
+    -webkit-border-bottom-left-radius: 5px;     /* Border radius        */
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.pcStatusbarText {
+    margin-left: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+}
+
+
+
+

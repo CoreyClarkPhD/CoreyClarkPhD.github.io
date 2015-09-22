@@ -1,0 +1,9 @@
+
+.shadowContainer {
+    position: absolute;
+    width: 24px;
+    height: 8px;
+    background-image: url('../images/shadow.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}

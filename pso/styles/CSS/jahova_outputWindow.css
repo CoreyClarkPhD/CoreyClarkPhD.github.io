@@ -1,0 +1,96 @@
+/* Generic output window */
+/*
+    Mac version
+    Windows version still required
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+header, footer, aside, nav, article {  
+    display: block;  
+}
+
+/*.outputWindow {
+    position: absolute;
+    z-index: auto;
+    background-color: #ffffff;
+    background-image: url('../../images/background.bmp');
+    border: 1px solid #333366;
+}*/
+
+/* Window base container */
+/*
+.outputWindowContainer {
+    position: relative;
+    width: 1000px;
+    height: 480px;
+    top: 0;
+    left: 23px;
+    z-index: auto;
+    background-color: #cccccc;
+    border: 1px solid #333366;
+}
+*/
+
+/* Mac buttons */
+/*.mac_os_x_close {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../../images/close.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:7px;
+	cursor:pointer;
+        opacity: .6;
+	z-index:1000;
+}
+
+.mac_os_x_minimize {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../../images/minimize.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:28px;
+	cursor:pointer;
+	z-index:1000;
+}
+
+.mac_os_x_maximize {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../../images/maximize.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:49px;
+	cursor:pointer;
+	z-index:1000;
+}
+
+
+.macButtonsContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 19px;
+    background-color: #cccccc;
+}
+
+
+.macButtonsContainer:hover .mac_os_x_maximize {
+    background: transparent url('../../images/maximizeHover.gif') no-repeat 0 0;
+}
+
+.macButtonsContainer:hover .mac_os_x_minimize {
+    background: transparent url('../../images/minimizeHover.gif') no-repeat 0 0;
+}
+
+.macButtonsContainer:hover .mac_os_x_close {
+    background: transparent url('../../images/closeHover.gif') no-repeat 0 0;
+}
+*/

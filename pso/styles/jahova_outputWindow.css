@@ -1,0 +1,249 @@
+/* Generic output window */
+/*
+    Mac version
+    Windows version still required
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+header, footer, aside, nav, article {  
+    display: block;  
+}
+
+.outputWindow {
+    position: absolute;
+    z-index: 20;
+    background-color: #ffffff;
+    background-image: url('../images/background.bmp');
+    background-repeat: no-repeat;
+    background-size: "100%";
+    border: 1px solid #333366;
+    -moz-box-shadow: 3px 3px 10px #373737;
+    -webkit-box-shadow: 3px 3px 10px #373737;
+    resize: both;
+}
+
+/* Window base container */
+
+
+.windowTitleBar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.windowTitle{
+   /* position: absolute;
+    left: 50%;*/
+    text-align: center;
+    text-shadow: 1px 1px 0 white;
+}
+
+.windowStatusBar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #cccccc;
+    border-top: 1px solid black;
+    -webkit-border-bottom-left-radius: 5px;     /* Border radius        */
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.windowStatus {
+    margin-left: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+}
+
+.windowMenuBar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    background-color: #ABABAB; 
+    border-bottom: 1px solid black;
+
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.windowMenuBarMac{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 20px;
+    width: 100%;
+    background-color: #DEDEDE;
+    opacity: 0.4;
+    border-bottom: 1px solid black;
+
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+.windowMenuBarMac:hover {
+    opacity: 1.0;
+}
+
+.windowMenu {
+    float: left;
+    margin: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+    cursor:pointer;
+}
+
+/* Mac buttons */
+.mac_os_x_close {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/close.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:7px;
+	cursor:pointer;
+        opacity: .6;
+}
+
+.mac_os_x_minimize {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/minimize.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:28px;
+	cursor:pointer;
+}
+
+.mac_os_x_maximize {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/maximize.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:49px;
+	cursor:pointer;
+}
+
+/* Container for buttons */
+.macButtonsContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 19px;
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+
+/* Button Events */
+.macButtonsContainer:hover .mac_os_x_maximize {
+    background: transparent url('../images/maximizeHover.gif') no-repeat 0 0;
+}
+
+.macButtonsContainer:hover .mac_os_x_minimize {
+    background: transparent url('../images/minimizeHover.gif') no-repeat 0 0;
+}
+
+.macButtonsContainer:hover .mac_os_x_close {
+    background: transparent url('../images/closeHover.gif') no-repeat 0 0;
+}
+
+/*  PC Buttons, Containers and Events*/
+
+.pc_close {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-close-pc.png') no-repeat 0 0;			
+	/*position:absolute;
+	top:3px;
+	left:7px;*/
+	cursor:pointer;
+        opacity: .6;
+}
+
+.pc_close:hover {
+    opacity: 1.0;
+}
+
+.pc_minimize {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-minimize-pc.png') no-repeat 0 0;			
+	/*position:absolute;
+	top:3px;
+	left:28px;*/
+	cursor:pointer;
+	opacity: .6;
+}
+.pc_minimize:hover {
+    opacity: 1.0;
+}
+
+.pc_maximize {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-maximize-pc.png') no-repeat 0 0;			
+	/*position:absolute;
+	top:3px;
+	left:49px;*/
+	cursor:pointer;
+	opacity: .6;
+}
+.pc_maximize {
+    opacity: 1.0;
+}
+
+.pcButtonsContainer {
+    /*position: absolute;
+    left: 0;
+    top: 0;*/
+    margin-top: 1px;
+    float: right;
+    width:57px;
+    height: 19px;
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}

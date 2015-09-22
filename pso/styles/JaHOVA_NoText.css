@@ -1,0 +1,207 @@
+html {
+
+}
+
+head {
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+header, footer, aside, nav, article {  
+    display: block;  
+}
+
+body {
+    margin: 0 auto;
+    width: 1200px;
+    background-color: #cccccc;
+    font-size: 12px;
+    font-family: Helvetica;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.com {
+    position: relative;
+    height: 590px;
+    background-color: #aec7df;
+    border: 1px solid #8992a3;
+    -webkit-border-radius: 6px;
+}
+
+.jahova {
+    position: relative;
+    height: 563px;
+    width: 1186px;
+    top: 20px;
+    left: 5px;
+    background-color: #627596;
+    border: 1px solid #8992a3;
+    -webkit-border-radius: 4px;
+}
+
+.os {
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #b0bccd;
+    border-bottom: 1px solid #8992a3;
+}
+
+.debugBar {
+    position: relative;
+    width: 25px;
+    height: 536px;
+    top: 24px;
+    left: 0;
+    background-color: #627596;
+    -webkit-border-bottom-left-radius: 4px;
+}
+
+.debugTab {
+    width: 20px;
+    height: 75px;
+    margin-top: 3px;
+    background-color: #8191ab;
+    border-top: 1px solid #000000;
+    border-right: 2px solid #000000;
+    border-bottom: 3px solid #000000;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+}
+
+.debugTab:hover {
+    border-right: 2px groove #ffd142;
+    border-bottom: 3px groove #ffd142;
+    background-color: #ffffff;
+}
+
+.debugPage {
+    position: absolute;
+    width: 0;
+    height: 529px;
+    top: 3px;
+    left: 23px;
+    z-index: auto;
+    background-color: #ffffff;
+    -webkit-transition: width .25s;
+}
+
+.debugPagePin {
+    position: absolute;
+    width: 399px;
+    height: 529px;
+    top: 3px;
+    left: 23px;
+    z-index: 10;
+    background-color: #ffffff;
+}
+
+.console
+{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 488px;
+    resize: none;
+    z-index: -1;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+    -webkit-transition: width .25s;
+}
+
+.consolePin {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 97%;
+    height: 92%;
+    resize: none;
+    z-index: 10;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+}
+
+
+
+.pin {
+    display: none;
+    padding-left: 10px;
+    background-image: url(http://jahovaos.com/JaHOVA/0v3_1/images/pin.png);
+    background-repeat: no-repeat;
+    float: right;
+    padding-right: 5px;
+}
+
+.pin:hover {
+    
+    background-image: url(http://jahovaos.com/JaHOVA/0v3_1/images/pinHover.png);
+    background-repeat: no-repeat;
+}
+
+.pinPin {
+    display: block;
+    float: right;
+    padding-left: 10px;
+    background-image: url(http://jahovaos.com/JaHOVA/0v3_1/images/pin.png);
+    background-repeat: no-repeat;
+    padding-right: 5px;
+}
+
+.pinPin:hover {
+
+    background-image: url(http://jahovaos.com/JaHOVA/0v3_1/images/pinHover.png);
+    background-repeat: no-repeat;
+}
+.debugPageHeader {
+    height: 20px;
+    width: 100%;
+    background-color: #b0bccd;
+    border-bottom: 1px solid #8992a3;
+}
+
+.debugPageContent {
+    position: absolute;
+    height: 495px;
+    width: 95%;
+    top: 24px;
+    left: 10px;
+    background-color: #ffffff;
+}
+
+.debugTab:hover .console {
+    display: block;
+    width: 379px;
+    z-index: 10;
+}
+
+.debugTab:hover .debugPageContent {
+    border: 1px solid #8992a3;
+}
+
+.debugTab:hover .pin {
+    display: block;
+}
+
+.debugTab:hover .debugPage {
+    width: 399px;
+    z-index: 10;
+}

@@ -1,0 +1,50 @@
+
+/* width: .25s, .5s, 1s, 2s */
+.jahova_transWp25s {
+    -webkit-transition: width .25s;
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.jahova_transWp5s {
+    -webkit-transition: width .5s;
+    -moz-transition: width .5s;
+    transition: width .5s;
+}
+
+.jahova_transW1s {
+    -webkit-transition: width 1s;
+    -moz-transition: width 1s;
+    transition: width 1s;
+}
+
+.jahova_transW2s {
+    -webkit-transition: width 2s;
+    -moz-transition: width 2s;
+    transition: width 2s;
+}
+
+/* height: .25s, .5s, 1s, 2s */
+.jahova_transHp25s {
+    -webkit-transition: height .25s;
+    -moz-transition: height .25s;
+    transition: height .25s;
+}
+
+.jahova_transHp5s {
+    -webkit-transition: height .5s;
+    -moz-transition: height .5s;
+    transition: height .5s;
+}
+
+.jahova_transH1s {
+    -webkit-transition: height 1s;
+    -moz-transition: height 1s;
+    transition: height 1s;
+}
+
+.jahova_transW2s {
+    -webkit-transition: height 2s;
+    -moz-transition: height 2s;
+    transition: height 2s;
+}

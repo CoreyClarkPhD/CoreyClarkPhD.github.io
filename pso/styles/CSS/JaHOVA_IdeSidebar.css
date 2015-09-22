@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* jahova_sidebar sidebar, vertical tabs and tab text elements */
+.ideSidebar {
+/*    float: left;*/
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 24px;
+/*    height: 150px;*/
+    padding-bottom: 2px;
+    z-index: 100;
+    
+}
+
+.ideSidebarTabFolderView {    /* Dependent on sidebar positioning */
+    width: 20px;
+    height: 120px;
+    margin-top: 4px;
+    z-index: 20;
+}
+
+.ideSidebarTabTextFolderView {
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 0 0 3px 0;
+    -webkit-transform-origin: bottom left;
+    -moz-transform-origin: bottom left;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    z-index: 21;
+}
+
+.ideSidebarPageFolderView {
+    position: absolute;
+    left: 19px;
+    top: -4px;
+    width: 0;
+    height: 548px;
+    margin: 4px 4px 4px 4px;
+    z-index: 50;/*
+    visibility: hidden;*/
+}
+
+.ideSidebarPageFolderViewPinned {
+    position: absolute;
+    left: 19px;
+    top: -4px;
+    width: 260px;
+    height: 548px;
+    margin: 4px 4px 4px 4px;
+    border: 2px groove #43577b;
+    z-index: 50;
+}
+
+.ideSidebarFolderHeader {
+    width: 100%;
+    height: 20px;
+}
+
+.ideSidebarFolderH3 {
+    float: left;
+    display: none;
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 5px;
+}
+
+.ideSidebarFolderH3Pinned {
+    float: left;
+    display: block;
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 5px;
+}
+
+.ideSidebarFolderIconHeader {
+    width: 100%;
+    height: 25px;
+}
+
+.ideSidebarFolderContent {
+    width: 100%;
+    height: 503px;
+    visibility: hidden;
+}
+
+.ideSidebarTabFolderView:hover {
+    border-right: 2px groove #ffd142;
+    
+}
+.ideSidebarTabFolderView:hover .ideSidebarFolderContent {
+    visibility: visible;
+}
+
+.ideSidebarTabFolderView:hover .ideSidebarPageFolderView {
+    visibility: visible;
+    width: 260px;
+    z-index: 55;
+    border: 2px groove #43577b;
+   /* border-bottom: 4px groove #43577b;*/
+}
+
+.ideSidebarTabFolderView:hover .ideSidebarFolderH3 {
+    display: block;
+}
+
+.ideSidebarTabFolderView:hover .ideSidebarPin {
+    visibility: visible;
+}
+.ideSidebarFolderContentPinned {
+    width: 100%;
+    height: 503px;
+    visibility: visible;
+}
+
+.ideSidebarPin {
+    visibility: hidden;
+    margin: 3px 5px 0 0;
+    width: 13px;
+    height: 13px;
+    float: right;
+    background-image: url('../../images/pinPin.png');
+    background-repeat: no-repeat;
+    z-index: 50;
+}
+
+.ideSidebarPinned {
+    visibility: visible;
+    margin: 3px 5px 0 0;
+    width: 13px;
+    height: 13px;
+    float: right;
+    background-image: url('../../images/pinPin.png');
+    background-repeat: no-repeat;
+    z-index: 50;
+}
+.ideSidebarPinned:hover{
+    background-image: url('../../images/pin.png');
+}
+.ideSidebarPin:hover {
+    background-image: url('../../images/pin.png');
+}
+

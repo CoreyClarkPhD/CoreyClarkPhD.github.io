@@ -1,0 +1,258 @@
+html {
+
+}
+
+head {
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+header, footer, aside, nav, article {  
+    display: block;  
+}
+
+.com {
+    height: 590px;
+    width: 1200px;
+    background-color: #aec7df;
+    border: 1px solid #8992a3;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+
+.jahova {
+    position: relative;
+    height: 563px;
+    width: 1186px;
+    top: 20px;
+    left: 5px;
+    background-color: #627596;
+    border: 1px solid #8992a3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.os {
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #b0bccd;
+    border-bottom: 1px solid #8992a3;
+}
+
+.headerTxt {
+    font-family: helvetica;
+    font-size: 12px;
+    color: #333366;
+}
+
+.debugBar {
+    position: relative;
+    width: 25px;
+    height: 536px;
+    top: 24px;
+    left: 0;
+}
+
+.debugTab {
+    width: 20px;
+    height: 90px;
+    margin-top: 3px;
+    background-color: #8191ab;
+    border-top: 1px solid #333366;
+    border-right: 2px solid #333366;
+    border-bottom: 3px solid #333366;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+}
+
+.debugTabTxt {
+    font-family: helvetica;
+    font-size: 12px;
+    color: #333366;
+    margin: 3px;
+    -webkit-transform-origin: bottom left;
+    -moz-transform-origin: bottom left;
+    
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+
+.debugTab:hover {
+    border-right: 2px groove #ffd142;
+    border-bottom: 3px groove #ffd142;
+    background-color: #ffffff;
+}
+
+.debugPage {
+    position: absolute;
+    width: 0;
+    height: 480px;
+    top: 0;
+    left: 23px;
+    z-index: auto;
+    background-color: #8191ab;
+    -webkit-transition: width .25s;
+    -moz-transition: width .25s;
+    transition: width .25s;    
+}
+
+.debugPagePin {
+    position: absolute;
+    width: 399px;
+    height: 529px;
+    top: 0;
+    left: 23px;
+    z-index: 10;
+    background-color: #8191ab;
+}
+
+.jahovaIFrame {
+    visibility: hidden;
+    width: inherit;
+    height: 96%;
+    border: none;
+    background-color: #cccccc;
+}
+
+.debugTab:hover .jahovaIFrame {
+    visibility: visible;
+}
+
+.console
+{
+    visibility: hidden;
+    width: 0;
+    height: 440px;
+    resize: none;
+    z-index: -1;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+    -webkit-transition: width .25s;
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.consolePin {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 97%;
+    height: 92%;
+    resize: none;
+    z-index: 10;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+
+}
+
+.outputWindow {
+    position: absolute;
+    z-index: auto;
+    background-color: #ffffff;
+    border: 1px solid #333366;
+}
+
+.outputWindow1 {
+    position: absolute;
+    width: 300px;
+    height: 480px;
+    top: 0;
+    left: 100px;
+    z-index: auto;
+    background-color: #ffffff;
+    border: 1px solid #333366;
+}
+
+.jahovaButton {
+    position: absolute;
+    padding-top: 3px;
+    padding-left: 10px;
+    width: 51px;
+    height: 15px;
+    left: 5px;
+    background-image: url('../images/macButtons_noHover1.png');
+    background-repeat: no-repeat;
+}
+
+.jahovaButton:hover {
+    background-image: url('../images/macButtons_hover1.png');
+}
+
+.pin {
+    visibility: hidden;
+    position: absolute;
+    padding-top: 3px;
+    padding-right: 10px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 95%;
+    background-image: url('../images/pin.png');
+    background-repeat: no-repeat;
+}
+
+.pin:hover {
+    background-image: url('../images/pinHover.png');
+}
+
+.pinPin:hover {
+    background-image: url('../images/pinHover.png');
+}
+
+.pinPin {
+    visibility: visible;
+    position: absolute;
+    padding-top: 3px;
+    padding-right: 10px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 3px;
+    background-image: url('../images/pin.png');
+    background-repeat: no-repeat;
+}
+
+.debugPageHeader {
+    height: 20px;
+    width: 100%;
+    background-color: #cccccc;
+    border-bottom: 1px solid #8992a3;
+}
+
+.debugTab:hover .console {
+    visibility: visible;
+    width: 379px;
+    border: 10px solid #cccccc;
+    z-index: 10;
+}
+
+.debugTab:hover .pin {
+    visibility: visible;
+    z-index:16;
+}
+
+.debugTab:hover .debugPage {
+    width: 399px;
+    height: 480px;
+    z-index: 10;
+}

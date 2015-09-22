@@ -1,0 +1,66 @@
+\* BB TSFC Network Model : 100 *\ 
+\* Nodes: 2  Periods: 3  TS Nodes 6 *\ 
+\* Number of variables: 28   Number of binary variables: 14*\ 
+ 
+Minimize 
+obj:  1.45669255104 flow_1_1_1_2 + 38197.0801806 decision_1_1_1_2 + 7.70783805659 flow_1_1_2_2 + 48220.5290774 decision_1_1_2_2 + 7.31958973033 flow_1_1_2_1 + 37340.5773958 decision_1_1_2_1 + 8.00020457133 flow_2_1_1_2 + 41316.0565857 decision_2_1_1_2 + 0.801537091785 flow_2_1_1_1 + 38237.8352473 decision_2_1_1_1 + 0.478875164599 flow_2_1_2_2 + 57318.496003 decision_2_1_2_2 + 9.47078006003 flow_1_2_1_3 + 33414.0310376 decision_1_2_1_3 + 3.0940592914 flow_1_2_2_3 + 50720.7259498 decision_1_2_2_3 + 2.03869528777 flow_1_2_2_2 + 27138.4305182 decision_1_2_2_2 + 1.88594914174 flow_2_2_1_3 + 33880.1781446 decision_2_2_1_3 + 6.26321639193 flow_2_2_1_2 + 58532.631348 decision_2_2_1_2 + 2.10833992087 flow_2_2_2_3 + 58244.0258447 decision_2_2_2_3 + 5.55399665801 flow_1_3_2_3 + 56046.0817195 decision_1_3_2_3 + 8.18018193357 flow_2_3_1_3 + 26416.872399 decision_2_3_1_3
+
+Subject To
+node_1_1:  -1.0 flow_1_1_1_2  - 1.0 flow_1_1_2_2  - 1.0 flow_1_1_2_1 + flow_2_1_1_1 = -1774.0 
+
+node_1_2:  flow_1_1_1_2 + flow_2_1_1_2  - 1.0 flow_1_2_1_3  - 1.0 flow_1_2_2_3  - 1.0 flow_1_2_2_2 + flow_2_2_1_2 = 1914.0 
+
+node_1_3:  flow_1_2_1_3 + flow_2_2_1_3  - 1.0 flow_1_3_2_3 + flow_2_3_1_3 = 1902.0 
+
+node_2_1:  flow_1_1_2_1  - 1.0 flow_2_1_1_2  - 1.0 flow_2_1_1_1  - 1.0 flow_2_1_2_2 = -1193.0 
+
+node_2_2:  flow_1_1_2_2 + flow_2_1_2_2 + flow_1_2_2_2  - 1.0 flow_2_2_1_3  - 1.0 flow_2_2_1_2  - 1.0 flow_2_2_2_3 = -1448.0 
+
+node_2_3:  flow_1_2_2_3 + flow_2_2_2_3 + flow_1_3_2_3  - 1.0 flow_2_3_1_3 = 599.0 
+
+BigM_1_1_1_2:  flow_1_1_1_2  - 5969.0 decision_1_1_1_2 <= 0.0 
+
+BigM_1_1_2_2:  flow_1_1_2_2  - 5969.0 decision_1_1_2_2 <= 0.0 
+
+BigM_1_1_2_1:  flow_1_1_2_1  - 5969.0 decision_1_1_2_1 <= 0.0 
+
+BigM_2_1_1_2:  flow_2_1_1_2  - 5969.0 decision_2_1_1_2 <= 0.0 
+
+BigM_2_1_1_1:  flow_2_1_1_1  - 5969.0 decision_2_1_1_1 <= 0.0 
+
+BigM_2_1_2_2:  flow_2_1_2_2  - 5969.0 decision_2_1_2_2 <= 0.0 
+
+BigM_1_2_1_3:  flow_1_2_1_3  - 5969.0 decision_1_2_1_3 <= 0.0 
+
+BigM_1_2_2_3:  flow_1_2_2_3  - 5969.0 decision_1_2_2_3 <= 0.0 
+
+BigM_1_2_2_2:  flow_1_2_2_2  - 5969.0 decision_1_2_2_2 <= 0.0 
+
+BigM_2_2_1_3:  flow_2_2_1_3  - 5969.0 decision_2_2_1_3 <= 0.0 
+
+BigM_2_2_1_2:  flow_2_2_1_2  - 5969.0 decision_2_2_1_2 <= 0.0 
+
+BigM_2_2_2_3:  flow_2_2_2_3  - 5969.0 decision_2_2_2_3 <= 0.0 
+
+BigM_1_3_2_3:  flow_1_3_2_3  - 5969.0 decision_1_3_2_3 <= 0.0 
+
+BigM_2_3_1_3:  flow_2_3_1_3  - 5969.0 decision_2_3_1_3 <= 0.0 
+
+
+BINARY
+decision_1_1_1_2
+decision_1_1_2_2
+decision_1_1_2_1
+decision_2_1_1_2
+decision_2_1_1_1
+decision_2_1_2_2
+decision_1_2_1_3
+decision_1_2_2_3
+decision_1_2_2_2
+decision_2_2_1_3
+decision_2_2_1_2
+decision_2_2_2_3
+decision_1_3_2_3
+decision_2_3_1_3
+
+End

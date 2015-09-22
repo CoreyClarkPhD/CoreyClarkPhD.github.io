@@ -1,0 +1,120 @@
+.jDesktop{
+/*    min-height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 0;*/
+    background-color: #9CAAC1;
+    overflow: hidden;
+}
+
+.jDock {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 26px;
+    z-index: 1000;
+
+
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #666;
+    text-align: center;
+    
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    
+    text-shadow: 0 1px 0 #FFF;
+
+}
+
+.jStartButton{
+    float: left;
+    /*position:absolute;
+    bottom: 0;
+    left: 0;*/
+    height: 26px;
+    width: 125px;
+    text-align: center;
+    border-right: 1px solid #666;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#7FA0CC), to(#676D99));
+    background-image: -moz-linear-gradient(top , #7FA0CC, #676D99);
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    
+    /*
+    -webkit-transition: .25s;
+    -moz-transition: .25s;
+    */
+}
+
+.jStartButtonText{
+    text-shadow: 0 1px 0 #FFF;
+}
+
+.jStartMenu{
+
+    height: 0;
+    width: 250px;
+    /*
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    */
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    /*
+    -webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    */
+    transition: all .25s linear;
+    -webkit-transition: all .25s linear; /* Transitions          */
+    -moz-transition: all .25s linear;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    
+    -moz-box-shadow: 3px -8px 20px #373737;
+    -webkit-box-shadow: 3px -8px 20px #373737;
+}
+
+.jStartButton:hover .jStartMenu{
+    height: 400px;
+    top: -402px;
+    border: 1px solid #666;
+    /*-webkit-transform: translateY(-400px);*/
+    
+   /*width: 250px;*/
+
+}
+
+.jStartButton:hover .jApplication{
+    height: 40px;
+    line-height: 40px;
+    visibility: visible;
+}
+
+.jApplication {
+    height: 0;
+    border-right: 1px solid #666;
+    visibility: hidden;
+    cursor: pointer;
+    vertical-align: middle;
+    width: 100%;
+    text-align: center;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    text-shadow: 0 1px 0 #C1C1C1;
+    transition: all .25s linear;
+    -webkit-transition: all .25s linear; /* Transitions          */
+    -moz-transition: all .25s linear;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}

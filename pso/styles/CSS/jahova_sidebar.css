@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+header, footer, aside, nav, article {  
+    display: block;  
+}
+
+/* jahova_sidebar sidebar, vertical tabs and tab text elements */
+.jahova_sidebar {
+    position: relative;
+    width: 25px;
+    top: 24px;
+    left: 0;
+    z-index: 0;
+}
+
+.jahova_sidebarTab {    /* Dependent on sidebar positioning */
+    width: 20px;
+    height: 90px;
+    margin-top: 3px;
+    background-color: #43577b;
+    z-index: 20;
+}
+
+.jahova_sidebarTabTxt {
+    font-family: helvetica;
+    font-size: 12px;
+    color: #c6fdfd;
+    margin-bottom: 3px;
+    -webkit-transform-origin: bottom left;
+    -moz-transform-origin: bottom left;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    z-index: 21;
+}
+
+/* Tab transitioning base page, header, and images          */
+.jahova_sidebarPage {               /* Default size 400x480 */
+    position: absolute;             /* Positioning          */
+    top: 1px;
+    left: 23px;
+    width: 0;                       /* Size                 */
+    height: 480px;
+    z-index: 0;                     /* Z order              */
+    background-color: #8191ab;      /* Color                */
+}
+
+.jahova_sidebarPagePin {            /* Pinned state of class */
+    position: absolute;             /* Positioning          */
+    top: 1px;
+    left: 23px;
+    width: 400px;                   /* Size, Note: Pinned size may be over written as needed via jscript to conform to content */
+    height: 480px;
+    z-index: 0;                     /* Z order              */
+    background-color: #8191ab;      /* Color                */
+}
+
+.jahova_sidebarPageHeader {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    background-color: #cccccc;
+    z-index: 0;
+}
+
+.jahova_pin {                              /* Used to anchor/pin open jahova_sidebar page */
+    visibility: hidden;
+    position: absolute;
+    padding-top: 3px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 95%;
+    background-image: url('../../images/pin.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.jahova_pinPin {                           /* Used to anchor/pin open jahova_sidebar page */
+    position: absolute;
+    padding-top: 3px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 5px;
+    background-image: url('../../images/pinPin.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+/* Base page content */
+/*.console {
+    position: absolute;
+    width: 100%;
+    height:100%;
+    left: 0;
+    resize: none;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+}*/
+
+.consolePin {
+    position: absolute;
+    width: 698px;
+    height: 457px;
+    left: 0;
+    resize: none;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 9;
+}
+
+.files {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 440px;
+    left: 0;
+    resize: none;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+    z-index: 0;
+}
+
+.filesPin {
+    position: absolute;
+    width: 100%;
+    height: 440px;
+    left: 0;
+    resize: none;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+    z-index: 9;
+}
+
+.jahovaIFrame {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 460px;
+    left: 0;
+    border: none;
+    z-index: 0;
+}
+
+.jahovaIFramePin {
+    position: absolute;
+    width: 100%;
+    height: 460px;
+    left: 0;
+    border: none;
+    z-index: 9;
+}
+
+.jahovaIFrame_demo {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    border: none;
+    z-index: 0;
+}
+
+.jahovaIFramePin_demo {
+    position: absolute;
+    width: 100%;
+    height: 460px;
+    left: 0;
+    border: none;
+    z-index: 9;
+}
+
+
+.demos {
+    
+}
+
+.ide {
+    
+    
+}
+
+/* Hover events for all elements */
+.jahova_sidebarTab:hover {
+    border-right: 2px groove #ffd142;
+    border-bottom: 3px groove #ffd142;
+    background-color: #43577b;
+}
+
+.jahova_sidebarTab:hover .jahova_sidebarPage {
+    width: 400px;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahova_sidebarPagePin {
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .console {
+    visibility: visible;
+    width: 398px;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .consolePin {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .files {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .filesPinned {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahovaIFrame {
+    visibility: visible;
+    width: 100%;
+    height: 460px;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahovaIFramePin {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahovaIFrame_demo {
+    visibility: visible;
+    width: 100%;
+    height: 440px;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahovaIFramePin_demo {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahova_pin {
+    visibility: visible;
+    z-index: 16;
+}
+
+.jahova_sidebarTab:hover .jahova_pinPin {
+    visibility: visible;
+    z-index: 16;
+}
+
+.jahova_pin:hover {
+    background-image: url('../../images/pinPin.png');
+}
+
+.jahova_pinPin:hover {
+    background-image: url('../../images/pin.png');
+}
+

@@ -1,0 +1,51 @@
+.appBaseColor {
+    background-color: #293955;
+}
+
+.menuColor {
+    background-color: #bcc7d8;
+}
+
+.iconColor {
+    background-color: #9caac1;
+}
+
+.sidebarColor {
+    background-color: #4a5d80;
+}
+
+.sidebarTabColor {
+    background-color: #43577b;
+}
+
+.viewContentBkgColor {
+    background-color: #ffffff;
+}
+
+.outputHeaderColor {
+    background-color: #465a7d;
+}
+
+.tabColorSelected {
+    background-color: #ced4df;
+}
+
+.textColorWhite {
+    color: #ffffff;
+}
+
+.textColorBlack {
+    color: #000000;
+}
+
+.outputHeaderColor {
+    background-color: #43577b;
+}
+
+.outputTabColorSelected {
+    background-color: #ffffff;
+}
+
+.outputContentBkgColor {
+    background-color: #EBEBEB;
+}

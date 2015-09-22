@@ -1,0 +1,76 @@
+body
+{
+    background: rgba(127,127,255,0.9);
+    color:black;
+    font-size: 20px;
+    background-image:url("../images/PWND_RGB.png");
+    font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    
+}
+
+input.invalid
+{
+    background-color: #FF9;
+    border: 2px red inset;
+    
+}
+
+label.invalid
+{
+    color: #F00;
+    font-weight: bold;
+}
+
+select
+{
+    margin-left: 80px;
+}
+input
+{
+    margin-left: 30px;
+    
+}
+input+select, input+input
+{
+    margin-left: 20px;
+}
+h1,th
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    
+    
+}
+
+h1
+{
+    font-size: 28px;
+    
+}
+
+table
+{
+    border-collapse: collapse;
+    
+}
+
+th, td
+{
+    padding: 10px;
+    border: 2px #666 solid;
+    text-align: center;
+    font-size: 24px;
+    
+}
+
+.console
+{
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+    border: 5px solid #cccccc;
+    
+    
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset"utf-8" />
+    <title>GTL: Simplex and Brnach And Bound Demo 
+</title>
+
+    <script type="text/javascript" src="scripts/jahova/glMatrix.js" ></script>
+    <script type="text/javascript" src="scripts/jahova/webgl-debug.js" ></script>
+    <script type="text/javascript" src="scripts/jahova/webgl-utils.js" ></script>
+    <script type="text/javascript" src="scripts/jahova/JaHOVA_OS.min.js" ></script>
+    
+    <script type="text/javascript" src="scripts/glpk.js" ></script>
+    <script type="text/javascript" src="scripts/Applications/simplex.js" ></script>
+    <script type="text/javascript" src="scripts/FileSaver.min.js" ></script>
+    
+    
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/application.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/JaHOVA.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/jahova.window.mac.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/jahova.window.pc.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/jahova.window.hud.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/jahova.window.desktop.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/CSS/JaHOVA_new.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/CSS/JaHOVA_colors.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/CSS/JaHOVA_border.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/CSS/JaHOVA_transition.css" />
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/CSS/JaHOVA_IdeSidebar.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/Zadok_icon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/Zadok_icon.ico" />
+    <style>
+        
+    </style>
+    <script type="text/javascript">
+
+        
+    </script>
+</head>
+
+<body onload="com.jahova.os.Instance().Load()">
+
+
+    <div id="app" >
+        <div id="main" class="main-docked border-radius-10px border-1px-solid-293955">
+            <div id="main-window" class="main-window border-radius-top-10px">
+            </div>
+            <div id="main-footer" class="border-radius-btm-10px">
+            </div>
+        </div>
+        <div id="thumbnail" class="thumbnail border-radius-10px border-1px-solid-293955""> 
+            <div id="thumbnail-window" class="border-radius-top-10px"></div>
+            <div id="thumbnail-footer" class="border-radius-btm-10px">
+            </div>
+        </div>
+        <div id="properties" class="border-radius-10px border-1px-solid-293955"">
+            <div id="properties-header" class="border-radius-top-10px">
+                <div class="cbx-container">
+                    <select id="dropdown" class="cbx-properties">
+                    </select>
+                    <button type="button" onclick="App.Window.UnDock();" style="width:75px;">Undock</button>
+                </div>
+            </div>
+            <div id="properties-window" class="properties-window-docked"></div>
+        </div>
+    </div>
+
+</body>
+</html>
