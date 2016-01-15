@@ -852,7 +852,7 @@ var LostCell = {
 		}
 	},
 	Run: function(){
-		//os.debugbar.Disable();
+		os.debugbar.Disable();
 		
 		os.console.Comment("Running Lost Cell");
 		os.audio.Play("chirp");
