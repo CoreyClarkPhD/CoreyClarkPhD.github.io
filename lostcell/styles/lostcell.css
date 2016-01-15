@@ -1,0 +1,82 @@
+.app{
+    background-color: rgb(82, 82, 78);
+    transition: all 1000ms;
+    -webkit-transition: all 1000ms;
+    position:absolute;
+    border-radius: 10px;
+    -webkit-box-shadow: 20px 20px 20px #000;
+    box-shadow: 20px 20px 20px #000;
+    border: 1px solid #002232;
+    width: 900px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    margin: -250px 0 0 -450px; 
+    -webkit-perspective: 800;
+    perspective: 800;
+}
+
+
+#lostcell:-webkit-full-screen{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    left: 0px;
+    top: 0px;
+}
+
+
+/*
+ Multiline CSS Animation w/ Visual Debugging 
+http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-a-grid-image-not-in-a-row
+*/
+.drone {
+    width: 128px;
+    height: 128px;
+    background-image: url("../images/LostCell/BDrone_anim_hover_128.png");
+    position: relative;
+    animation: droneHoverV 2.25s steps(9) infinite, droneHoverH 0.25s steps(10) infinite; 
+}
+
+
+@-webkit-keyframes droneHoverV {
+     0% { background-position-y:   0px; }
+   100% { background-position-y: -1152px; }
+}
+
+@-webkit-keyframes droneHoverH {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: -1280px; }
+}
+
+
+
+/*
+Gray:
+R 82
+G 82
+B 78
+[1/12/16, 4:50:35 PM] robertmatkins: Orange for Fonts:
+R 255
+G 132
+B 0
+[1/12/16, 4:51:14 PM] robertmatkins: Orange for Drone:
+R 188
+G 102
+[1/12/16, 4:51:20 PM] robertmatkins: B 58
+[1/12/16, 4:51:56 PM] robertmatkins: Purple for Drone:
+R 126
+G 58
+B 188
+[1/12/16, 4:52:26 PM] robertmatkins: Blue Green for Drone:
+G 0
+[1/12/16, 4:52:44 PM] robertmatkins: R 0
+G 220
+B 165
+[1/12/16, 4:53:23 PM] robertmatkins: Yellow for Drone:
+R 220
+G 175
+B 0
+
+*/
+

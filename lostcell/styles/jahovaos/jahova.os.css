@@ -1,0 +1,2659 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    height: 100%;
+   /* overflow: hidden;*/
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+header, footer, aside, nav, article {  
+    display: block;  
+}
+
+/* Base elements: .com, .jahova, .os */
+.com {
+    height: 590px;
+    width: 1200px;
+    background-color: #aec7df;
+    border: 1px solid #8992a3;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    z-index: 0;
+}
+
+.jahova {
+    position: relative;
+    height: 563px;
+    width: 1186px;
+    top: 20px;
+    left: 5px;
+    background-color: #627596;
+    border: 1px solid #8992a3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    z-index: 0;
+}
+
+.os {
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #b0bccd;
+    border-bottom: 1px solid #8992a3;
+    z-index: 0;
+}
+.desktop{
+/*    min-height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background-color: #9CAAC1;
+    z-index: 0;*/
+}
+
+.dock {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 26px;
+    z-index: 1000;
+
+
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #666;
+    text-align: center;
+    
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    
+    text-shadow: 0 1px 0 #FFF;
+
+}
+
+.startButton{
+    float: left;
+    /*position:absolute;
+    bottom: 0;
+    left: 0;*/
+    height: 26px;
+    width: 125px;
+    text-align: center;
+    border-right: 1px solid #666;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#7FA0CC), to(#676D99));
+    background-image: -moz-linear-gradient(top , #7FA0CC, #676D99);
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    text-shadow: 0 1px 0 #FFF;
+    /*
+    -webkit-transition: .25s;
+    -moz-transition: .25s;
+    */
+}
+/*
+.startButton:hover{
+   height: 400px;
+   width: 250px;
+
+}
+*/
+/*
+.startButton:hover ul.ApplicationList li{
+    display: block;
+}
+
+
+*/
+
+
+.startMenu{
+
+    height: 0;
+    width: 250px;
+    /*
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    */
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    /*
+    -webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    */
+    transition: all .25s linear;
+    -webkit-transition: all .25s linear; /* Transitions          */
+    -moz-transition: all .25s linear;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    
+    -moz-box-shadow: 3px -8px 20px #373737;
+    -webkit-box-shadow: 3px -8px 20px #373737;
+}
+
+.startButton:hover .startMenu{
+    height: 400px;
+    top: -402px;
+    border: 1px solid #666;
+    /*-webkit-transform: translateY(-400px);*/
+    
+   /*width: 250px;*/
+
+}
+
+.startButton:hover .application{
+    height: 40px;
+    line-height: 40px;
+    visibility: visible;
+}
+
+.application {
+    height: 0;
+    border-right: 1px solid #666;
+    visibility: hidden;
+    cursor: pointer;
+    vertical-align: middle;
+    width: 100%;
+    text-align: center;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    text-shadow: 0 1px 0 #C1C1C1;
+    transition: all .25s linear;
+    -webkit-transition: all .25s linear; /* Transitions          */
+    -moz-transition: all .25s linear;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+
+
+/* Debug sidebar, vertical tabs and tab text elements */
+.debugBar {
+    position: relative;
+    width: 25px;
+    height: 536px;
+    top: 24px;
+    left: 0;
+    z-index: 0;
+}
+
+.debugTab {                         /* Dependent on debug sidebar positioning */
+    width: 20px;
+    height: 90px;
+    margin-top: 3px;
+    background-color: #8191ab;
+    border-top: 1px solid #333366;
+    border-right: 2px solid #333366;
+    border-bottom: 3px solid #333366;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-bottom-right-radius: 4px;
+    z-index: 0;
+}
+
+.debugTabTxt {
+    font-family: helvetica;
+    font-size: 12px;
+    color: #333366;
+    margin: 3px;
+    -webkit-transform-origin: bottom left;
+    -moz-transform-origin: bottom left;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    z-index: 0;
+}
+
+/* Tab transitioning base page, header, and images          */
+.debugPage {                        /* Default size 400x480 */
+    position: absolute;             /* Positioning          */
+    top: 1px;
+    left: 23px;
+    width: 0;                       /* Size                 */
+    height: 480px;
+    z-index: 0;                     /* Z order              */
+    background-color: #8191ab;      /* Color                */
+    -webkit-border-radius: 5px;     /* Border radius        */
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+.debugPagePin {                     /* Pinned state of class */
+    position: absolute;             /* Positioning          */
+    top: 1px;
+    left: 23px;
+    width: 0;                   /* Size, Note: Pinned size may be over written as needed via jscript to conform to content */
+    height: 480px;
+    z-index: 0;                     /* Z order              */
+    background-color: #8191ab;      /* Color                */
+    -webkit-border-radius: 4px;     /* Border radius        */
+    -moz-border-radius: 4px;
+    border-radius: 4px;    
+    width: 400px;                   /* Pinned size may be over written as needed via jscript */
+    height: 480px;
+    z-index: 0;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.debugPageHeader {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    z-index: 0;
+}
+
+.pin {                              /* Used to anchor/pin open debug page */
+    visibility: hidden;
+    position: absolute;
+    padding-top: 3px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 95%;
+    background-image: url('../images/pin.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.pinPin {                           /* Used to anchor/pin open debug page */
+    position: absolute;
+    padding-top: 3px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 5px;
+    background-image: url('../images/pinPin.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+/* Base page content. Naming is 1:1 with associated tab text*/
+.console {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+/*    left: 0;
+    resize: none;*/
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.90);
+/*    -webkit-border-bottom-radius: 5px;     
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;*/
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    resize: none;/*
+    visibility: inherit;*/
+}
+
+.consolePin {
+    position: absolute;
+    width: 698px;
+    height: 457px;
+    left: 0;
+    resize: none;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+    -webkit-border-bottom-radius: 5px;     /* Border radius        */
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    z-index: 9;
+}
+
+
+.files {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 440px;
+    left: 0;
+    resize: none;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+    -webkit-border-bottom-radius: 5px;     /* Border radius        */
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 0;
+}
+
+.filesPin {
+    position: absolute;
+    width: 100%;
+    height: 440px;
+    left: 0;
+    resize: none;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+    -webkit-border-bottom-radius: 5px;     /* Border radius        */
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 9;
+}
+
+.jahovaIFrame {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 460px;
+    left: 0;
+    border: none;
+    -webkit-border-bottom-radius: 5px;     /* Border radius        */
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 0;
+}
+
+.jahovaIFramePin {
+    position: absolute;
+    width: 100%;
+    height: 460px;
+    left: 0;
+    border: none;
+    -webkit-border-bottom-radius: 5px;     /* Border radius        */
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 9;
+}
+
+.demos {
+    
+}
+
+.ide {
+    
+}
+
+
+
+/* Output Window */
+.outputWindow {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #333366;
+    -webkit-border-radius: 5px;     /* Border radius        */
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+*/
+/* Hover events for all elements */
+.debugTab:hover {
+    border-right: 2px groove #ffd142;
+    border-bottom: 3px groove #ffd142;
+    background-color: #ffffff;
+}
+
+.debugTab:hover .debugPage {
+    width: 400px;
+    z-index: 10;
+}
+
+.debugTab:hover .debugPagePin {
+    z-index: 10;
+}
+
+.debugTab:hover .console {
+    visibility: visible;
+    width: 398px;
+    z-index: 10;
+}
+
+.debugTab:hover .consolePin {
+    visibility: visible;
+    z-index: 10;
+}
+
+.debugTab:hover .files {
+    visibility: visible;
+    z-index: 10;
+}
+.debugTab:hover .jahovaIFrame {
+    visibility: visible;
+    z-index: 10;
+}
+
+.debugTab:hover .jahovaIFramePin {
+    visibility: visible;
+    z-index: 10;
+}
+
+.debugTab:hover .pin {
+    visibility: visible;
+    z-index: 16;
+}
+
+.debugTab:hover .pinPin {
+    visibility: visible;
+    z-index: 16;
+}
+
+.pin:hover {
+    background-image: url('../images/pinPin.png');
+}
+
+.pinPin:hover {
+    background-image: url('../images/pin.png');
+}
+
+.macWindow{
+    position: absolute;
+    z-index: 20;
+    border: 1px solid #333366;
+    -moz-box-shadow: 3px 3px 10px #373737;
+    -webkit-box-shadow: 3px 3px 10px #373737;
+    border-radius: 5px;
+    resize: both;
+}
+
+.macWindowMinimized {
+    
+    border-right: 1px solid black;
+    position: relative;
+    z-index: 25;
+    float: left;
+    display: inline-block;
+    
+}
+
+.macWindowMaximized{
+    width: 100%;
+    border: none;
+    position: absolute;
+}
+
+.macTitlebar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.macTitlebarMinimized{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    border-bottom: 1px solid black;
+    background-color: #cccccc;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.macTitlebarText{
+    text-align: center;
+    text-shadow: 1px 1px 0 white;
+}
+
+.macButtonsContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 19px;
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.macButtonClose {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/close.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:7px;
+	cursor:pointer;
+        opacity: .6;
+}
+
+.macButtonMin {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/minimize.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:28px;
+	cursor:pointer;
+}
+
+.macButtonMax {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/maximize.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:49px;
+	cursor:pointer;
+}
+
+
+.macButtonsContainer:hover .macButtonMax {
+    background: transparent url('../images/maximizeHover.gif') no-repeat 0 0;
+}
+
+.macButtonsContainer:hover .macButtonMin {
+    background: transparent url('../images/minimizeHover.gif') no-repeat 0 0;
+}
+
+.macButtonsContainer:hover .macButtonClose {
+    background: transparent url('../images/closeHover.gif') no-repeat 0 0;
+}
+
+.macMenubar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 20px;
+    width: 100%;
+    background-color: #DEDEDE;
+    opacity: 0.4;
+    border-bottom: 1px solid black;
+
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+.macMenubar:hover {
+    opacity: 1.0;
+}
+
+.macMenubarText {
+    float: left;
+    margin: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+    cursor:pointer;
+}
+
+.macToolbar{
+    
+}
+
+.macToolbarElement{
+    
+}
+
+.macContent {
+    background-color: #ffffff;
+    background-image: url('../images/background.bmp');
+    background-repeat: no-repeat;
+    background-size: "100%";
+}
+
+.macStatusbar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #cccccc;
+    border-top: 1px solid black;
+    -webkit-border-bottom-left-radius: 5px;     /* Border radius        */
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.macStatusbarText {
+    margin-left: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+}
+.pcWindow{
+    position: absolute;
+    z-index: 20;
+   
+    border: 1px solid #333366;
+    border-radius: 5px;
+    -moz-box-shadow: 3px 3px 10px #373737;
+    -webkit-box-shadow: 3px 3px 10px #373737;
+    resize: both;
+}
+
+.pcWindowMinimized {
+    
+    border-right: 1px solid black;
+    position: relative;
+    z-index: 25;
+    float: left;
+    display: inline-block;
+    
+}
+
+.pcWindowMaximized{
+    width: 100%;
+    border: none;
+    position: absolute;
+}
+
+.pcTitlebar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.pcTitlebarMinimized{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    border-bottom: 1px solid black;
+    background-color: #cccccc;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.pcTitlebarText{
+    padding-top: 2px;
+    padding-left: 7px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+}
+
+.pcButtonContainer {
+    margin-top: 1px;
+    float: right;
+    width:57px;
+    height: 19px;
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.pcButtonClose {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-close-pc.png') no-repeat 0 0;			
+	cursor:pointer;
+        opacity: .6;
+}
+
+.pcButtonClose:hover {
+    opacity: 1.0;
+}
+
+.pcButtonMin {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-minimize-pc.png') no-repeat 0 0;	
+	cursor:pointer;
+	opacity: .6;
+}
+.pcButtonMin:hover {
+    opacity: 1.0;
+}
+
+.pcButtonMax {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-maximize-pc.png') no-repeat 0 0;			
+	cursor:pointer;
+	opacity: .6;
+}
+.pcButtonMax:hover {
+    opacity: 1.0;
+}
+
+.pcMenubar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    background-color: #ABABAB; 
+    border-bottom: 1px solid black;
+
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.pcMenubarElement {
+    float: left;
+    margin: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+    cursor:pointer;
+}
+
+.pcToolbar{
+    
+}
+
+.pcToolbarElement{
+    
+}
+
+.pcContent {
+    background-color: #ffffff;
+    background-image: url('../images/background.bmp');
+    background-repeat: no-repeat;
+    background-size: "100%";
+	overflow: auto;
+}
+
+.pcStatusbar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #cccccc;
+    border-top: 1px solid black;
+    -webkit-border-bottom-left-radius: 5px;     /* Border radius        */
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.pcStatusbarText {
+    margin-left: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+}
+
+.hudWindow{
+    position: absolute;
+    z-index: 20;
+   
+    border: 1px solid #333366;
+    border-radius: 5px;
+    -moz-box-shadow: 3px 3px 10px #373737;
+    -webkit-box-shadow: 3px 3px 10px #373737;
+    resize: both;
+}
+
+.hudWindowMinimized {
+    
+    border-right: 1px solid black;
+    position: relative;
+    z-index: 25;
+    float: left;
+    display: inline-block;
+    
+}
+
+.hudWindowMaximized{
+    width: 100%;
+    border: none;
+    position: absolute;
+}
+
+.hudTitlebar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+    background-color: #5886CC;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.hudTitlebarMinimized{
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    border-bottom: 1px solid black;
+    background-color: #5886CC;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.hudTitlebarText{
+    padding-top: 2px;
+    padding-left: 7px;
+    text-align: left;
+    text-shadow: 1px 1px 0 black;
+	color: white;
+}
+
+.hudButtonContainer {
+    margin-top: 1px;
+    float: right;
+    width:57px;
+    height: 19px;
+    background-color: #5886CC;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.hudButtonClose {
+	float:right;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/close.gif') no-repeat 0 0;			
+	cursor:pointer;
+        opacity: .6;
+}
+
+.hudButtonClose:hover {
+    opacity: 1.0;
+}
+
+.hudButtonMin {
+	float:right;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/close.gif') no-repeat 0 0;	
+	cursor:pointer;
+	opacity: .6;
+}
+.hudButtonMin:hover {
+    opacity: 1.0;
+}
+
+.hudButtonMax {
+	float:right;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/maximize.gif') no-repeat 0 0;			
+	cursor:pointer;
+	opacity: .6;
+}
+.hudButtonMax:hover {
+    opacity: 1.0;
+}
+
+.hudMenubar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    background-color: #ABABAB; 
+    border-bottom: 1px solid black;
+	display: none;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.hudMenubarElement {
+    float: left;
+    margin: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+    cursor:pointer;
+}
+
+.hudToolbar{
+	display: none;   
+}
+
+.hudToolbarElement{
+    
+}
+
+.hudContent {
+    background-size: "100%";
+	overflow: auto;
+}
+
+.hudStatusbar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #5886CC;
+    border-top: 1px solid black;
+    -webkit-border-bottom-left-radius: 5px;     /* Border radius        */
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.hudStatusbarText {
+    margin-left: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 black;
+	color: white;
+}
+
+.hudTextarea{
+	border: 1px solid #333366;
+	bottom: 40px;
+	left: 0px;
+	width: 100%;
+	height: 80px;
+	resize: none;
+	position: absolute;
+	background-color: rgba(88,134,204,0.30);
+	color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+	overflow: auto;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;       
+
+}
+
+.hudInput{
+	border: 1px solid #333366;
+	bottom: 20px;
+	left: 0px;
+	width: 100%;
+	height: 20px;
+	resize: none;
+	position: absolute;
+	background-color: rgba(88,134,204,0.70);
+	text-shadow: 1px 1px 0 black;
+	color: white;
+}
+
+.hudTextareaTop{
+	border: 1px solid #333366;
+	top: 20px;
+	left: 0px;
+	width: 100%;
+	height: 80px;
+	resize: none;
+	position: absolute;
+	background-color: rgba(88,134,204,0.30);
+	color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+	overflow: auto;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;       
+
+}
+
+
+
+.jDesktop{
+/*    min-height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 0;*/
+    background-color: #9CAAC1;
+    overflow: hidden;
+}
+
+.jDock {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 26px;
+    z-index: 1000;
+
+
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #666;
+    text-align: center;
+    
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    
+    text-shadow: 0 1px 0 #FFF;
+
+}
+
+.jStartButton{
+    float: left;
+    /*position:absolute;
+    bottom: 0;
+    left: 0;*/
+    height: 26px;
+    width: 125px;
+    text-align: center;
+    border-right: 1px solid #666;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#7FA0CC), to(#676D99));
+    background-image: -moz-linear-gradient(top , #7FA0CC, #676D99);
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+    
+    /*
+    -webkit-transition: .25s;
+    -moz-transition: .25s;
+    */
+}
+
+.jStartButtonText{
+    text-shadow: 0 1px 0 #FFF;
+}
+
+.jStartMenu{
+
+    height: 0;
+    width: 250px;
+    /*
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    */
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    /*
+    -webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    */
+    transition: all .25s linear;
+    -webkit-transition: all .25s linear; /* Transitions          */
+    -moz-transition: all .25s linear;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    
+    -moz-box-shadow: 3px -8px 20px #373737;
+    -webkit-box-shadow: 3px -8px 20px #373737;
+}
+
+.jStartButton:hover .jStartMenu{
+    height: 400px;
+    top: -402px;
+    border: 1px solid #666;
+    /*-webkit-transform: translateY(-400px);*/
+    
+   /*width: 250px;*/
+
+}
+
+.jStartButton:hover .jApplication{
+    height: 40px;
+    line-height: 40px;
+    visibility: visible;
+}
+
+.jApplication {
+    height: 0;
+    border-right: 1px solid #666;
+    visibility: hidden;
+    cursor: pointer;
+    vertical-align: middle;
+    width: 100%;
+    text-align: center;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#999));
+    background-image: -moz-linear-gradient(top , #CCC, #999);
+    text-shadow: 0 1px 0 #C1C1C1;
+    transition: all .25s linear;
+    -webkit-transition: all .25s linear; /* Transitions          */
+    -moz-transition: all .25s linear;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+/* Generic output window */
+/*
+    Mac version
+    Windows version still required
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+header, footer, aside, nav, article {  
+    display: block;  
+}
+
+.outputWindow {
+    position: absolute;
+    z-index: 20;
+    background-color: #ffffff;
+    background-image: url('../images/background.bmp');
+    background-repeat: no-repeat;
+    background-size: "100%";
+    border: 1px solid #333366;
+    -moz-box-shadow: 3px 3px 10px #373737;
+    -webkit-box-shadow: 3px 3px 10px #373737;
+    resize: both;
+}
+
+/* Window base container */
+
+
+.windowTitleBar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+    cursor: pointer;
+}
+
+.windowTitle{
+   /* position: absolute;
+    left: 50%;*/
+    text-align: center;
+    text-shadow: 1px 1px 0 white;
+}
+
+.windowStatusBar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #cccccc;
+    border-top: 1px solid black;
+    -webkit-border-bottom-left-radius: 5px;     /* Border radius        */
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.windowStatus {
+    margin-left: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+}
+
+.windowMenuBar {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    background-color: #ABABAB; 
+    border-bottom: 1px solid black;
+
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.windowMenuBarMac{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 20px;
+    width: 100%;
+    background-color: #DEDEDE;
+    opacity: 0.4;
+    border-bottom: 1px solid black;
+
+    -webkit-transition: width .25s; /* Transitions          */
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+.windowMenuBarMac:hover {
+    opacity: 1.0;
+}
+
+.windowMenu {
+    float: left;
+    margin: 4px;
+    text-align: left;
+    text-shadow: 1px 1px 0 white;
+    cursor:pointer;
+}
+
+/* Mac buttons */
+.mac_os_x_close {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/close.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:7px;
+	cursor:pointer;
+        opacity: .6;
+}
+
+.mac_os_x_minimize {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/minimize.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:28px;
+	cursor:pointer;
+}
+
+.mac_os_x_maximize {
+	width: 19px;
+	height: 19px;
+	background: transparent url('../images/maximize.gif') no-repeat 0 0;			
+	position:absolute;
+	top:3px;
+	left:49px;
+	cursor:pointer;
+}
+
+/* Container for buttons */
+.macButtonsContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 19px;
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+
+/* Button Events */
+.macButtonsContainer:hover .mac_os_x_maximize {
+    background: transparent url('../images/maximizeHover.gif') no-repeat 0 0;
+}
+
+.macButtonsContainer:hover .mac_os_x_minimize {
+    background: transparent url('../images/minimizeHover.gif') no-repeat 0 0;
+}
+
+.macButtonsContainer:hover .mac_os_x_close {
+    background: transparent url('../images/closeHover.gif') no-repeat 0 0;
+}
+
+/*  PC Buttons, Containers and Events*/
+
+.pc_close {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-close-pc.png') no-repeat 0 0;			
+	/*position:absolute;
+	top:3px;
+	left:7px;*/
+	cursor:pointer;
+        opacity: .6;
+}
+
+.pc_close:hover {
+    opacity: 1.0;
+}
+
+.pc_minimize {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-minimize-pc.png') no-repeat 0 0;			
+	/*position:absolute;
+	top:3px;
+	left:28px;*/
+	cursor:pointer;
+	opacity: .6;
+}
+.pc_minimize:hover {
+    opacity: 1.0;
+}
+
+.pc_maximize {
+	float:left;
+	margin-top: 4px;
+	width: 15px;
+	height: 100%;
+	background: transparent url('../images/button-maximize-pc.png') no-repeat 0 0;			
+	/*position:absolute;
+	top:3px;
+	left:49px;*/
+	cursor:pointer;
+	opacity: .6;
+}
+.pc_maximize {
+    opacity: 1.0;
+}
+
+.pcButtonsContainer {
+    /*position: absolute;
+    left: 0;
+    top: 0;*/
+    margin-top: 1px;
+    float: right;
+    width:57px;
+    height: 19px;
+    background-color: #cccccc;
+    -webkit-border-top-left-radius: 5px;     /* Border radius        */
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+/*#wrapper {display:table;}
+#cell {display:table-cell; vertical-align:middle;}*/
+body{
+/*    background-image: url("Afterburner.png");
+    background-repeat: no-repeat;*/
+}
+#menu {
+    border-radius: 10px;
+    position: absolute;
+    left: 100px;
+    top: 120px;
+    width: 600px;
+    height: 400px;
+    background-color: #43577B;
+    opacity: 0.9;
+/*    margin:0px auto;*/
+    -webkit-transform: perspective(600) rotateY(30deg);
+}
+
+#buttonContainer {
+    width: 80%;
+    margin: auto;
+}
+
+.options {
+    height: 50px;
+    width: 100%;
+    margin: 10px;
+    border-radius: 10px;
+    /*background-color: #939393;*/
+    -webkit-box-shadow: 3px 3px 4px #000;
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.23, rgb(128,129,130)),
+	color-stop(0.59, rgb(177,186,186))
+);
+    text-align: left;
+    text-indent: 10px;
+    font: 40px arial, serif;
+    font-weight: bold;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.5),
+    1px 1px 3px rgba(0,0,0,.6);
+    -webkit-transition: all 100ms ease-in;
+    list-style: none;
+/*   box-shadow: 
+  0 1px 2px #fff, /*bottom external highlight
+  0 -1px 1px #666, /*top external shadow 
+  inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow
+  inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
+}
+.options:hover {
+    
+    -webkit-transform: translate(30px);
+    -webkit-box-shadow: 10px 10px 5px #000;
+}
+
+.descriptions {
+    display: none;
+    -webkit-transition: all 100ms ease-in;
+	margin: 5px;
+	overflow: hidden;
+}
+
+@-webkit-keyframes flip /* Safari and Chrome */
+{
+0% {-webkit-transform: perspective(600) rotateY(0deg);}
+50% {-webkit-transform: perspective(600) rotateY(180deg);}
+100% {-webkit-transform: perspective(600) rotateY(0deg);}
+}
+#description{
+    width: 500px;
+    opacity: 0.9;
+    height: 600px;
+    top: 100px;
+    left: 700px;
+    background-color: #43577B;
+    position: absolute;
+    border-radius: 10px;
+	margin: 5px;
+    -webkit-transition: all 300ms ease-in;
+	overflow: auto;
+}
+
+#Health { 
+	width:206px; 
+	height: 64px;
+    opacity: 0.8;
+	top: 5px;
+	left: 5px;
+	position: absolute;
+	background:#374D6E;
+    border-radius: 5px;
+    color: #ECECEC ;
+    list-style: none;
+    font: 14px arial, serif;
+    font-weight: bold;
+    /*text-shadow: -1px -1px 1px rgba(255,255,255,.5),
+    1px 1px 3px rgba(0,0,0,.6);*/
+}
+.bar {
+    width: 135px;
+    display: inline-block;
+    margin-top: 3px;
+}
+.health { 
+	/*width:0%; */
+	height:15px;
+	margin:0px; 
+	background:#2187e7;
+    border-radius: 5px;
+	/*position:absolute;*/
+	box-shadow:0px 0px 1px 1px rgba(0,198,255,0.7);
+    -webkit-transition: all 100ms ease-in;
+	/*-webkit-animation:fullexpand 1s ease-out;*/
+}
+.healthLabel {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 3px;
+    margin-left: 2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /*background-color: #43577b;*/
+}
+
+.baseColor {
+    background-color: #293955;
+}
+
+.appContainer {
+    width: 1100px;
+    height: 625px;
+    margin: 0 auto;
+}
+
+.appLogo {
+    width: 100%;
+    height: 20px;
+    
+}
+
+.appMenu {
+    width: 100%;
+    height: 20px;
+}
+
+.appMenuItem {
+    float: left;
+    z-index: 1;
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 5px;
+}
+
+.appMenuItemH3 {
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 10px;
+}
+
+.appIconHeader {
+    width: 100%;
+    height: 25px;
+    background-color: #555253;
+}
+
+/*
+.mainContent {
+    height: 560px;
+    width: 100%;
+    background-color: #7BD7D9;
+}
+*/
+
+/* Base elements: .com, .jahova, .os */
+.com {
+    height: 590px;
+    width: 100%;
+    background-color: #293955;
+    z-index: 0;
+}
+
+.jahova {
+    position: relative;
+    height: 530px;
+    width: 100%;
+    top: 60px;
+    z-index: 0;
+}
+
+.os {
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #b0bccd;
+    border-bottom: 1px solid #8992a3;
+    z-index: 0;
+}
+.appBaseColor {
+    background-color: #293955;
+}
+
+.menuColor {
+    background-color: #bcc7d8;
+}
+
+.iconColor {
+    background-color: #9caac1;
+}
+
+.sidebarColor {
+    background-color: #4a5d80;
+}
+
+.sidebarTabColor {
+    background-color: #43577b;
+}
+
+.viewContentBkgColor {
+    background-color: #ffffff;
+}
+
+.outputHeaderColor {
+    background-color: #465a7d;
+}
+
+.tabColorSelected {
+    background-color: #ced4df;
+}
+
+.textColorWhite {
+    color: #ffffff;
+}
+
+.textColorBlack {
+    color: #000000;
+}
+
+.outputHeaderColor {
+    background-color: #43577b;
+}
+
+.outputTabColorSelected {
+    background-color: #ffffff;
+}
+
+.outputContentBkgColor {
+    background-color: #EBEBEB;
+}
+/* default border all; 1px, 2px, 3px; solid; black */
+.jahova_borA1SBlk {
+    border: 1px solid #000000;
+}
+.jahova_borA2SBlk {
+    border: 2px solid #000000;
+}
+.jahova_borA3SBlk {
+    border: 3px solid #000000;
+}
+/* top, right, bottom, left; 1px, 2px, 3px; solid, black */
+    /* top */
+.jahova_borT1SBlk {
+    border-top: 1px solid #000000;
+}
+.jahova_borT2SBlk {
+    border-top: 2px solid #000000;
+}
+.jahova_borT3SBlk {
+    border-top: 3px solid #000000;
+}
+    /* right */
+.jahova_borR1SBlk {
+    border-right: 1px solid #364e6f;
+}
+.jahova_borR2SBlk {
+    border-right: 2px solid #364e6f;
+}
+.jahova_borR3SBlk {
+    border-right: 3px solid #364e6f;
+}
+    /* bottom */
+.jahova_borB1SBlk {
+    border-bottom: 1px solid #000000;
+}
+.jahova_borB2SBlk {
+    border-bottom: 2px solid #000000;
+}
+.jahova_borB3SBlk {
+    border-bottom: 3px solid #000000;
+}
+    /* left */
+.jahova_borL1SBlk {
+    border-left: 1px solid #000000;
+}
+.jahova_borL2SBlk {
+    border-left: 2px solid #000000;
+}
+.jahova_borL3SBlk {
+    border-left: 3px solid #000000;
+}
+
+/* no right, no bottom, no left; 1px, 2px, 3px; solid, black */
+    /* no right */
+.jahova_borNoR1SBlk {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-left: 1px solid #000000;
+}
+.jahova_borNoR2SBlk {
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    border-left: 2px solid #000000;
+}
+.jahova_borNoR3SBlk {
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+    border-left: 3px solid #000000;
+}
+    /* no bottom */
+.jahova_borNoB1SBlk {
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+.jahova_borNoB2SBlk {
+    border-top: 2px solid #000000;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+}
+.jahova_borNoB3SBlk {
+    border-top: 3px solid #000000;
+    border-left: 3px solid #000000;
+    border-right: 3px solid #000000;
+}
+    /* no left */
+.jahova_borNoL1SBlk {
+    border-top: 1px solid #364e6f;
+    border-right: 1px solid #364e6f;
+    border-bottom: 1px solid #364e6f;
+}
+.jahova_borNoL2SBlk {
+    border-top: 2px solid #000000;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+.jahova_borNoL3SBlk {
+    border-top: 3px solid #000000;
+    border-right: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+}
+
+/* border top: 2px */
+.jahova_borTopRad2 {
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.jahova_borBotRad2 {
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* sizes 3px, 5px, 7px, 9px */
+.jahova_borRadA2 {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.jahova_borRadA3 {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.jahova_borRadA5 {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.jahova_borRadA7 {
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.jahova_borRadA9 {
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+
+/* top, right, bottom, left; 2px */
+.jahova_borRadT2 {
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    -moz-border-radius-topleft: 2px;
+    -moz-border-radius-topright: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.jahova_borRadR2 {
+    -webkit-border-top-right-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+    -moz-border-radius-topright: 2px;
+    -moz-border-radius-bottomright: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.jahova_borRadB2 {
+    -webkit-border-bottom-right-radius: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -moz-border-radius-bottomleft: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.jahova_borRadL2 {
+    -webkit-border-bottom-left-radius: 2px;
+    -webkit-border-top-left-radius: 2px;
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-topleft: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+/* width: .25s, .5s, 1s, 2s */
+.jahova_transWp25s {
+    -webkit-transition: width .25s;
+    -moz-transition: width .25s;
+    transition: width .25s;
+}
+
+.jahova_transWp5s {
+    -webkit-transition: width .5s;
+    -moz-transition: width .5s;
+    transition: width .5s;
+}
+
+.jahova_transW1s {
+    -webkit-transition: width 1s;
+    -moz-transition: width 1s;
+    transition: width 1s;
+}
+
+.jahova_transW2s {
+    -webkit-transition: width 2s;
+    -moz-transition: width 2s;
+    transition: width 2s;
+}
+
+/* height: .25s, .5s, 1s, 2s */
+.jahova_transHp25s {
+    -webkit-transition: height .25s;
+    -moz-transition: height .25s;
+    transition: height .25s;
+}
+
+.jahova_transHp5s {
+    -webkit-transition: height .5s;
+    -moz-transition: height .5s;
+    transition: height .5s;
+}
+
+.jahova_transH1s {
+    -webkit-transition: height 1s;
+    -moz-transition: height 1s;
+    transition: height 1s;
+}
+
+.jahova_transW2s {
+    -webkit-transition: height 2s;
+    -moz-transition: height 2s;
+    transition: height 2s;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+/* header, footer, aside, nav, article {  
+    display: block;  
+} */  
+
+/* jahova_sidebar sidebar, vertical tabs and tab text elements */
+.jahova_sidebar {
+    margin-top: 6px;
+    width: 25px;
+    left: 0;
+    z-index: 0;
+}
+
+.jahova_sidebarTab {    /* Dependent on sidebar positioning */
+    width: 20px;
+    height: 90px;
+    margin-top: 2px;
+    background-color: #43577b;
+    z-index: 20;
+}
+
+.jahova_sidebarTabTxt {
+    font-family: helvetica;
+    font-size: 12px;
+    color: #c6fdfd;
+    width: 100%;
+    margin: 0 0 0 2px;
+    -webkit-transform-origin: bottom left;
+    -moz-transform-origin: bottom left;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    z-index: 21;
+}
+
+/* Tab transitioning base page, header, and images          */
+.jahova_sidebarPage {               /* Default size 400x480 */
+    position: absolute;             /* Positioning          */
+    top: 72px;
+    left: 25px;
+    width: 0;                       /* Size                 */
+    height: 535px;
+    z-index: 0;                     /* Z order              */
+    background-color: #8191ab;      /* Color                */
+}
+
+.jahova_sidebarPagePin {            /* Pinned state of class */
+    position: absolute;             /* Positioning          */
+    top: 1px;
+    left: 23px;
+    width: 400px;                   /* Size, Note: Pinned size may be over written as needed via jscript to conform to content */
+    height: 480px;
+    z-index: 0;                     /* Z order              */
+    background-color: #8191ab;      /* Color                */
+}
+
+.jahova_sidebarPageHeader {                  /* Size 20x100% */ 
+    height: 20px;
+    width: 100%;
+    background-color: #cccccc;
+    z-index: 0;
+}
+
+.jahova_pin {                              /* Used to anchor/pin open jahova_sidebar page */
+    visibility: hidden;
+    position: absolute;
+    padding-top: 3px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 95%;
+    background-image: url('../../images/pin.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.jahova_pinPin {                           /* Used to anchor/pin open jahova_sidebar page */
+    position: absolute;
+    padding-top: 3px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 5px;
+    background-image: url('../../images/pinPin.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+/* Base page content */
+/*.console {
+    position: absolute;
+    width: 100%;
+    height:100%;
+    left: 0;
+    resize: none;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+}*/
+
+.consolePin {
+    position: absolute;
+    width: 698px;
+    height: 457px;
+    left: 0;
+    resize: none;
+    color: #21f838;
+    font-weight: normal;
+    font-family: Monospace;
+    font-size: 14px;
+    cursor: default;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 9;
+}
+
+.files {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 440px;
+    left: 0;
+    resize: none;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+    z-index: 0;
+}
+
+.filesPin {
+    position: absolute;
+    width: 100%;
+    height: 440px;
+    left: 0;
+    resize: none;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.75);
+    border: 10px solid #cccccc;
+    z-index: 9;
+}
+
+.jahovaIFrame {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 460px;
+    left: 0;
+    border: none;
+    z-index: 0;
+}
+
+.jahovaIFramePin {
+    position: absolute;
+    width: 100%;
+    height: 460px;
+    left: 0;
+    border: none;
+    z-index: 9;
+}
+
+.jahovaIFrame_demo {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    border: none;
+    z-index: 0;
+}
+
+.jahovaIFramePin_demo {
+    position: absolute;
+    width: 100%;
+    height: 460px;
+    left: 0;
+    border: none;
+    z-index: 9;
+}
+
+
+.demos {
+    
+}
+
+.ide {
+    
+    
+}
+
+/* Hover events for all elements */
+.jahova_sidebarTab:hover {
+    border-right: 2px groove #ffd142;
+    border-bottom: 3px groove #ffd142;
+    background-color: #43577b;
+}
+
+.jahova_sidebarTab:hover .jahova_sidebarPage {
+    width: 400px;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahova_sidebarPagePin {
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .console {
+    visibility: visible;
+    width: 398px;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .consolePin {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .files {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .filesPinned {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahovaIFrame {
+    visibility: visible;
+    width: 100%;
+    height: 460px;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahovaIFramePin {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahovaIFrame_demo {
+    visibility: visible;
+    width: 100%;
+    height: 440px;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahovaIFramePin_demo {
+    visibility: visible;
+    z-index: 10;
+}
+
+.jahova_sidebarTab:hover .jahova_pin {
+    visibility: visible;
+    z-index: 16;
+}
+
+.jahova_sidebarTab:hover .jahova_pinPin {
+    visibility: visible;
+    z-index: 16;
+}
+
+.jahova_pin:hover {
+    background-image: url('../../images/pinPin.png');
+}
+
+.jahova_pinPin:hover {
+    background-image: url('../../images/pin.png');
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* jahova_sidebar sidebar, vertical tabs and tab text elements */
+.ideSidebar {
+/*    float: left;*/
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 24px;
+/*    height: 150px;*/
+    padding-bottom: 2px;
+    z-index: 100;
+    
+}
+
+.ideSidebarTabFolderView {    /* Dependent on sidebar positioning */
+    width: 20px;
+    height: 120px;
+    margin-top: 4px;
+    z-index: 20;
+}
+
+.ideSidebarTabTextFolderView {
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 0 0 3px 0;
+    -webkit-transform-origin: bottom left;
+    -moz-transform-origin: bottom left;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    z-index: 21;
+}
+
+.ideSidebarPageFolderView {
+    position: absolute;
+    left: 19px;
+    top: -4px;
+    width: 0;
+    height: 548px;
+    margin: 4px 4px 4px 4px;
+    z-index: 50;/*
+    visibility: hidden;*/
+}
+
+.ideSidebarPageFolderViewPinned {
+    position: absolute;
+    left: 19px;
+    top: -4px;
+    width: 260px;
+    height: 548px;
+    margin: 4px 4px 4px 4px;
+    border: 2px groove #43577b;
+    z-index: 50;
+}
+
+.ideSidebarFolderHeader {
+    width: 100%;
+    height: 20px;
+}
+
+.ideSidebarFolderH3 {
+    float: left;
+    display: none;
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 5px;
+}
+
+.ideSidebarFolderH3Pinned {
+    float: left;
+    display: block;
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 5px;
+}
+
+.ideSidebarFolderIconHeader {
+    width: 100%;
+    height: 25px;
+}
+
+.ideSidebarFolderContent {
+    width: 100%;
+    height: 503px;
+    visibility: hidden;
+}
+
+.ideSidebarTabFolderView:hover {
+    border-right: 2px groove #ffd142;
+    
+}
+.ideSidebarTabFolderView:hover .ideSidebarFolderContent {
+    visibility: visible;
+}
+
+.ideSidebarTabFolderView:hover .ideSidebarPageFolderView {
+    visibility: visible;
+    width: 260px;
+    z-index: 55;
+    border: 2px groove #43577b;
+   /* border-bottom: 4px groove #43577b;*/
+}
+
+.ideSidebarTabFolderView:hover .ideSidebarFolderH3 {
+    display: block;
+}
+
+.ideSidebarTabFolderView:hover .ideSidebarPin {
+    visibility: visible;
+}
+.ideSidebarFolderContentPinned {
+    width: 100%;
+    height: 503px;
+    visibility: visible;
+}
+
+.ideSidebarPin {
+    visibility: hidden;
+    margin: 3px 5px 0 0;
+    width: 13px;
+    height: 13px;
+    float: right;
+    background-image: url('../../images/pinPin.png');
+    background-repeat: no-repeat;
+    z-index: 50;
+}
+
+.ideSidebarPinned {
+    visibility: visible;
+    margin: 3px 5px 0 0;
+    width: 13px;
+    height: 13px;
+    float: right;
+    background-image: url('../../images/pinPin.png');
+    background-repeat: no-repeat;
+    z-index: 50;
+}
+.ideSidebarPinned:hover{
+    background-image: url('../../images/pin.png');
+}
+.ideSidebarPin:hover {
+    background-image: url('../../images/pin.png');
+}
+
+/* Generic output window */
+/*
+    Mac version
+    Windows version still required
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block  */  
+header, footer, aside, nav, article {  
+    display: block;  
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mainContent {
+    position: relative;
+    width: 100%;
+    height: 560px;
+    margin: 0 0;
+    z-index: 0;
+}
+
+/* jahova_sidebar sidebar, vertical tabs and tab text elements */
+
+.folderView {
+    display: none;
+    float: left;
+    width: 250px;
+    height: 548px;
+    margin: 4px 4px 4px 4px;
+    z-index: 0;
+}
+
+.folderViewDisplayed {
+    display: block;
+    float: left;
+    width: 250px;
+    height: 548px;
+    margin: 4px 4px 4px 4px;
+    z-index: 0;
+}
+
+.folderHeader {
+    width: 100%;
+    height: 20px;
+}
+
+.folderH3 { /* .docViewTabs docSection docH3 */
+    float: left;
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 5px;
+}
+
+.folderIconHeader {
+    width: 100%;
+    height: 25px;
+}
+
+.folderContent {
+    width: 100%;
+    height: 503px;
+}
+
+.docView {
+    float: right;
+    width: 806px;
+    height: 332px;
+    margin: 4px 8px 4px 4px;
+}
+
+.docViewNFV {
+    float: right;
+    width: 1064px;
+    height: 332px;
+    margin: 4px 8px 4px 4px;
+}
+
+.docViewTabs {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.docSection { /* .docViewTabs docSection*/
+    float: left;
+    z-index: 1;
+}
+
+.docH3 { /* .docViewTabs docSection docH3 */
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 10px;
+}
+
+.docH3Current { /* .docViewTabs docCurrent docH3 */
+    background: #ced4df;
+    cursor: default;
+    color: #000000;
+}
+
+.docDiv { /* .docViewTabs docSection docDiv */
+    position: absolute;
+    left: 0;
+    top: 24px;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: none;
+    font: 12px Arial;
+}
+
+.docDivCurrent { /* .docViewTabs docCurrent docDiv */
+    position: absolute;
+    left: 0;
+    top: 24px;
+    z-index: 2;
+    width: 100%;
+    height: 308px;
+    font: 12px Arial;
+}
+
+.tabBar {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    height: 4px;
+}
+
+.outputView {
+    float: right;
+    width: 806px;
+    height: 190px;
+    margin: 4px 8px 4px 4px;
+}
+
+.outputViewNFV {
+    float: right;
+    width: 1064px;
+    height: 190px;
+    margin: 4px 8px 4px 4px;
+}
+
+.outputHeader {
+    width: 100%;
+    height: 20px;
+}
+
+.outputHeaderH3 {
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 3px;
+}
+
+.outputViewTabs {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.outputSection { /* .docViewTabs docSection*/
+    float: left;
+    margin-top: 4px;
+    z-index: 1;
+}
+
+.outputH3 { /* .docViewTabs docSection docH3 */
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 10px;
+}
+
+.outputDiv { /* .docViewTabs docSection docDiv */
+    position: absolute;
+    left: 0;
+    top: 28px;
+    z-index: 2;
+    width: 100%;
+    height: 160px;
+    display: none;
+    font: 12px Arial;
+}
+
+.outputDivCurrent { /* .docViewTabs docCurrent docDiv */
+    position: absolute;
+    left: 0;
+    top: 28px;
+    z-index: 2;
+    width: 100%;
+    height: 160px;
+    font: 12px Arial;
+}
+
+.outputTabBar {
+    position: relative;
+    top: 24px;
+    width: 100%;
+    height: 4px;
+}
+
+/*
+.outputSection { 
+    float: left;
+    z-index: 1;
+}
+
+.outputH3 { 
+    font-family: ÔTrebuchet MSÕ, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0 1px 0 0;
+    padding: 3px 10px;
+}
+
+.outputDiv { 
+    z-index: 2;
+    width: 100%;
+    height: 168px;
+    display: none;
+    font: 12px Arial;
+}
+
+.outputDivCurrent { 
+    z-index: 2;
+    width: 100%;
+    height: 168px;
+    font: 12px Arial;
+}
+
+*/
+.ide_pin {                              /* Used to anchor/pin open jahova_sidebar page */
+    visibility: hidden;
+    position: absolute;
+    padding-top: 3px;
+    width: 13px;
+    height: 13px;
+    top: 3px;
+    left: 95%;
+    background-image: url('../../images/pin.png');
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.ide_pinPin {                           /* Used to anchor/pin open jahova_sidebar page */
+    margin: 3px 5px 0 0;
+    width: 13px;
+    height: 13px;
+    float: right;
+    background-image: url('../../images/pinPin.png');
+    background-repeat: no-repeat;
+}
+
+.shadowContainer {
+    position: absolute;
+    width: 24px;
+    height: 8px;
+    background-image: url('../images/shadow.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}

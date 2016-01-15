@@ -1,0 +1,21 @@
+[
+  {
+    "src": "images/LostCell/BDrone_anim_hover.png",
+    "name": "drone",
+    "ssWidth": 2560,
+    "ssHeight": 2304,
+    "rows": 9,
+    "columns": 10,
+    "cellWidth": 256,
+    "cellHeight": 256,
+    "animations": [
+      {
+        "name": "hover",
+        "numberOfFrames": 90,
+        "startRow": 1,
+        "startColumn":  1,
+        "speed": 60
+      }
+    ]
+  }  
+]
