@@ -49,6 +49,28 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
    100% { background-position-x: -1280px; }
 }
 
+.activeState {
+    
+}
+
+.inactiveState {
+    display: none;
+}
+
+.flyIn {
+    left: 50%;
+    -webkit-transform:  rotateY(0) rotate(0);
+    transform:rotateY(0) rotate(0);
+    /*-webkit-animation: flyIn 800ms ease-in;*/
+}
+
+.flyOut {
+    left: -10%;
+    -webkit-transform: rotateY(-90deg) rotate(-90deg);
+    transform: rotateY(-90deg) rotate(-90deg);
+    /*-webkit-animation: flyOut 800ms ease-in;*/
+}
+
 
 
 /*

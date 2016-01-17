@@ -22,8 +22,16 @@ var LostCell = {
 	HTML: {
 		app: null,
 		States: {
-			
+			Drone: null,
+			Data: null,
+			Upgrade: null
 		}
+	},
+	FSM: null,
+	States: {
+		Data: null,
+		Upgrade: null,
+		Drone: null
 	},
 	Load: {
 		OSInput: function(){
@@ -731,11 +739,24 @@ var LostCell = {
 			var CFiniteStateMachine = function(cEntity){
 				var owner = cEntity;
 				var _CurrentState = new CState();
+				//Cache for aniamted transition
+				var nextName = ""; 
+				var nextMessage = "";
+				
 				var self = this;
 				var _Enter = function(oMessage){
+					if(owner.HTML.States[_CurrentState.GetName()]){
+						owner.HTML.States[_CurrentState.GetName()].AppendClass("activeState");
+						owner.HTML.States[_CurrentState.GetName()].RemoveClass("inactiveState");
+					}
+					
 					_CurrentState.Enter(owner, oMessage);
 				}
 				var _Exit = function(oMessage){
+					if(owner.HTML.States[_CurrentState.GetName()]){
+						owner.HTML.States[_CurrentState.GetName()].AppendClass("inactiveState");
+						owner.HTML.States[_CurrentState.GetName()].RemoveClass("activeState");
+					}
 					_CurrentState.Exit(owner, oMessage);
 				}
 				var _Execute = function(oMessage){
@@ -753,6 +774,39 @@ var LostCell = {
 					//Call New States Setup and Exectue Methods
 					_Enter(oMessage);
 					_Execute(oMessage);
+				}
+				this.AnimationBegin = "";
+				this.AnimationEnd = "";
+				this.AnimatedHTML = "";
+				this.AnimatedTransition = function(sName, oMessage){
+					nextName = sName;
+					nextMessage = oMessage;
+					
+					self.AnimatedHTML.RemoveClass(self.AnimationEnd);
+					self.AnimatedHTML.AppendClass(self.AnimationBegin);
+					//this.AnimatedHTML.html.addEventListener('webkitTransitionEnd', this.Animate, false);
+					self.AnimatedHTML.html.addEventListener('transitionend', self.Animate, false);
+					
+				}
+				
+				this.Animate = function(sName, oMessage){
+					//Remove Event Listener
+					//this.AnimatedHTML.html.removeEventListener('webkitTransitionEnd', this.Animate, false);
+					self.AnimatedHTML.html.removeEventListener('transitionend', self.Animate, false);
+					
+					//Call Exit for Current State
+					_Exit(nextMessage);
+					
+					//Get New State to Transition Too
+					_CurrentState = _States.get(nextName);
+					
+					//Transition
+					self.AnimatedHTML.RemoveClass(self.AnimationBegin);
+					self.AnimatedHTML.AppendClass(self.AnimationEnd);
+					
+					//Call New States Setup and Exectue Methods
+					_Enter(nextMessage);
+					_Execute(nextMessage);
 				}
 				this.SetState = function(sName){
 					_CurrentState = _States.get(sName);
@@ -792,6 +846,65 @@ var LostCell = {
 			
 			
 		},
+		OSHTMLELement: function(){
+			//HTML element base class
+			os.resschmgr.HTML = function(tag){
+				//Creates HTML element if tag exist        
+				this.html =  tag ? document.createElement(tag) : null;
+	
+			}
+			os.resschmgr.HTML.prototype.AppendClass = function(sClass){
+				this.html.className += " " + sClass + " ";
+				return this.html.className;
+			}
+			os.resschmgr.HTML.prototype.AppendChild = function(childHTML){
+				this.html.appendChild(childHTML);
+			}
+			os.resschmgr.HTML.prototype.AppendToID = function(parentID){
+				document.getElementById(parentID).appendChild(this.html);
+			}
+			os.resschmgr.HTML.prototype.AppendToHTML = function(parentHTML){
+				parentHTML.appendChild(this.html);
+			}
+			os.resschmgr.HTML.prototype.RemoveClass = function(sClass){
+				//Remove class
+				//var classes = this.html.className.replace(sClass, "");
+				
+				//Remove wthite space and split into array
+				//classes = self.html.className.split(/\s+/);
+				
+				//Save array as string seperated by space
+				var classes = ((this.html.className.replace(/^\s+|\s+$/g, "")).replace(sClass, "").split(/\s+/));
+				classes.push(" ");
+				
+				this.html.className = classes.join(" ");
+				
+				return this.html.className;
+			}
+			os.resschmgr.HTML.prototype.RemoveChild = function(id){
+				this.html.removeChild(document.getElementById(id));
+			}
+			os.resschmgr.HTML.prototype.RemoveAllClasses = function(){
+	
+				this.html.className = "";
+			}
+			os.resschmgr.HTML.prototype.RemoveAllChildren = function(){
+			
+				if ( this.html.hasChildNodes() )
+				{
+					while ( this.html.childNodes.length >= 1 )
+					{
+						this.html.removeChild( this.html.firstChild );       
+					} 
+				}
+			}
+			os.resschmgr.HTML.prototype.SetHTML = function(oHTML){
+				this.html = oHTML;//document.getElementById(id);
+			}
+			os.resschmgr.HTML.prototype.CreateHTML = function(tag){
+				this.html = document.createElement(tag);
+			}
+		},
 		Cleanup: function(){
 			os.console.AppendComment("	Extending JaHOVA Systems");
 			//Remove Splash Window
@@ -806,6 +919,9 @@ var LostCell = {
 			os.console.AppendComment("	Adding AI FSM");
 			LostCell.Load.OSAI();
 			
+			os.console.AppendComment("	Adding HTML Element Class");
+			LostCell.Load.OSHTMLELement();
+			
 			//os.console.AppendComment("Adding Animation System");
 			//LostCell.Load.OSAnimation();
 			
@@ -813,7 +929,17 @@ var LostCell = {
 		},
 		HTML: function(){
 			os.console.Comment("Adding and Linking HTML");
-			LostCell.HTML.app = document.getElementById("lostcell");
+			LostCell.HTML.app = new os.resschmgr.HTML();
+			LostCell.HTML.app.SetHTML(document.getElementById("lostcell"));
+			
+			LostCell.HTML.States.Data = new os.resschmgr.HTML();
+			LostCell.HTML.States.Data.SetHTML(document.getElementById("Data"));
+			
+			LostCell.HTML.States.Drone = new os.resschmgr.HTML();
+			LostCell.HTML.States.Drone.SetHTML(document.getElementById("Drone"));
+			
+			LostCell.HTML.States.Upgrade = new os.resschmgr.HTML();
+			LostCell.HTML.States.Upgrade.SetHTML(document.getElementById("Upgrade"));
 		},
 		Console: function(){
 			
@@ -848,7 +974,47 @@ var LostCell = {
 			os.audio.Add("chirp", "scripts/jahovaos/audio/chirp", false, false);
 		},
 		States: function(){
+			os.console.Comment("Creating FSM");
+			LostCell.FSM = LostCell.AIManager.FSM.Create(LostCell);
+			LostCell.FSM.AnimationBegin = "flyOut";
+			LostCell.FSM.AnimationEnd = "flyIn";
+			LostCell.FSM.AnimatedHTML = LostCell.HTML.app;
+			
 			os.console.Comment("Laading Game States");
+			LostCell.States.Drone = LostCell.AIManager.State.Create("Drone");
+			LostCell.States.Drone.Enter = function(obj, msg){
+				
+			}
+			LostCell.States.Drone.Execute = function(obj, msg){
+				
+			}
+			LostCell.States.Drone.Exit = function(obj, msg){
+				
+			}
+			
+			
+			LostCell.States.Upgrade = LostCell.AIManager.State.Create("Upgrade");
+			LostCell.States.Upgrade.Enter = function(obj, msg){
+				
+			}
+			LostCell.States.Upgrade.Execute = function(obj, msg){
+				
+			}
+			LostCell.States.Upgrade.Exit = function(obj, msg){
+				
+			}
+			
+			LostCell.States.Data = LostCell.AIManager.State.Create("Data");
+			LostCell.States.Data.Enter = function(obj, msg){
+				
+			}
+			LostCell.States.Data.Execute = function(obj, msg){
+				
+			}
+			LostCell.States.Data.Exit = function(obj, msg){
+				
+			}
+		
 		}
 	},
 	Run: function(){
@@ -861,6 +1027,12 @@ var LostCell = {
 		os.input.Register.Mouse.Event.Up(LostCell.FullScreen, LostCell.FullScreen);
 	},
 	FullScreen: function(){
-		LostCell.HTML.app.requestFullscreen();
+		//LostCell.HTML.app.requestFullscreen();
+		if(LostCell.FSM.GetState() == "Drone"){
+			LostCell.FSM.AnimatedTransition("Upgrade");
+		}
+		else{
+			LostCell.FSM.AnimatedTransition("Drone");
+		}
 	}
 }
