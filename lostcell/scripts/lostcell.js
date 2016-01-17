@@ -778,14 +778,19 @@ var LostCell = {
 				this.AnimationBegin = "";
 				this.AnimationEnd = "";
 				this.AnimatedHTML = "";
+				this.Animating = false;
 				this.AnimatedTransition = function(sName, oMessage){
-					nextName = sName;
-					nextMessage = oMessage;
+					if(!self.Animating){
+						self.Animating = true;
+						nextName = sName;
+						nextMessage = oMessage;
+						
+						self.AnimatedHTML.RemoveClass(self.AnimationEnd);
+						self.AnimatedHTML.AppendClass(self.AnimationBegin);
+						//this.AnimatedHTML.html.addEventListener('webkitTransitionEnd', this.Animate, false);
+						self.AnimatedHTML.html.addEventListener('transitionend', self.Animate, false);
+					}
 					
-					self.AnimatedHTML.RemoveClass(self.AnimationEnd);
-					self.AnimatedHTML.AppendClass(self.AnimationBegin);
-					//this.AnimatedHTML.html.addEventListener('webkitTransitionEnd', this.Animate, false);
-					self.AnimatedHTML.html.addEventListener('transitionend', self.Animate, false);
 					
 				}
 				
@@ -793,6 +798,9 @@ var LostCell = {
 					//Remove Event Listener
 					//this.AnimatedHTML.html.removeEventListener('webkitTransitionEnd', this.Animate, false);
 					self.AnimatedHTML.html.removeEventListener('transitionend', self.Animate, false);
+					
+					//Set Animating to False
+					self.Animating = false;
 					
 					//Call Exit for Current State
 					_Exit(nextMessage);
@@ -1025,6 +1033,8 @@ var LostCell = {
 		
 		os.input.Register.Touch.Event.End(LostCell.FullScreen, LostCell.FullScreen);
 		os.input.Register.Mouse.Event.Up(LostCell.FullScreen, LostCell.FullScreen);
+		
+		LostCell.FSM.Transition("Drone");
 	},
 	FullScreen: function(){
 		//LostCell.HTML.app.requestFullscreen();
