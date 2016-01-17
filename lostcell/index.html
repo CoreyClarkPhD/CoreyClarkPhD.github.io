@@ -26,14 +26,136 @@
 <body onload="com.jahova.os.Instance().Load(LostCell.Init);">
     <div id="lostcell" class="app">
         <div id="Drone" class="inactiveState">
-            <div id='betaDrone' class="drone"> 
+            <div id="droneStateBetaDroneWrapper" class="droneWrapper"><div id='betaDrone' class="drone"></div></div>
+            <div id="droneDataWrapper" class='droneDataWrapper'>
+                <div class='droneDataBackground'>
+                    <div id="droneData" class='droneData'>
+                        <p id="droneName">Drone "Name"</p>
+                        <div id="droneClassWrapper">
+                            <label for="droneClass">CLASS\BETA:<div id='droneClass' class='droneClass'>LEVEL 5</div></label>
+                            
+                        </div>
+                        <div id='droneTaskWrapper'>
+                            <label>CURRENT TASK:</label>
+                            <select id='droneTask'>
+                                <option>Gathering</option>
+                                <option selected>Explore</option>
+                                <option>Analyze</option>
+                                <option>Combat</option>
+                                <option>Defense</option>
+                            </select>
+                        </div>
+                        <div id="droneStatusWrapper">
+                            <label for="droneStatus">STATUS:<div id='droneStatus' class='droneStatus'>((WORKING))</div></label>
+                            
+                        </div>
+                        <div id="droneFuelWrapper">
+                            <label for='droneFuel'>FUEL | 75%</label>
+                            <div id='droneFuelSlider' class='slider blue'>
+                                <div id='droneFuel' class='green' style=" height: 100%; width: 75%;"></div>
+                            </div>
+                                
+                        </div>
+                        <div id="droneHealthWrapper">
+                            <label for="droneHealth">HEALTH | 25%</label>
+                            
+                            <div id='droneHealthSlider' class='slider blue'>
+                                <div id='droneHealth' class='green' style=" height: 100%; width: 25%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div id="droneListWrapper" class='droneListWrapper'>
+                <div class='droneLogSummaryWrapper'>
+                    <table class=''>
+                        <tr>
+                            <td>
+                                <div class="circle32" style="background-color: orangered">
+                                    <img class='droneImage' src='./images/LostCell/BDrone_256.png'>
+                                </div>
+                            </td>
+                            <td>
+                                <div class='led-green'></div> 
+                            </td>
+                            <td>
+                                NAME 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="circle32" style="background-color: #CC5B94;">
+                                    <img class='droneImage' src='./images/LostCell/BDrone_256.png'>
+                                </div> 
+                            </td>
+                            <td>
+                                <div class='led-green'></div>  
+                            </td>
+                            <td>
+                                NAME 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="circle32" style="background-color: #0DDA00;">
+                                    <img class='droneImage' src='./images/LostCell/BDrone_256.png'>
+                                </div> 
+                            </td>
+                            <td>
+                                <div class='led-red'></div>  
+                            </td>
+                            <td>
+                                NAME 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="circle32" style="background-color: #2D2F6B;">
+                                    <img class='droneImage' src='./images/LostCell/BDrone_256.png'>
+                                </div> 
+                            </td>
+                            <td>
+                                <div class='led-red'></div>  
+                            </td>
+                            <td>
+                                NAME 
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+                <div id='dronePower'class="droneButton"> Toggle Drone</div>
+                <div id='droneUpgrade' class='droneButton'> Upgrade Drone </div>
+            </div>
+            <div id="droneLogWrapper" class='droneLogWrapper'>
+                <div class='droneLogSummaryWrapper'>
+                    <table class=''>
+                        <tr>
+                            <th>
+                                DRONE LOG
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                            Description of last event drone did... click to open more detail and see all events
+                            for this drone.  Here is a bunch more text and will even open up into a list where you
+                            can play a video
+                            </td>
+                        </tr>                              
+                    </table>
+                </div>
+            </div>
+            <div id="droneStateAtomWrapper" class="atomWrapper"><div id='atom' class="atom"></div></div>
+            
         </div>
         <div id="Upgrade" class="inactiveState">
 
         </div>
+        <div id="Login" class="inactiveState">
+            <div id='loginButton' class='loginButton'> Click To Login</div>
+        </div>
         <div id="Data" class="inactiveState">
-
+            <div id="dataStateBetaDroneWrapper" class="droneWrapper"><div id='betaDrone' class="drone"></div></div>
+            <div id="dataStateAtomWrapper" class="atomWrapper"><div id='atom' class="atom"></div></div>
         </div>
         
     </div>

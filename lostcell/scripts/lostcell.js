@@ -24,8 +24,13 @@ var LostCell = {
 		States: {
 			Drone: null,
 			Data: null,
-			Upgrade: null
-		}
+			Upgrade: null,
+			Login: null
+		},
+		droneStateDroneImageWrapper: null,
+		droneStateAtomImageWrapper: null,
+		dataStateDroneImageWrapper: null,
+		dataStateAtomImageWrapper: null
 	},
 	FSM: null,
 	States: {
@@ -408,9 +413,9 @@ var LostCell = {
 			_TouchEvents.put("START", []);
 			_TouchEvents.put("END", []);
 			_TouchEvents.put("MOVE", []);
-			document.addEventListener("touchstart", _InputEvents.Touch.Start, false);
-			document.addEventListener("touchend", _InputEvents.Touch.End, false);
-			document.addEventListener("touchmove", _InputEvents.Touch.Move, false);
+			//document.addEventListener("touchstart", _InputEvents.Touch.Start, false);
+			//document.addEventListener("touchend", _InputEvents.Touch.End, false);
+			//document.addEventListener("touchmove", _InputEvents.Touch.Move, false);
 			
 			//Holds state of mouse for all registered states
 			var _Mouse = {
@@ -948,6 +953,19 @@ var LostCell = {
 			
 			LostCell.HTML.States.Upgrade = new os.resschmgr.HTML();
 			LostCell.HTML.States.Upgrade.SetHTML(document.getElementById("Upgrade"));
+			
+			LostCell.HTML.States.Login = new os.resschmgr.HTML();
+			LostCell.HTML.States.Login.SetHTML(document.getElementById("Login"));
+			
+			
+			LostCell.HTML.droneStateDroneImageWrapper = document.getElementById('droneStateBetaDroneWrapper');
+			LostCell.HTML.droneStateAtomImageWrapper = document.getElementById("droneStateAtomWrapper");
+			
+			LostCell.HTML.dataStateDroneImageWrapper = document.getElementById('dataStateBetaDroneWrapper');
+			LostCell.HTML.dataStateAtomImageWrapper = document.getElementById("dataStateAtomWrapper");
+			
+			LostCell.HTML.loginButton = document.getElementById("loginButton");
+			
 		},
 		Console: function(){
 			
@@ -973,7 +991,7 @@ var LostCell = {
 										 document.mozFullScreenEnabled;
 										 
 			document.addEventListener("webkitfullscreenchange", function(){console.log("Full Screen has changed");});
-
+			
 
 		},
 		Audio: function(){
@@ -991,13 +1009,19 @@ var LostCell = {
 			os.console.Comment("Laading Game States");
 			LostCell.States.Drone = LostCell.AIManager.State.Create("Drone");
 			LostCell.States.Drone.Enter = function(obj, msg){
-				
+				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
 			}
 			LostCell.States.Drone.Execute = function(obj, msg){
 				
 			}
 			LostCell.States.Drone.Exit = function(obj, msg){
-				
+				LostCell.HTML.droneStateDroneImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.droneStateAtomImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.droneStateDroneImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.droneStateAtomImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
 			}
 			
 			
@@ -1014,13 +1038,32 @@ var LostCell = {
 			
 			LostCell.States.Data = LostCell.AIManager.State.Create("Data");
 			LostCell.States.Data.Enter = function(obj, msg){
-				
+				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
 			}
 			LostCell.States.Data.Execute = function(obj, msg){
 				
 			}
 			LostCell.States.Data.Exit = function(obj, msg){
+				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.dataStateDroneImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.dataStateAtomImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+			}
+			
+			LostCell.States.Login = LostCell.AIManager.State.Create("Login");
+			LostCell.States.Login.Enter = function(obj, msg){
+				LostCell.HTML.loginButton.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.loginButton.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+			}
+			LostCell.States.Login.Execute = function(obj, msg){
 				
+			}
+			LostCell.States.Login.Exit = function(obj, msg){
+				LostCell.HTML.loginButton.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.loginButton.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
 			}
 		
 		}
@@ -1029,12 +1072,12 @@ var LostCell = {
 		os.debugbar.Disable();
 		
 		os.console.Comment("Running Lost Cell");
-		os.audio.Play("chirp");
+		//os.audio.Play("chirp");
 		
-		os.input.Register.Touch.Event.End(LostCell.FullScreen, LostCell.FullScreen);
-		os.input.Register.Mouse.Event.Up(LostCell.FullScreen, LostCell.FullScreen);
+		//os.input.Register.Touch.Event.End(LostCell.FullScreen, LostCell.FullScreen);
+		//os.input.Register.Mouse.Event.Up(LostCell.FullScreen, LostCell.FullScreen);
 		
-		LostCell.FSM.Transition("Drone");
+		LostCell.FSM.Transition("Login");
 	},
 	FullScreen: function(){
 		//LostCell.HTML.app.requestFullscreen();

@@ -14,6 +14,9 @@
     margin: -250px 0 0 -450px; 
     -webkit-perspective: 800;
     perspective: 800;
+    border-radius: 10px;
+    font-family: 'Outlier';
+    font-size: xx-large;
 }
 
 
@@ -25,30 +28,26 @@
     top: 0px;
 }
 
-
-/*
- Multiline CSS Animation w/ Visual Debugging 
-http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-a-grid-image-not-in-a-row
-*/
-.drone {
-    width: 128px;
-    height: 128px;
-    background-image: url("../images/LostCell/BDrone_anim_hover_128.png");
-    position: relative;
-    animation: droneHoverV 2.25s steps(9) infinite, droneHoverH 0.25s steps(10) infinite; 
+select {
+    background: #A57676;
+    width: 150px;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #1D1B1B;
+    height: 34px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   font-family: 'ModernDestronic';
+   vertical-align: middle;
+   /* background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;*/
 }
-
-
-@-webkit-keyframes droneHoverV {
-     0% { background-position-y:   0px; }
-   100% { background-position-y: -1152px; }
+.slider {
+    width: 200px;
+    display: inline-block;
+    height: 25px;
+    border-radius: 5px;
 }
-
-@-webkit-keyframes droneHoverH {
-     0% { background-position-x:   0px; }
-   100% { background-position-x: -1280px; }
-}
-
 .activeState {
     
 }
@@ -71,6 +70,382 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     /*-webkit-animation: flyOut 800ms ease-in;*/
 }
 
+@font-face{
+    font-family: 'tahomabd';
+    src: url('../images/LostCell/Fonts/tahomabd.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'tahoma';
+    src: url('../images/LostCell/Fonts/tahoma.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'OutlierRail';
+    src: url('../images/LostCell/Fonts/OutlierRail.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Outlier';
+    src: url('../images/LostCell/Fonts/Outlier.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'ModernDestronic';
+    src: url('../images/LostCell/Fonts/ModernDestronic.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'KeepCalm-Medium';
+    src: url('../images/LostCell/Fonts/KeepCalm-Medium.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'euphemia';
+    src: url('../images/LostCell/Fonts/euphemia.ttf') format('truetype');
+}
+.led-red {
+    /*margin: 12px ;*/
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #FF4A1D;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #600 0 -1px 9px, #F00 0 2px 12px;
+}
+
+.led-yellow {
+    /*margin: 12px ;*/
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #FFe602;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #660 0 -1px 9px, #DD0 0 2px 12px;
+}
+
+.led-green {
+    /*margin: 12px ;*/
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #AF0;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px;
+}
+
+.led-blue {
+    /*margin: 12px ;*/
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #00DBFF;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #006 0 -1px 9px, #06F 0 2px 14px;
+}
+.red {
+    background-color: red;
+}
+.blue {
+    background-color: blue;
+}
+.green {
+    background-color: green;
+}
+
+.loginButton{
+    text-align: center;
+    width: 50%;
+    height: 62px;
+    border: 3px solid #ff7f00;
+    font-family: tahomabd;
+    font-size: 44px;
+    border-radius: 5px;
+    margin-left: 25%;
+    padding: 5px 0px 0 5px;
+    margin-top: 219px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#676B6D), to(#36383A));
+    box-shadow: 7px 8px 4px #000;
+}
+
+
+/*
+ //
+ //     Drone State
+ //
+ 
+*/
+
+/*
+ Multiline CSS Animation w/ Visual Debugging 
+http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-a-grid-image-not-in-a-row
+*/
+.drone {
+    width: 128px;
+    height: 128px;
+    background-image: url("../images/LostCell/BDrone_anim_hover_128.png");
+    position: relative;
+    animation: droneHoverV 2.25s steps(9) infinite, droneHoverH 0.25s steps(10) infinite;
+ /*   
+    -webkit-animation-name: droneHoverV, droneHoverH;
+    -webkit-animation-duration: 2.25s, 0.25s;
+    -webkit-animation-iteration-count: infinite, infinite;
+    -webkit-animation-timing-function: steps(9), steps(10);
+   
+    animation-name: droneHoverV, droneHoverH;
+    animation-duration: 2.25s, 0.25s;
+    animation-iteration-count: infinite, infinite;
+    animation-timing-function: steps(9), steps(10);
+    
+    
+   -webkit-animation-name: droneHoverH;
+    -webkit-animation-duration: 0.25s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: steps(10);*/
+
+}
+.droneWrapper {
+    width: 128px;
+    height: 128px;
+    position: relative;
+    background-color: rgb(0,0,0);
+    border-bottom-right-radius: 25px;
+/*    border-top-left-radius: 10px;*/
+    border-color: #C36519;
+    border-width: 0 5px 5px 0;
+    border-style: solid;
+}
+
+.atom{
+    width: 128px;
+    height: 128px;
+    background-image: url("../images/LostCell/ATOMLogo.png");
+    position: relative;
+}
+.atomWrapper{
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(0,0,0);
+    border-bottom-left-radius: 25px;
+/*    border-top-right-radius: 10px;*/
+    border-color: #C36519;
+    border-width: 0 0 5px 5px;
+    border-style: solid;
+}
+
+
+@-webkit-keyframes droneHoverV {
+     0% { background-position-y:   0px; }
+   100% { background-position-y: -1152px; }
+}
+
+@-webkit-keyframes droneHoverH {
+     0% { background-position-x:   0px; }
+   100% { background-position-x: -1280px; }
+}
+
+/*@keyframes droneHoverV {
+     0% { background-position: 0 0;}
+   100% { background-position: -1152px 0; }
+}
+
+@keyframes droneHoverH {
+     0% { background-position: 0 0; }
+   100% { background-position: 0 -1280px; }
+}*/
+
+
+/*
+ 
+    DRONE DATA
+ 
+*/
+.droneDataBackground{
+    border: 3px solid #ff7f00;
+    border-radius: 10px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#C3D5DE), to(#374858));
+    box-shadow: 7px 8px 4px #000;
+}
+.droneDataWrapper {
+    width: 665px;
+    height: 300px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}
+.droneData {
+    padding-top: 40px;
+    padding-left: 25px;
+}
+.droneTaskWrapper {
+    display: inline;
+}
+.droneClass{
+    display: inline-block;
+    padding-left: 15px;
+}
+.droneStatus{
+    display: inline-block;
+    padding-left: 15px;
+}
+
+/*
+    DRONE LIST
+ 
+*/
+.droneListWrapper {
+    bottom: 0px;
+    left: 0px;
+    width: 225px;
+    height: 367px;
+
+}
+.droneImage {
+    width: 32px;
+    height: 32px;
+}
+.circle32{
+    border-radius: 32px;
+    width: 32px;
+    height: 32px;
+}
+.droneButton{
+    width: 80%;
+    height: 40px;
+    border: 3px solid #ff7f00;
+    font-family: tahomabd;
+    font-size: 21px;
+    border-radius: 5px;
+    margin-left: 10%;
+    padding: 5px 0px 0 5px;
+    margin-top: 10px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#676B6D), to(#36383A));
+    box-shadow: 7px 8px 4px #000;
+}
+/*
+    DRONE LOG
+ 
+*/
+.droneLogSummaryWrapper {
+    margin: 20px 0 0 5%;
+    padding: 0px;
+    width: 90%;
+    box-shadow: 7px 8px 4px #000;
+    border: 3px solid #ff7f00;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.droneLogSummaryWrapper table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}
+.droneLogSummaryWrapper td {
+    vertical-align: middle;
+    border: 1px solid #ff7f00;
+    border-width: 0px 1px 1px 0px;
+    text-align: left;
+    padding: 7px;
+    font-size: 20px;
+    font-family: euphemia;
+    font-weight: normal;
+    color: #000;
+}
+.droneLogSummaryWrapper tr:nth-child(odd){ background-color:#6699cc; }
+.droneLogSummaryWrapper tr:nth-child(even)    { background-color:#cccccc; }
+/*.droneLogSummaryWrapper tr:last-child td:last-child {
+	-moz-border-radius-bottomright:5px;
+	-webkit-border-bottom-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.droneLogSummaryWrapper table tr:first-child td:first-child {
+	-moz-border-radius-topleft:5px;
+	-webkit-border-top-left-radius:5px;
+	border-top-left-radius:5px;
+}
+.droneLogSummaryWrapper table tr:first-child td:last-child {
+	-moz-border-radius-topright:5px;
+	-webkit-border-top-right-radius:5px;
+	border-top-right-radius:5px;
+}.droneLogSummaryWrapper tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:5px;
+	-webkit-border-bottom-left-radius:5px;
+	border-bottom-left-radius:5px;
+}.droneLogSummaryWrapper tr:hover td{
+	
+}
+.droneLogSummaryWrapper tr:nth-child(odd){ background-color:#6699cc; }
+.droneLogSummaryWrapper tr:nth-child(even)    { background-color:#cccccc; }.droneLogSummaryWrapper td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #ff7f00;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:10px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.droneLogSummaryWrapper tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.droneLogSummaryWrapper tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.droneLogSummaryWrapper tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.droneLogSummaryWrapper tr:first-child td{
+		background:-o-linear-gradient(bottom, #003366 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #003366), color-stop(1, #003f7f) );
+	background:-moz-linear-gradient( center top, #003366 5%, #003f7f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#003366", endColorstr="#003f7f");	background: -o-linear-gradient(top,#003366,003f7f);
+
+	background-color:#003366;
+	border:0px solid #ff7f00;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+.droneLogSummaryWrapper tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #003366 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #003366), color-stop(1, #003f7f) );
+	background:-moz-linear-gradient( center top, #003366 5%, #003f7f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#003366", endColorstr="#003f7f");	background: -o-linear-gradient(top,#003366,003f7f);
+
+	background-color:#003366;
+}
+.droneLogSummaryWrapper tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.droneLogSummaryWrapper tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}*/
+
+.droneLogWrapper {
+    width: 700px;
+    height: 200px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+
 
 
 /*
@@ -85,7 +460,7 @@ B 0
 [1/12/16, 4:51:14 PM] robertmatkins: Orange for Drone:
 R 188
 G 102
-[1/12/16, 4:51:20 PM] robertmatkins: B 58
+B 58
 [1/12/16, 4:51:56 PM] robertmatkins: Purple for Drone:
 R 126
 G 58
