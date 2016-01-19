@@ -786,6 +786,7 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     text-align: center;
 }
 .droneUpgradeOptionImage{background-image: url(../images/LostCell/beta_drone_128.png);width: 128px;height: 128px;}
+.droneUpgradeOptionImageLocked{background-image: url(../images/LostCell/lock2.png);width: 128px;height: 128px;}
 .droneUpgradeOptionWrapper{
     height: 151px;
     box-shadow: 7px 8px 4px #000;
