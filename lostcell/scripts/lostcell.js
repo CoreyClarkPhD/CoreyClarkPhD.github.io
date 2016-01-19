@@ -31,6 +31,9 @@ var LostCell = {
 		droneStateAtomImageWrapper: null,
 		dataStateDroneImageWrapper: null,
 		dataStateAtomImageWrapper: null,
+		upgradeStateDroneImageWrapper: null,
+		upgradeStateAtomImageWrapper: null,
+		droneUpgradeButton: null,
 		loginButton: null
 	},
 	FSM: null,
@@ -946,26 +949,35 @@ var LostCell = {
 			LostCell.HTML.app = new os.resschmgr.HTML();
 			LostCell.HTML.app.SetHTML(document.getElementById("lostcell"));
 			
+			//DATA STATE
 			LostCell.HTML.States.Data = new os.resschmgr.HTML();
 			LostCell.HTML.States.Data.SetHTML(document.getElementById("Data"));
-			
-			LostCell.HTML.States.Drone = new os.resschmgr.HTML();
-			LostCell.HTML.States.Drone.SetHTML(document.getElementById("Drone"));
-			
-			LostCell.HTML.States.Upgrade = new os.resschmgr.HTML();
-			LostCell.HTML.States.Upgrade.SetHTML(document.getElementById("Upgrade"));
-			
-			LostCell.HTML.States.Login = new os.resschmgr.HTML();
-			LostCell.HTML.States.Login.SetHTML(document.getElementById("Login"));
-			
-			
-			LostCell.HTML.droneStateDroneImageWrapper = document.getElementById('droneStateBetaDroneWrapper');
-			LostCell.HTML.droneStateAtomImageWrapper = document.getElementById("droneStateAtomWrapper");
-			
 			LostCell.HTML.dataStateDroneImageWrapper = document.getElementById('dataStateBetaDroneWrapper');
 			LostCell.HTML.dataStateAtomImageWrapper = document.getElementById("dataStateAtomWrapper");
 			
+			//DRONE STATE
+			LostCell.HTML.States.Drone = new os.resschmgr.HTML();
+			LostCell.HTML.States.Drone.SetHTML(document.getElementById("Drone"));
+			LostCell.HTML.droneStateDroneImageWrapper = document.getElementById('droneStateBetaDroneWrapper');
+			LostCell.HTML.droneStateAtomImageWrapper = document.getElementById("droneStateAtomWrapper");
+			LostCell.HTML.droneUpgradeButton = document.getElementById('droneUpgrade');
+			
+			//UPGRADE STATE
+			LostCell.HTML.States.Upgrade = new os.resschmgr.HTML();
+			LostCell.HTML.States.Upgrade.SetHTML(document.getElementById("Upgrade"));
+			LostCell.HTML.upgradeStateDroneImageWrapper = document.getElementById('upgradeStateBetaDroneWrapper');
+			LostCell.HTML.upgradeStateAtomImageWrapper = document.getElementById("upgradeStateAtomWrapper");
+			
+			//LOGIN STATE
+			LostCell.HTML.States.Login = new os.resschmgr.HTML();
+			LostCell.HTML.States.Login.SetHTML(document.getElementById("Login"));
 			LostCell.HTML.loginButton = document.getElementById("loginButton");
+			
+			
+			
+			
+			
+			
 			
 						 
 			
@@ -1016,6 +1028,10 @@ var LostCell = {
 				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
 				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
 				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.droneUpgradeButton.addEventListener('mousedown', function(){LostCell.FSM.AnimatedTransition("Upgrade");});
+				LostCell.HTML.droneUpgradeButton.addEventListener('touchend', function(){LostCell.FSM.AnimatedTransition("Upgrade");});
+				
+				
 			}
 			LostCell.States.Drone.Execute = function(obj, msg){
 				
@@ -1025,18 +1041,26 @@ var LostCell = {
 				LostCell.HTML.droneStateAtomImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
 				LostCell.HTML.droneStateDroneImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
 				LostCell.HTML.droneStateAtomImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.droneUpgradeButton.removeEventListener('mousedown', function(){LostCell.FSM.AnimatedTransition("Upgrade");});
+				LostCell.HTML.droneUpgradeButton.removeEventListener('touchend', function(){LostCell.FSM.AnimatedTransition("Upgrade");});
 			}
 			
 			
 			LostCell.States.Upgrade = LostCell.AIManager.State.Create("Upgrade");
 			LostCell.States.Upgrade.Enter = function(obj, msg){
-				
+				LostCell.HTML.upgradeStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.upgradeStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.upgradeStateDroneImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.upgradeStateAtomImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
 			}
 			LostCell.States.Upgrade.Execute = function(obj, msg){
 				
 			}
 			LostCell.States.Upgrade.Exit = function(obj, msg){
-				
+				LostCell.HTML.upgradeStateDroneImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.upgradeStateAtomImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.upgradeStateDroneImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.upgradeStateAtomImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
 			}
 			
 			LostCell.States.Data = LostCell.AIManager.State.Create("Data");
@@ -1168,8 +1192,8 @@ var LostCell = {
 		//os.input.Register.Touch.Event.End(LostCell.FullScreen, LostCell.FullScreen);
 		//os.input.Register.Mouse.Event.Up(LostCell.FullScreen, LostCell.FullScreen);
 		
-		LostCell.FSM.Transition("Login");
-		//LostCell.FSM.Transition("Data");
+		//LostCell.FSM.Transition("Login");
+		LostCell.FSM.Transition("Upgrade");
 	},
 	FullScreen: function(){
 		//LostCell.HTML.app.requestFullscreen();

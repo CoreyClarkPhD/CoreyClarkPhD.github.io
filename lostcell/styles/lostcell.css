@@ -155,6 +155,19 @@ select {
     background-color: green;
 }
 
+.yellow {
+    background-color: yellow;
+}
+
+.white {
+    background-color: white;
+}
+.purple {
+    background-color: purple;
+}
+.black {
+    background-color: black;
+}
 .loginButton{
     text-align: center;
     width: 50%;
@@ -227,12 +240,12 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
 .atomWrapper{
     width: 128px;
     height: 128px;
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 0px;
     background-color: rgb(0,0,0);
     border-bottom-left-radius: 25px;
-/*    border-top-right-radius: 10px;*/
+    /*    border-top-right-radius: 10px;*/
     border-color: #C36519;
     border-width: 0 0 5px 5px;
     border-style: solid;
@@ -315,6 +328,9 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     width: 32px;
     height: 32px;
     display: inline-block;
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
 }
 .droneButton{
     width: 80%;
@@ -535,4 +551,68 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     font-family: tahoma;
     font-size: 24px;
     margin-left: 10px;
+}
+
+/*
+ //
+ //     Upgrade State
+ //
+ 
+*/
+
+.upgradeDroneImageWrapper{
+    width: 256px;
+    height: 256px;
+    top: 133px;
+    left: 0px;
+    position:fixed;
+    z-index: 0;
+}
+.droneUpgradeImage {
+    width: 256px;
+    height: 256px;
+}
+.circle256{
+    border-radius: 256px;
+    width: 256px;
+    height: 256px;
+    display: inline-block;
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+}
+
+.upgradeDroneDataWrapper {
+    width: 644px;
+    height: 215px;
+    top: 133px;
+    right: 0px;
+    position:fixed;
+    z-index: 0;
+}
+
+.upgradeDroneUpgradesWrapper{
+    width: 644px;
+    height: 151px;
+    top: 348px;
+    right: 0px;
+    position:fixed;
+    z-index:0;
+}
+
+.upgradeHeaderWrapper{
+    width: 634px;
+    height: 132px;
+    top: 0px;
+    left: 133px;
+    position:fixed;
+    z-index: 0;
+}
+
+.upgradeButtonWrapper{
+    width: 256px;
+    height: 111px;
+    bottom: 0px;
+    left: 0px;
+    position:fixed;
 }
