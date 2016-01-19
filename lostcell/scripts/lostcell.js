@@ -1052,28 +1052,49 @@ var LostCell = {
 				//
 				
 					data = {
-					labels: ["January", "February", "March", "April", "May", "June", "July"],
+					labels: ["1", "2", "3", "4", "5", "6", "7"],
 					datasets: [
 						{
-							label: "My First dataset",
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "rgba(220,220,220,1)",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
+							label: "Drone 1",
+							fillColor: "rgba(255, 69, 0, 0.2)",
+							strokeColor: "#FF4500", //"rgba(220,220,220,1)",
+							pointColor: "#FF4500", //"rgba(220,220,220,1)",
+							pointStrokeColor: "#FF4500", //"#fff",
+							pointHighlightFill: "#FF4500", //"#fff",
 							pointHighlightStroke: "rgba(220,220,220,1)",
 							data: [65, 59, 80, 81, 56, 55, 40]
 						},
 						{
-							label: "My Second dataset",
+							label: "Drone 2",
 							fillColor: "rgba(151,187,205,0.2)",
-							strokeColor: "rgba(151,187,205,1)",
-							pointColor: "rgba(151,187,205,1)",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(151,187,205,1)",
+							strokeColor: "#CC5B94",
+							pointColor: "#CC5B94",
+							pointStrokeColor: "#CC5B94",
+							pointHighlightFill: "#CC5B94",
+							pointHighlightStroke: "rgba(204, 91, 148, 0.2)",
 							data: [28, 48, 40, 19, 86, 27, 90]
+						},
+						{
+							label: "Drone 3",
+							fillColor: "rgba(151,187,205,0.2)",
+							strokeColor: "#0DDA00",
+							pointColor: "#0DDA00",
+							pointStrokeColor: "#0DDA00",
+							pointHighlightFill: "#0DDA00",
+							pointHighlightStroke: "rgba(13, 218, 0, 0.2)",
+							data: [13, 23, 1, 44, 6, 4, 12]
+						},
+						{
+							label: "Drone 4",
+							fillColor: "rgba(151,187,205,0.2)",
+							strokeColor: "#2D2F6B",
+							pointColor: "#2D2F6B",
+							pointStrokeColor: "#2D2F6B",
+							pointHighlightFill: "#2D2F6B",
+							pointHighlightStroke: "rgba(45, 47, 107, 0.2)",
+							data: [23, 4, 3, 19, 45, 23, 32]
 						}
+						
 					]
 				};
 				ctx = document.getElementById("myChart").getContext("2d");
@@ -1114,8 +1135,8 @@ var LostCell = {
 		//os.input.Register.Touch.Event.End(LostCell.FullScreen, LostCell.FullScreen);
 		//os.input.Register.Mouse.Event.Up(LostCell.FullScreen, LostCell.FullScreen);
 		
-		LostCell.FSM.Transition("Login");
-		//LostCell.FSM.Transition("Data");
+		//LostCell.FSM.Transition("Login");
+		LostCell.FSM.Transition("Data");
 	},
 	FullScreen: function(){
 		//LostCell.HTML.app.requestFullscreen();
