@@ -1131,8 +1131,8 @@ var LostCell = {
 				};
 				ctx = document.getElementById("myChart").getContext("2d");
 				options={};
-				//myLineChart = new Chart(ctx).Line(data, options);
-				myLineChart = new Chart(ctx).Scatter(data, options);
+				myLineChart = new Chart(ctx).Line(data, options);
+				//myLineChart = new Chart(ctx).Scatter(data, options);
 			}
 			LostCell.States.Data.Execute = function(obj, msg){
 				
