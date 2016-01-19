@@ -1012,7 +1012,7 @@ var LostCell = {
 		Audio: function(){
 			os.console.Comment("Loading Audio");
 			//Menu Chirp
-			os.audio.Add("chirp", "scripts/jahovaos/audio/chirp", false, false);
+			os.audio.Add("chirp", "scripts/jahovaos/audio/Chirp", false, false);
 		},
 		States: function(){
 			os.console.Comment("Creating FSM");
