@@ -1024,16 +1024,16 @@ var LostCell = {
 			os.console.Comment("Laading Game States");
 			LostCell.States.Drone = LostCell.AIManager.State.Create("Drone");
 			LostCell.States.Drone.Enter = function(obj, msg){
+				
 				LostCell.FSM.AnimationBegin = 'shrink';//"flyOut";
 				LostCell.FSM.AnimationEnd = "";//"flyIn";
 				LostCell.FSM.AnimatedHTML = LostCell.HTML.app;
-				
-				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
-				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
-				LostCell.HTML.droneUpgradeButton.addEventListener('mousedown', function(){LostCell.FSM.AnimatedTransition("Upgrade");});
-				LostCell.HTML.droneUpgradeButton.addEventListener('touchend', function(){LostCell.FSM.AnimatedTransition("Upgrade");});
+				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.droneUpgradeButton.addEventListener('mousedown', function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Upgrade");});
+				LostCell.HTML.droneUpgradeButton.addEventListener('touchend', function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Upgrade");});
 				
 				
 			}
@@ -1041,38 +1041,38 @@ var LostCell = {
 				
 			}
 			LostCell.States.Drone.Exit = function(obj, msg){
-				LostCell.HTML.droneStateDroneImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.droneStateAtomImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
-				LostCell.HTML.droneStateDroneImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.droneStateAtomImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
-				LostCell.HTML.droneUpgradeButton.removeEventListener('mousedown', function(){LostCell.FSM.AnimatedTransition("Upgrade");});
-				LostCell.HTML.droneUpgradeButton.removeEventListener('touchend', function(){LostCell.FSM.AnimatedTransition("Upgrade");});
+				LostCell.HTML.droneStateDroneImageWrapper.removeEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.droneStateAtomImageWrapper.removeEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.droneStateDroneImageWrapper.removeEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.droneStateAtomImageWrapper.removeEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.droneUpgradeButton.removeEventListener('mousedown', function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Upgrade");});
+				LostCell.HTML.droneUpgradeButton.removeEventListener('touchend', function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Upgrade");});
 			}
 			
 			
 			LostCell.States.Upgrade = LostCell.AIManager.State.Create("Upgrade");
 			LostCell.States.Upgrade.Enter = function(obj, msg){
-				LostCell.HTML.upgradeStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.upgradeStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
-				LostCell.HTML.upgradeStateDroneImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.upgradeStateAtomImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.upgradeStateDroneImageWrapper.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.upgradeStateAtomImageWrapper.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.upgradeStateDroneImageWrapper.addEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.upgradeStateAtomImageWrapper.addEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
 			}
 			LostCell.States.Upgrade.Execute = function(obj, msg){
 				
 			}
 			LostCell.States.Upgrade.Exit = function(obj, msg){
-				LostCell.HTML.upgradeStateDroneImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.upgradeStateAtomImageWrapper.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
-				LostCell.HTML.upgradeStateDroneImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.upgradeStateAtomImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.upgradeStateDroneImageWrapper.removeEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.upgradeStateAtomImageWrapper.removeEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.upgradeStateDroneImageWrapper.removeEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.upgradeStateAtomImageWrapper.removeEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
 			}
 			
 			LostCell.States.Data = LostCell.AIManager.State.Create("Data");
 			LostCell.States.Data.Enter = function(obj, msg){
-				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
-				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
 				
 				//g2 = new Dygraph( document.getElementById("graphdiv2"),
 				//					"temperatures.csv", // path to CSV file
@@ -1166,23 +1166,23 @@ var LostCell = {
 				
 			}
 			LostCell.States.Data.Exit = function(obj, msg){
-				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
-				LostCell.HTML.dataStateDroneImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.dataStateAtomImageWrapper.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.dataStateDroneImageWrapper.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.dataStateAtomImageWrapper.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
+				LostCell.HTML.dataStateDroneImageWrapper.removeEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.dataStateAtomImageWrapper.removeEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Data");}, false);
 			}
 			
 			LostCell.States.Login = LostCell.AIManager.State.Create("Login");
 			LostCell.States.Login.Enter = function(obj, msg){
-				LostCell.HTML.loginButton.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.loginButton.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.loginButton.addEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.loginButton.addEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
 			}
 			LostCell.States.Login.Execute = function(obj, msg){
 				
 			}
 			LostCell.States.Login.Exit = function(obj, msg){
-				LostCell.HTML.loginButton.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
-				LostCell.HTML.loginButton.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.loginButton.removeEventListener("mousedown", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
+				LostCell.HTML.loginButton.removeEventListener("touchend", function(){os.audio.Play("chirp");LostCell.FSM.AnimatedTransition("Drone");}, false);
 				
 			}
 		
