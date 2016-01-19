@@ -145,6 +145,17 @@ select {
     border-radius: 50%;
     box-shadow: #000 0 -1px 7px 1px, inset #006 0 -1px 9px, #06F 0 2px 14px;
 }
+
+.led-orange {
+    /*margin: 12px ;*/
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #FF7F00;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #650 0 -1px 9px, #FFBC00 0 2px 14px;
+}
+
 .red {
     background-color: red;
 }
@@ -578,7 +589,7 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     height: 256px;
     display: inline-block;
     /* position: absolute; */
-    /* top: 0; */
+    /* top: 30px; */
     /* left: 0; */
 }
 
@@ -601,12 +612,15 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
 }
 
 .upgradeHeaderWrapper{
-    width: 634px;
+    width: 622px;
     height: 132px;
     top: 0px;
     left: 133px;
     position:fixed;
     z-index: 0;
+    text-align: right;
+    padding: 27px 0px 0px 0px;
+    color: #EFBE64;
 }
 
 .upgradeButtonWrapper{
@@ -615,4 +629,71 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     bottom: 0px;
     left: 0px;
     position:fixed;
+}
+
+.upgradeIndicators {
+    position: absolute;
+    color: #FFF;
+    width: 70px;
+    height: 20px;
+    font-family: tahoma;
+    font-size: 10px;
+    text-align: center;
+}
+.upgradeDroneName{
+    color: #AFA9A9;
+    font-family: tahomabd;
+    font-size: 24px;
+    float: left;
+    padding-left: 18px;
+}
+.upgradeInfoWrapper {
+    
+}
+
+.upgradeID{
+    float: right;
+    font-family: tahoma;
+    font-size: 23px;
+    background-color: #000;
+    color: white;
+    width: 48px;
+    height: 39px;
+    border-radius: 0px 0px 0px 60px;
+    text-align: right;
+    padding-right: 5px;
+    /* position: relative; */
+    /* top: 0px; */
+    /* left: 0px; */
+}
+.upgradeInfo{
+    position: absolute;
+    width: 98%;
+    top: 31px;
+    left: 5px;
+    /* background-color: white; */
+    height: 175px;
+    border-radius: 10px 0px 10px 10px;
+    box-shadow: 7px 8px 4px #000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#676B6D), to(#36383A));
+}
+.upgradeInfoTitle{
+    color: #E8873C;
+    font-family: tahomabd;
+    font-size: 20px;
+    float: left;
+    position: relative;
+    top: 20px;
+    left: 0;
+    padding: 0px 0px 0px 5px;
+}
+.upgradeInfoDescription{
+    font-family: tahoma;
+    font-size: 17px;
+    /* position: relative; */
+    /* top: 23px; */
+    text-align: left;
+    float: left;
+    padding-top: 10px;
+    padding-left: 15px;
 }
