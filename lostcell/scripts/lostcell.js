@@ -1062,8 +1062,16 @@ var LostCell = {
 							pointStrokeColor: "#FF4500", //"#fff",
 							pointHighlightFill: "#FF4500", //"#fff",
 							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: [65, 59, 80, 81, 56, 55, 40]
+							data: [
+									{ x: 19, y: 65 }, 
+									{ x: 27, y: 59 }, 
+									{ x: 28, y: 69 }, 
+									{ x: 40, y: 81, r:3 },
+									{ x: 48, y: 56 }
+								  ]
+							//data: [65, 59, 80, 81, 56, 55, 40]
 						},
+						
 						{
 							label: "Drone 2",
 							fillColor: "rgba(151,187,205,0.2)",
@@ -1072,7 +1080,15 @@ var LostCell = {
 							pointStrokeColor: "#CC5B94",
 							pointHighlightFill: "#CC5B94",
 							pointHighlightStroke: "rgba(204, 91, 148, 0.2)",
-							data: [28, 48, 40, 19, 86, 27, 90]
+							data: [
+									{ x: 19, y: 75, r: 1 }, 
+									{ x: 27, y: 69, r: 1 }, 
+									{ x: 28, y: 70, r: 1 }, 
+									{ x: 40, y: 31, r: 1 },
+									{ x: 48, y: 76, r: 1 },
+									{ x: 52, y: 23, r: 1 }, 
+									{ x: 55, y: 32, r: 1 }
+								  ]
 						},
 						{
 							label: "Drone 3",
@@ -1082,7 +1098,15 @@ var LostCell = {
 							pointStrokeColor: "#0DDA00",
 							pointHighlightFill: "#0DDA00",
 							pointHighlightStroke: "rgba(13, 218, 0, 0.2)",
-							data: [13, 23, 1, 44, 6, 4, 12]
+							data: [
+									{ x: 16, y: 75, r: 1 }, 
+									{ x: 29, y: 69, r: 1 }, 
+									{ x: 32, y: 70, r: 1 }, 
+									{ x: 40, y: 31, r: 1 },
+									{ x: 44, y: 76, r: 1 },
+									{ x: 58, y: 23, r: 1 }, 
+									{ x: 62, y: 32, r: 1 }
+								  ]
 						},
 						{
 							label: "Drone 4",
@@ -1092,14 +1116,23 @@ var LostCell = {
 							pointStrokeColor: "#2D2F6B",
 							pointHighlightFill: "#2D2F6B",
 							pointHighlightStroke: "rgba(45, 47, 107, 0.2)",
-							data: [23, 4, 3, 19, 45, 23, 32]
+							data: [
+									{ x: 12, y: 75, r: 3 }, 
+									{ x: 22, y: 69, r: 1 }, 
+									{ x: 29, y: 70, r: 1 }, 
+									{ x: 42, y: 31, r: 1 },
+									{ x: 55, y: 85, r: 3 },
+									{ x: 59, y: 23, r: 1 }, 
+									{ x: 72, y: 32, r: 1 }
+								  ]
 						}
 						
 					]
 				};
 				ctx = document.getElementById("myChart").getContext("2d");
 				options={};
-				myLineChart = new Chart(ctx).Line(data, options);	
+				//myLineChart = new Chart(ctx).Line(data, options);
+				myLineChart = new Chart(ctx).Scatter(data, options);
 			}
 			LostCell.States.Data.Execute = function(obj, msg){
 				
@@ -1135,8 +1168,8 @@ var LostCell = {
 		//os.input.Register.Touch.Event.End(LostCell.FullScreen, LostCell.FullScreen);
 		//os.input.Register.Mouse.Event.Up(LostCell.FullScreen, LostCell.FullScreen);
 		
-		LostCell.FSM.Transition("Login");
-		//LostCell.FSM.Transition("Data");
+		//LostCell.FSM.Transition("Login");
+		LostCell.FSM.Transition("Data");
 	},
 	FullScreen: function(){
 		//LostCell.HTML.app.requestFullscreen();
