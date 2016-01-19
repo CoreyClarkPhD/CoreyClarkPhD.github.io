@@ -1135,8 +1135,8 @@ var LostCell = {
 		//os.input.Register.Touch.Event.End(LostCell.FullScreen, LostCell.FullScreen);
 		//os.input.Register.Mouse.Event.Up(LostCell.FullScreen, LostCell.FullScreen);
 		
-		//LostCell.FSM.Transition("Login");
-		LostCell.FSM.Transition("Data");
+		LostCell.FSM.Transition("Login");
+		//LostCell.FSM.Transition("Data");
 	},
 	FullScreen: function(){
 		//LostCell.HTML.app.requestFullscreen();
