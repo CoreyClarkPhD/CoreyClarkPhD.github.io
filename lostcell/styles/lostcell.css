@@ -105,7 +105,7 @@ select {
     src: url('../images/LostCell/Fonts/euphemia.ttf') format('truetype');
 }
 .led-red {
-    /*margin: 12px ;*/
+    margin: 0px 0px 1px -5px;
     display: inline-block;
     width: 12px;
     height: 12px;
@@ -125,7 +125,9 @@ select {
 }
 
 .led-green {
-    /*margin: 12px ;*/
+    margin: 0px;
+    margin-bottom: 1px;
+    margin-left: -5px;
     display: inline-block;
     width: 12px;
     height: 12px;
@@ -301,6 +303,7 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     left: 0px;
     width: 225px;
     height: 367px;
+    position: fixed;
 
 }
 .droneImage {
@@ -311,6 +314,7 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     border-radius: 32px;
     width: 32px;
     height: 32px;
+    display: inline-block;
 }
 .droneButton{
     width: 80%;
@@ -325,6 +329,49 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     background: -webkit-gradient(linear, left top, left bottom, from(#676B6D), to(#36383A));
     box-shadow: 7px 8px 4px #000;
 }
+.droneListTableWrapper {
+    margin: 5px 0 0 3%;
+    padding: 0px;
+    width: 90%;
+    box-shadow: 7px 8px 4px #000;
+    border: 3px solid #ff7f00;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.droneListTableWrapper table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}
+.droneListTableWrapper td {
+    vertical-align: middle;
+    border: 1px solid #ff7f00;
+    border-width: 0px 0px 1px 0px;
+    text-align: left;
+    padding: 2px;
+    font-size: 20px;
+    font-family: euphemia;
+    font-weight: normal;
+    color: #000;
+    -webkit-column-width: 0px;
+}
+.droneListTableWrapper tr:nth-child(odd){ background-color:#6699cc; }
+.droneListTableWrapper tr:nth-child(even)    { background-color:#cccccc; }
+.droneListTableWrapper col:nth-child(odd){width: 30%;}
+.droneListTableWrapper col:nth-child(even){width: 70%;}
+
 /*
     DRONE LOG
  
@@ -368,75 +415,6 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
 }
 .droneLogSummaryWrapper tr:nth-child(odd){ background-color:#6699cc; }
 .droneLogSummaryWrapper tr:nth-child(even)    { background-color:#cccccc; }
-/*.droneLogSummaryWrapper tr:last-child td:last-child {
-	-moz-border-radius-bottomright:5px;
-	-webkit-border-bottom-right-radius:5px;
-	border-bottom-right-radius:5px;
-}
-.droneLogSummaryWrapper table tr:first-child td:first-child {
-	-moz-border-radius-topleft:5px;
-	-webkit-border-top-left-radius:5px;
-	border-top-left-radius:5px;
-}
-.droneLogSummaryWrapper table tr:first-child td:last-child {
-	-moz-border-radius-topright:5px;
-	-webkit-border-top-right-radius:5px;
-	border-top-right-radius:5px;
-}.droneLogSummaryWrapper tr:last-child td:first-child{
-	-moz-border-radius-bottomleft:5px;
-	-webkit-border-bottom-left-radius:5px;
-	border-bottom-left-radius:5px;
-}.droneLogSummaryWrapper tr:hover td{
-	
-}
-.droneLogSummaryWrapper tr:nth-child(odd){ background-color:#6699cc; }
-.droneLogSummaryWrapper tr:nth-child(even)    { background-color:#cccccc; }.droneLogSummaryWrapper td{
-	vertical-align:middle;
-	
-	
-	border:1px solid #ff7f00;
-	border-width:0px 1px 1px 0px;
-	text-align:left;
-	padding:7px;
-	font-size:10px;
-	font-family:Arial;
-	font-weight:normal;
-	color:#000000;
-}.droneLogSummaryWrapper tr:last-child td{
-	border-width:0px 1px 0px 0px;
-}.droneLogSummaryWrapper tr td:last-child{
-	border-width:0px 0px 1px 0px;
-}.droneLogSummaryWrapper tr:last-child td:last-child{
-	border-width:0px 0px 0px 0px;
-}
-.droneLogSummaryWrapper tr:first-child td{
-		background:-o-linear-gradient(bottom, #003366 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #003366), color-stop(1, #003f7f) );
-	background:-moz-linear-gradient( center top, #003366 5%, #003f7f 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#003366", endColorstr="#003f7f");	background: -o-linear-gradient(top,#003366,003f7f);
-
-	background-color:#003366;
-	border:0px solid #ff7f00;
-	text-align:center;
-	border-width:0px 0px 1px 1px;
-	font-size:14px;
-	font-family:Arial;
-	font-weight:bold;
-	color:#ffffff;
-}
-.droneLogSummaryWrapper tr:first-child:hover td{
-	background:-o-linear-gradient(bottom, #003366 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #003366), color-stop(1, #003f7f) );
-	background:-moz-linear-gradient( center top, #003366 5%, #003f7f 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#003366", endColorstr="#003f7f");	background: -o-linear-gradient(top,#003366,003f7f);
-
-	background-color:#003366;
-}
-.droneLogSummaryWrapper tr:first-child td:first-child{
-	border-width:0px 0px 1px 0px;
-}
-.droneLogSummaryWrapper tr:first-child td:last-child{
-	border-width:0px 0px 1px 1px;
-}*/
-
 .droneLogWrapper {
     width: 700px;
     height: 200px;
@@ -446,34 +424,115 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
 }
 
 
-
-
 /*
-Gray:
-R 82
-G 82
-B 78
-[1/12/16, 4:50:35 PM] robertmatkins: Orange for Fonts:
-R 255
-G 132
-B 0
-[1/12/16, 4:51:14 PM] robertmatkins: Orange for Drone:
-R 188
-G 102
-B 58
-[1/12/16, 4:51:56 PM] robertmatkins: Purple for Drone:
-R 126
-G 58
-B 188
-[1/12/16, 4:52:26 PM] robertmatkins: Blue Green for Drone:
-G 0
-[1/12/16, 4:52:44 PM] robertmatkins: R 0
-G 220
-B 165
-[1/12/16, 4:53:23 PM] robertmatkins: Yellow for Drone:
-R 220
-G 175
-B 0
-
+ //
+ //     Data State
+ //
+ 
 */
 
+/*
+    Drone List
+*/
+.dataDroneListWrapper {
+    bottom: 0px;
+    left: 0px;
+    width: 225px;
+    height: 367px;
+    position:fixed;
+}
+
+.scoreListTableWrapper {
+    margin: 5px 0 0 3%;
+    padding: 0px;
+    width: 90%;
+    box-shadow: 7px 8px 4px #000;
+    border: 3px solid #ff7f00;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.scoreListTableWrapper table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}
+.scoreListTableWrapper th {
+    vertical-align: middle;
+    border: 1px solid #ff7f00;
+    border-width: 0px 1px 1px 0px;
+    text-align: center;
+    padding: 7px;
+    font-size: 14px;
+    font-family: tahomabd;
+    font-weight: normal;
+    color: #000;
+}
+.scoreListTableWrapper td {
+    vertical-align: middle;
+    border: 1px solid #ff7f00;
+    border-width: 0px 0px 1px 0px;
+    text-align: left;
+    padding: 3px;
+    font-size: 13px;
+    font-family: tahomabd;
+    font-weight: normal;
+    color: #000;
+}
+.scoreListTableWrapper tr:nth-child(odd){ background-color:#6699cc; }
+.scoreListTableWrapper tr:nth-child(even)    { background-color:#cccccc; }
+
+/*
+    Chart
+*/
+.dataChartWrapper{
+    width: 640px;
+    height: 340px;
+    top: 140px;
+    right: 25px;
+    position:fixed;
+    z-index:0;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 7px 8px 4px #000;
+}
+
+.dataProblemWrapper{
+    width: 625px;
+    height: 135px;
+    top: 0px;
+    right: 130px;
+    position:fixed;
+    z-index:0;
+}
+
+.dataProblemButton{
+    width: 180px;
+    height: 30px;
+    border: 3px solid #ff7f00;
+    font-family: tahomabd;
+    font-size: 21px;
+    border-radius: 5px;
+    margin: 0 20px 0 0;
+    padding: 0px 0px 0px 5px;
+    margin-top: 10px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#676B6D), to(#36383A));
+    box-shadow: 7px 8px 4px #000;
+    float: right;
+}
+.dataProblemName {
+    font-family: tahoma;
+    font-size: 24px;
+    margin-left: 10px;
+}

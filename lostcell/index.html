@@ -4,7 +4,9 @@
     <meta charset"utf-8" />
 
     <title>Lost Cell</title>
- 
+    <!--<script type="text/javascript" src="scripts/dygraph-combined-dev.js"></script>-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    
     <script type="text/javascript" src="scripts/jahovaos/jahova.os.min.js" ></script>  
     <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" rev="stylesheet" href="styles/jahovaos/jahova.os.min.css" />
  
@@ -67,16 +69,18 @@
                 </div>
             </div>
             <div id="droneListWrapper" class='droneListWrapper'>
-                <div class='droneLogSummaryWrapper'>
+                <div class='droneListTableWrapper'>
                     <table class=''>
+                        <colgroup>
+                            <col>
+                            <col>
+                        </colgroup>
                         <tr>
                             <td>
                                 <div class="circle32" style="background-color: orangered">
-                                    <img class='droneImage' src='./images/LostCell/BDrone_256.png'>
+                                    <img class='droneImage' src='./images/LostCell/beta_drone_128.png'>
                                 </div>
-                            </td>
-                            <td>
-                                <div class='led-green'></div> 
+                                <div class='led-green'></div>
                             </td>
                             <td>
                                 NAME 
@@ -85,10 +89,8 @@
                         <tr>
                             <td>
                                 <div class="circle32" style="background-color: #CC5B94;">
-                                    <img class='droneImage' src='./images/LostCell/BDrone_256.png'>
-                                </div> 
-                            </td>
-                            <td>
+                                    <img class='droneImage' src='./images/LostCell/beta_drone_128.png'>
+                                </div>
                                 <div class='led-green'></div>  
                             </td>
                             <td>
@@ -98,10 +100,8 @@
                         <tr>
                             <td>
                                 <div class="circle32" style="background-color: #0DDA00;">
-                                    <img class='droneImage' src='./images/LostCell/BDrone_256.png'>
-                                </div> 
-                            </td>
-                            <td>
+                                    <img class='droneImage' src='./images/LostCell/beta_drone_128.png'>
+                                </div>
                                 <div class='led-red'></div>  
                             </td>
                             <td>
@@ -111,11 +111,9 @@
                         <tr>
                             <td>
                                 <div class="circle32" style="background-color: #2D2F6B;">
-                                    <img class='droneImage' src='./images/LostCell/BDrone_256.png'>
-                                </div> 
-                            </td>
-                            <td>
-                                <div class='led-red'></div>  
+                                    <img class='droneImage' src='./images/LostCell/beta_drone_128.png'>
+                                </div>
+                                <div class='led-red'></div> 
                             </td>
                             <td>
                                 NAME 
@@ -155,7 +153,120 @@
         </div>
         <div id="Data" class="inactiveState">
             <div id="dataStateBetaDroneWrapper" class="droneWrapper"><div id='betaDrone' class="drone"></div></div>
+            <div id="dataDroneListWrapper" class='dataDroneListWrapper'>
+                <div class='scoreListTableWrapper'>
+                    <table class=''>
+                        <tr>
+                            <th colspan='2'>
+                                GLOBAL HIGH SCORES
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                USER
+                            </td>
+                            <td>
+                                1243.232
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                USER
+                            </td>
+                            <td>
+                                1143.232
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                USER
+                            </td>
+                            <td>
+                                1043.232
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                USER
+                            </td>
+                            <td>
+                                943.232
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                USER
+                            </td>
+                            <td>
+                                943.232
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class='droneListTableWrapper'>
+                    <table class=''>
+                        <colgroup>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <tr>
+                            <td>
+                                <div class="circle32" style="background-color: orangered">
+                                    <img class='droneImage' src='./images/LostCell/beta_drone_128.png'>
+                                </div>
+                                <div class='led-green'></div>
+                            </td>
+                            <td>
+                                NAME 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="circle32" style="background-color: #CC5B94;">
+                                    <img class='droneImage' src='./images/LostCell/beta_drone_128.png'>
+                                </div>
+                                <div class='led-green'></div>  
+                            </td>
+                            <td>
+                                NAME 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="circle32" style="background-color: #0DDA00;">
+                                    <img class='droneImage' src='./images/LostCell/beta_drone_128.png'>
+                                </div>
+                                <div class='led-red'></div>  
+                            </td>
+                            <td>
+                                NAME 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="circle32" style="background-color: #2D2F6B;">
+                                    <img class='droneImage' src='./images/LostCell/beta_drone_128.png'>
+                                </div>
+                                <div class='led-red'></div> 
+                            </td>
+                            <td>
+                                NAME 
+                            </td>
+                        </tr> 
+                    </table>
+                </div>
+            </div>
+            <div id="dataProblemWrapper" class='dataProblemWrapper'>
+                <p>Data Processing</p>
+                <div id='dataProblemName' class="dataProblemName">Reverse Engineering Gene Regulatory Networks</div>
+                <div id='dataProblem'class="dataProblemButton">Change Problem</div>
+            </div>
+            <div id="dataChartWrapper" class='dataChartWrapper'>
+               <canvas id="myChart" width="640" height="340"></canvas>
+               <!--<div id="graphdiv2" style="width:500px; height:300px;"></div>-->
+            </div>
             <div id="dataStateAtomWrapper" class="atomWrapper"><div id='atom' class="atom"></div></div>
+            
         </div>
         
     </div>

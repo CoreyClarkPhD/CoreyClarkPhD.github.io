@@ -1,0 +1,17 @@
+<html>
+<head>
+<script type="text/javascript" src="scripts/dygraph-combined-dev.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.com/libraries/chart.js"></script>-->
+</head>
+<body>
+<div id="graphdiv2"
+  style="width:500px; height:300px;"></div>
+<script type="text/javascript">
+  g2 = new Dygraph(
+    document.getElementById("graphdiv2"),
+    "temperatures.csv", // path to CSV file
+    {}          // options
+  );
+</script>
+</body>
+</html>
