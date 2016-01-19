@@ -33,13 +33,13 @@
             <div id="droneDataWrapper" class='droneDataWrapper'>
                 <div class='droneDataBackground'>
                     <div id="droneData" class='droneData'>
-                        <p id="droneName">Drone "Name"</p>
+                        <p id="droneName" class='droneName'>Drone "Name"</p>
                         <div id="droneClassWrapper">
-                            <label for="droneClass">CLASS\BETA:<div id='droneClass' class='droneClass'>LEVEL 5</div></label>
+                            <label for="droneClass" class='droneClassLabel'>CLASS\BETA:<div id='droneClass' class='droneClass'>LEVEL 5</div></label>
                             
                         </div>
                         <div id='droneTaskWrapper'>
-                            <label>CURRENT TASK:</label>
+                            <label class="droneCurrentTaskLabel">CURRENT TASK:</label>
                             <select id='droneTask'>
                                 <option>Gathering</option>
                                 <option selected>Explore</option>
@@ -49,18 +49,18 @@
                             </select>
                         </div>
                         <div id="droneStatusWrapper">
-                            <label for="droneStatus">STATUS:<div id='droneStatus' class='droneStatus'>((WORKING))</div></label>
+                            <label for="droneStatus" class='droneSatusLabel'>STATUS:<div id='droneStatus' class='droneStatus'>((WORKING))</div></label>
                             
                         </div>
                         <div id="droneFuelWrapper">
-                            <label for='droneFuel'>FUEL | 75%</label>
+                            <label for='droneFuel' class='droneFuelLabel'>FUEL | </label><div id='droneFuelPercentage' class='droneFuelPercentage'>75%</div>
                             <div id='droneFuelSlider' class='slider blue'>
                                 <div id='droneFuel' class='green' style=" height: 100%; width: 75%;"></div>
                             </div>
                                 
                         </div>
                         <div id="droneHealthWrapper">
-                            <label for="droneHealth">HEALTH | 25%</label>
+                            <label for="droneHealth"class='droneHealthLabel'>HEALTH | </label><div id='droneHealthPercentage' class='droneHealthPercentage'>25%</div>
                             
                             <div id='droneHealthSlider' class='slider blue'>
                                 <div id='droneHealth' class='green' style=" height: 100%; width: 25%;"></div>
@@ -173,8 +173,34 @@
                     </div>
                 </div>
             </div>
-            <div id='upgradeDroneUpgradesWrapper' class='upgradeDroneUpgradesWrapper green'></div>
-            <div id='upgradeButtonWrapper' class='upgradeButtonWrapper white'></div>
+            <div id='upgradeDroneUpgradesWrapper' class='upgradeDroneUpgradesWrapper'>
+                <div id='droneUpgradeOptionWrapper' class='droneUpgradeOptionWrapper'>
+                    <div id='droneUpgradeOption1' class='droneUpgradeOption'>
+                        <div id='droneUpgradeOptionImage1' class='droneUpgradeOptionImage'></div>
+                        <div id='droneUpgradeOptionLabel1' class='droneUpgradeOptionLabel'>Option 1</div>
+                    </div>
+                    <div id='droneUpgradeOption2' class='droneUpgradeOption'>
+                        <div id='droneUpgradeOptionImage2' class='droneUpgradeOptionImage'></div>
+                        <div id='droneUpgradeOptionLabel2' class='droneUpgradeOptionLabel'>Option 2</div>
+                    </div>
+                    <div id='droneUpgradeOption3' class='droneUpgradeOption'>
+                        <div id='droneUpgradeOptionImage3' class='droneUpgradeOptionImage'></div>
+                        <div id='droneUpgradeOptionLabel3' class='droneUpgradeOptionLabel'>Option 3</div>
+                    </div>
+                    <div id='droneUpgradeOption4' class='droneUpgradeOption'>
+                        <div id='droneUpgradeOptionImage4' class='droneUpgradeOptionImage'></div>
+                        <div id='droneUpgradeOptionLabel4' class='droneUpgradeOptionLabel'>Option 4</div>
+                    </div>
+                    <div id='droneUpgradeOption5' class='droneUpgradeOption'>
+                        <div id='droneUpgradeOptionImage5' class='droneUpgradeOptionImage'></div>
+                        <div id='droneUpgradeOptionLabel5' class='droneUpgradeOptionLabel'>Option 5</div>
+                    </div>
+                </div>
+            </div>
+            <div id='upgradeButtonWrapper' class='upgradeButtonWrapper'>
+                <div id='upgradeSubmitChangesButton'class="upgradeSubmitChangesButton">Accept Changes</div>
+                <div id='upgradeDroneCodexButton' class='upgradeDroneCodexButton'> Drone Codex </div>
+            </div>
             <div id="upgradeStateAtomWrapper" class="atomWrapper"><div id='atom' class="atom"></div></div>
             
         </div>
