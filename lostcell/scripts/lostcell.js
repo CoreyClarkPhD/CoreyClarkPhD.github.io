@@ -1024,6 +1024,10 @@ var LostCell = {
 			os.console.Comment("Laading Game States");
 			LostCell.States.Drone = LostCell.AIManager.State.Create("Drone");
 			LostCell.States.Drone.Enter = function(obj, msg){
+				LostCell.FSM.AnimationBegin = 'shrink';//"flyOut";
+				LostCell.FSM.AnimationEnd = "";//"flyIn";
+				LostCell.FSM.AnimatedHTML = LostCell.HTML.app;
+				
 				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
 				LostCell.HTML.droneStateAtomImageWrapper.addEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Data");}, false);
 				LostCell.HTML.droneStateDroneImageWrapper.addEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
@@ -1179,6 +1183,7 @@ var LostCell = {
 			LostCell.States.Login.Exit = function(obj, msg){
 				LostCell.HTML.loginButton.removeEventListener("mousedown", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
 				LostCell.HTML.loginButton.removeEventListener("touchend", function(){LostCell.FSM.AnimatedTransition("Drone");}, false);
+				
 			}
 		
 		}

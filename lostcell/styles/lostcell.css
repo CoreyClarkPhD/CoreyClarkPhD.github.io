@@ -11,12 +11,13 @@
     height: 500px;
     left: 50%;
     top: 50%;
-    margin: -250px 0 0 -450px; 
+    margin: -250px 0 0 -450px;
     -webkit-perspective: 800;
     perspective: 800;
     border-radius: 10px;
     font-family: 'Outlier';
     font-size: xx-large;
+    /* overflow: hidden; */
 }
 
 
@@ -56,7 +57,13 @@ select {
 .inactiveState {
     display: none;
 }
-
+.shrink{
+    width: 5px;
+    height: 5px
+}
+.expand{
+    
+}
 .flyIn {
     left: 50%;
     -webkit-transform:  rotateY(0) rotate(0);
