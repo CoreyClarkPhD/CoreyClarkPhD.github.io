@@ -59,7 +59,8 @@ select {
 }
 .shrink{
     width: 5px;
-    height: 5px
+    height: 5px;
+    overflow: hidden;
 }
 .expand{
     
@@ -665,7 +666,7 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     width: 622px;
     height: 132px;
     top: 0px;
-    left: 133px;
+    right: 163px;
     position:fixed;
     z-index: 0;
     text-align: right;
