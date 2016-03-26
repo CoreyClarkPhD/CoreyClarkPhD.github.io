@@ -211,6 +211,10 @@ select {
  
 */
 
+.DroneState{
+    /* position: absolute; */
+}
+
 /*
  Multiline CSS Animation w/ Visual Debugging 
 http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-a-grid-image-not-in-a-row
@@ -218,7 +222,7 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
 .drone {
     width: 128px;
     height: 128px;
-    background-image: url("../images/LostCell/BDrone_anim_hover_128.png");
+    background-image: url("../images/LostCell/Updated/ADrone_idle_anim-1.png");
     position: relative;
     animation: droneHoverV 2.25s steps(9) infinite, droneHoverH 0.25s steps(10) infinite;
  /*   
@@ -245,7 +249,7 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     position: relative;
     background-color: rgb(0,0,0);
     border-bottom-right-radius: 25px;
-/*    border-top-left-radius: 10px;*/
+    /*    border-top-left-radius: 10px;*/
     border-color: #C36519;
     border-width: 0 5px 5px 0;
     border-style: solid;
@@ -408,7 +412,7 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     margin: 5px 0 0 3%;
     padding: 0px;
     width: 90%;
-    box-shadow: 7px 8px 4px #000;
+    /* box-shadow: 7px 8px 4px #000; */
     border: 3px solid #ff7f00;
     -moz-border-radius-bottomleft: 5px;
     -webkit-border-bottom-left-radius: 5px;
@@ -506,7 +510,9 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
  //
  
 */
-
+.DataState{
+    
+}
 /*
     Drone List
 */
@@ -592,6 +598,8 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     position:fixed;
     z-index:0;
     color: white;
+    background-color: gray;
+    border-radius: 10px;
 }
 
 .dataProblemButton{
@@ -621,6 +629,9 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
  //
  
 */
+.UpgradeState{
+    
+}
 
 .upgradeDroneImageWrapper{
     width: 256px;
@@ -786,8 +797,8 @@ http://stackoverflow.com/questions/22571983/css-animations-with-spritesheets-in-
     font-size: 15px;
     text-align: center;
 }
-.droneUpgradeOptionImage{background-image: url(../images/LostCell/beta_drone_128.png);width: 128px;height: 128px;}
-.droneUpgradeOptionImageLocked{background-image: url(../images/LostCell/lock2.png);width: 128px;height: 128px;}
+.droneUpgradeOptionImage{background-image: url(../images/LostCell/Updated/ADrone_f25_128x.png);width: 128px;height: 128px;}
+.droneUpgradeOptionImageLocked{background-image: url(../images/LostCell/Updated/ADrone_locked.png);width: 128px;height: 128px;}
 .droneUpgradeOptionWrapper{
     height: 151px;
     box-shadow: 7px 8px 4px #000;
