@@ -7,11 +7,15 @@ var Atom = {
 		//Atom.Start();
 
 	},
+	timeSinceNetworkTraffic: 0,
+	networkUpdateInterval: 10000,
 	socket: null,
 	Connect: function(){
+
 		Atom.Players = new CMap();
 		Atom.socket = new WebSocket("ws://bmtsock-bluehelix.rhcloud.com:8000");
 		Atom.socket.onopen = function(e){
+			Atom.timeSinceNetworkTraffic = Date.now();
 			var pkt = new CDiCEPacket();
 			pkt.type = 6; //Admin packet
 			Atom.socket.send(pkt.serialize());
@@ -19,6 +23,7 @@ var Atom = {
 		Atom.socket.onmessage = Atom.HandleMessage;
 	},
 	HandleMessage: function(msg){
+		Atom.timeSinceNetowrkTraffic = Date.now();
 		var pkt = new CDiCEPacket(msg.data);
 		// Type: 3
 		// Int1: PlayerID
@@ -395,6 +400,13 @@ var Atom = {
 			Atom.Draw.Data.Chart();
 
 			
+		}
+		if((time - Atom.timeSinceNetworkTraffic) > Atom.networkUpdateInterval){
+			Atom.timeSinceNetworkTraffic = time;
+
+			var pkt = new CDiCEPacket();
+			pkt.type = 6; //Admin packet
+			Atom.socket.send(pkt.serialize());
 		}
 		window.requestAnimationFrame(Atom.Update);
 	},
