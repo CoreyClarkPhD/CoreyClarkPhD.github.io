@@ -1,11 +1,15 @@
 .app{
-    background-color: rgb(82, 82, 78);
+
+}
+
+.canvas{
+    /*background-color: rgb(82, 82, 78);*/
     transition: all 1000ms;
     -webkit-transition: all 1000ms;
     position:absolute;
-    border-radius: 10px;
+  /*  border-radius: 10px;
     -webkit-box-shadow: 20px 20px 20px #000;
-    box-shadow: 20px 20px 20px #000;
+    box-shadow: 20px 20px 20px #000;*/
     border: 1px solid #002232;
     width: 900px;
     height: 500px;
@@ -14,12 +18,29 @@
     margin: -250px 0 0 -450px;
     -webkit-perspective: 800;
     perspective: 800;
-    border-radius: 10px;
+ /*   border-radius: 10px;*/
     font-family: 'Outlier';
     font-size: xx-large;
     /* overflow: hidden; */
 }
-
+.atomChartWrapper{
+    width: 550px;
+    height: 420px;
+    top: 178px;
+    left: 416px;
+    position:relative;
+    z-index:0;
+    /*background-color: aliceblue;*/
+/*    border-radius: 10px;
+    box-shadow: 7px 8px 4px #000;*/
+}
+.plot{
+    position: relative;
+    width: 550px;
+    height: 420px;
+    top: 50px;
+    left: 174px;
+}
 
 #lostcell:-webkit-full-screen{
     width: 100%;
@@ -77,6 +98,14 @@ select {
     -webkit-transform: rotateY(-90deg) rotate(-90deg);
     transform: rotateY(-90deg) rotate(-90deg);
     /*-webkit-animation: flyOut 800ms ease-in;*/
+}
+@font-face{
+    font-family: 'DINOT-Regular';
+    src: url('../images/LostCell/Fonts/DINOT-Regular_0.otf') format('truetype');
+}
+@font-face{
+    font-family: 'zekton_rg_1';
+    src: url('../images/LostCell/Fonts/zekton_rg_1.otf') format('truetype');
 }
 
 @font-face{

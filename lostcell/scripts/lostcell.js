@@ -12,8 +12,6 @@ var LostCell = {
 		
 		LostCell.Run();
 		
-		
-		
 	},
 	HTML: {
 		app: null,
