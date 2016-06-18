@@ -406,7 +406,10 @@ var Atom = {
 
 			var pkt = new CDiCEPacket();
 			pkt.type = 6; //Admin packet
-			Atom.socket.send(pkt.serialize());
+			if(Atom.socket && Atom.socket.OPEN){
+				Atom.socket.send(pkt.serialize());
+			}
+			
 		}
 		window.requestAnimationFrame(Atom.Update);
 	},
