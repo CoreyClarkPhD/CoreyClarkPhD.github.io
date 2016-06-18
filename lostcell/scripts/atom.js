@@ -27,7 +27,7 @@ var Atom = {
 		// Float1: BDe
 		// Float2: normalized BDe
 		// String1: network
-		console.log("Got message");
+		//console.log("Got message");
 		if(pkt.type == 3){ //Solution
 			var player = Atom.Players.get(pkt.int1);
 			var soln =  new CSolution(pkt);
@@ -37,12 +37,14 @@ var Atom = {
 			}
 			else{ //New player
 				player = new CPlayer();
+				console.log("Player: " + pkt.int1);
+				console.log("Prob: " + pkt.int2);
 				player.Profile.id = pkt.int1;
 				player.Problem.id = pkt.int2;
 				Atom.Players.put(player.Profile.id, player);
 				Atom.pArray.push(player);
 				player.id = Atom.pArray.length;
-				if(Atom.pArray.lenght >5){Atom.pArray.shift()}
+				if(Atom.pArray.length > 5){Atom.pArray.shift()}
 			}
 
 			if(player.id = 1){
