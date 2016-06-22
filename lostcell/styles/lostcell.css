@@ -23,6 +23,17 @@
     font-size: xx-large;
     /* overflow: hidden; */
 }
+.atomChartSlideWrapper{
+    width: 550px;
+    height: 420px;
+    top: 31px;
+    left: 167px;
+    position:relative;
+    z-index:0;
+    /*background-color: aliceblue;*/
+/*    border-radius: 10px;
+    box-shadow: 7px 8px 4px #000;*/
+}
 .atomChartWrapper{
     width: 550px;
     height: 420px;

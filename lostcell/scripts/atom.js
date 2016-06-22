@@ -5,6 +5,7 @@ var Atom = {
 		Atom.Connect();
 
 		//Atom.Start();
+		os.debugbar.Disable();
 
 	},
 	timeSinceNetworkTraffic: 0,
