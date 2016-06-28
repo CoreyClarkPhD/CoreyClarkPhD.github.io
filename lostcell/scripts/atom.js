@@ -8,9 +8,11 @@ var Atom = {
 		os.debugbar.Disable();
 
 	},
+	active: false,
 	timeSinceNetworkTraffic: 0,
-	networkUpdateInterval: 10000,
+	networkUpdateInterval: 30000,
 	socket: null,
+	globals: null,
 	Connect: function(){
 
 		Atom.Players = new CMap();
@@ -20,6 +22,7 @@ var Atom = {
 			var pkt = new CDiCEPacket();
 			pkt.type = 6; //Admin packet
 			Atom.socket.send(pkt.serialize());
+			Atom.active = true;
 		}
 		Atom.socket.onmessage = Atom.HandleMessage;
 	},
@@ -43,9 +46,10 @@ var Atom = {
 			}
 			else{ //New player
 				player = new CPlayer();
-				console.log("Player: " + pkt.int1);
+				console.log("Player: " + pkt.string2 + " ID: " + pkt.int1);
 				console.log("Prob: " + pkt.int2);
 				player.Profile.id = pkt.int1;
+				player.Profile.name = pkt.string2;
 				player.Problem.id = pkt.int2;
 				Atom.Players.put(player.Profile.id, player);
 				Atom.pArray.push(player);
@@ -53,21 +57,13 @@ var Atom = {
 				if(Atom.pArray.length > 5){Atom.pArray.shift()}
 			}
 
-			if(player.id = 1){
-				Atom.Data.d1.score = soln.score;
+			player.last = soln.score;
+			Atom.globals.push({score: soln.score, name: player.Profile.name}, soln.score);
+			Atom.globals.sort();
+			if(Atom.globals.size() > 5){
+				Atom.globals.content.length = 5;
 			}
-			else if(player.id = 2){
-				Atom.Data.d2.score = soln.score;
-			}
-			else if(player.id = 3){
-				Atom.Data.d3.score = soln.score;
-			}
-			else if(player.id = 4){
-				Atom.Data.d4.score = soln.score;
-			}
-			else if(player.id = 5){
-				Atom.Data.d5.score = soln.score;
-			}
+			
 		}
 		if(Atom.firstPacket){
 			Atom.firstPacket = false;
@@ -98,14 +94,14 @@ var Atom = {
 			Atom.HTML.ss.src = "./images/LostCell/Atom/8Cell_MasterSpriteSheet.png";
 			Atom.HTML.ss.addEventListener('load', Atom.Start, false);
 
-			Atom.Data.datasets.push(Atom.Data.d1);
-			Atom.Data.datasets.push(Atom.Data.d2);
-			Atom.Data.datasets.push(Atom.Data.d3);
-			Atom.Data.datasets.push(Atom.Data.d4);
 			Atom.Data.datasets.push(Atom.Data.d5);
+			Atom.Data.datasets.push(Atom.Data.d4);
+			Atom.Data.datasets.push(Atom.Data.d3);
+			Atom.Data.datasets.push(Atom.Data.d2);
+			Atom.Data.datasets.push(Atom.Data.d1);
 
 			Chart.defaults.global.animation = false;
-			Chart.defaults.global.defaultColor =  'rgb(240, 248, 255, 1)';
+			//Chart.defaults.global.defaultColor =  'rgb(240, 248, 255, 1)';
 
 			Atom.HTML.chartCtx = document.getElementById("myChart").getContext("2d");
 			for(var i = 0; i < 100; i++){
@@ -124,7 +120,7 @@ var Atom = {
 			Atom.Data.globals.push({player:"Name", score: -80000});
 			Atom.Data.globals.push({player:"Name", score: -80000});
 
-
+			Atom.globals = CPriorityQueue({low: true});
 		}
 	},
 	HTML: {
@@ -134,7 +130,6 @@ var Atom = {
 		chart: null,
 		chartCtx: null,
 		Data: {
-			
 		}
 	},
 	Data: {
@@ -148,12 +143,12 @@ var Atom = {
 			label: "Drone 1",
 			username: "",
 			score: 0.0,
-			fillColor: "rgba(255, 69, 0, 0.2)",
-			strokeColor: "#FF4500", //"rgba(220,220,220,1)",
-			pointColor: "#FF4500", //"rgba(220,220,220,1)",
-			pointStrokeColor: "#FF4500", //"#fff",
-			pointHighlightFill: "#FF4500", //"#fff",
-			pointHighlightStroke: "rgba(220,220,220,1)",
+			fillColor: "rgba(255, 0,0,0.2)",//255, 69, 0, 0.2)",
+			strokeColor: "rgba(255, 0,0,0.2)",//"#FF4500", //"rgba(220,220,220,1)",
+			pointColor: "rgba(255, 0,0,0.2)",//"#FF4500", //"rgba(220,220,220,1)",
+			pointStrokeColor: "rgba(255, 0,0,0.2)",//"#FF4500", //"#fff",
+			pointHighlightFill: "rgba(255, 0,0,0.2)",//"#FF4500", //"#fff",
+			pointHighlightStroke: "rgba(255, 0,0,0.2)",//"rgba(220,220,220,1)",
 			data: [  ]
 		},
 		d2: {
@@ -161,12 +156,12 @@ var Atom = {
 			label: "Drone 2",
 			username: "",
 			score: 0.0,
-			fillColor: "rgba(151,187,205,0.2)",
-			strokeColor: "#CC5B94",
-			pointColor: "#CC5B94",
-			pointStrokeColor: "#CC5B94",
-			pointHighlightFill: "#CC5B94",
-			pointHighlightStroke: "rgba(204, 91, 148, 0.2)",
+			fillColor: "rgba(0, 255, 0, 0.2)",//151,187,205,0.2)",
+			strokeColor: "rgba(0, 255, 0, 0.2)",//"#CC5B94",
+			pointColor: "rgba(0, 255, 0, 0.2)",//"#CC5B94",
+			pointStrokeColor: "rgba(0, 255, 0, 0.2)",//"#CC5B94",
+			pointHighlightFill: "rgba(0, 255, 0, 0.2)",//"#CC5B94",
+			pointHighlightStroke: "rgba(0, 255, 0, 0.2)",//"rgba(204, 91, 148, 0.2)",
 			data: []
 		},
 		d3: {
@@ -174,12 +169,12 @@ var Atom = {
 			label: "Drone 3",
 			username: "",
 			score: 0.0,
-			fillColor: "rgba(151,187,205,0.2)",
-			strokeColor: "#0DDA00",
-			pointColor: "#0DDA00",
-			pointStrokeColor: "#0DDA00",
-			pointHighlightFill: "#0DDA00",
-			pointHighlightStroke: "rgba(13, 218, 0, 0.2)",
+			fillColor: "rgba(0,0,255,0.2)",//187,151,205,0.2)",
+			strokeColor: "rgba(0,0,255,0.2)",//"#0DDA00",
+			pointColor: "rgba(0,0,255,0.2)",//"#0DDA00",
+			pointStrokeColor: "rgba(0,0,255,0.2)",//"#0DDA00",
+			pointHighlightFill: "rgba(0,0,255,0.2)",//"#0DDA00",
+			pointHighlightStroke: "rgba(0,0,255,0.2)",//"rgba(13, 218, 0, 0.2)",
 			data: []
 		},
 		d4: {
@@ -187,12 +182,12 @@ var Atom = {
 			label: "",
 			username: "",
 			score: 0.0,
-			fillColor: "rgba(151,187,205,0.2)",
-			strokeColor: "#2D2F6B",
-			pointColor: "#2D2F6B",
-			pointStrokeColor: "#2D2F6B",
-			pointHighlightFill: "#2D2F6B",
-			pointHighlightStroke: "rgba(45, 47, 107, 0.2)",
+			fillColor: "rgba(0,0,0,0.8)",//151,205,187,0.2)",
+			strokeColor: "rgba(0,0,0,0.8)",//"#2D2F6B",
+			pointColor: "rgba(0,0,0,0.8)",//"#2D2F6B",
+			pointStrokeColor: "rgba(0,0,0,0.8)",//"#2D2F6B",
+			pointHighlightFill: "rgba(0,0,0,0.8)",//"#2D2F6B",
+			pointHighlightStroke: "rgba(0,0,0,0.8)",//"rgba(45, 47, 107, 0.2)",
 			data: []
 		},
 		d5: {
@@ -200,54 +195,81 @@ var Atom = {
 			label: "",
 			username: "",
 			score: 0.0,
-			fillColor: "rgba(151,5,205,0.2)",
-			strokeColor: "#2D2F6B",
-			pointColor: "#2D2F6B",
-			pointStrokeColor: "#2D2F6B",
-			pointHighlightFill: "#2D2F6B",
-			pointHighlightStroke: "rgba(45, 47, 107, 0.2)",
+			fillColor: "rgba(255, 0, 255, 0.2)", //151,5,205,0.2)",
+			strokeColor: "rgba(255, 0, 255, 0.2)", //"#2D2F6B",
+			pointColor: "rgba(255, 0, 255, 0.2)", //"#2D2F6B",
+			pointStrokeColor: "rgba(255, 0, 255, 0.2)", //"#2D2F6B",
+			pointHighlightFill: "rgba(255, 0, 255, 0.2)", //"#2D2F6B",
+			pointHighlightStroke: "rgba(255, 0, 255, 0.2)", //"rgba(45, 47, 107, 0.2)",
 			data: [ ]
 		}
-
 	},
 	Draw: {
 		Data: {
 			GlobalScoreNames: function(){
-				Atom.HTML.ctx.font      = '18pt zekton_rg_1';
-				Atom.HTML.ctx.fillStyle = '#303035';
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[0].player, 176, 193);
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[1].player, 176, 224);
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[2].player, 176, 257);
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[3].player, 176, 289);
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[4].player, 176, 321);
-			},
-			GlobalScores: function(){
-				Atom.HTML.ctx.font      = '18pt zekton_rg_1';
-				Atom.HTML.ctx.fillStyle = '#303035';
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[0].score, 368, 193);
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[1].score, 368, 224);
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[2].score, 368, 257);
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[3].score, 368, 289);
-				Atom.HTML.ctx.fillText  (Atom.Data.globals[4].score, 368, 321);
-			},
-			UserScoresUsernames: function(){
-				Atom.HTML.ctx.font      = '18pt zekton_rg_1';
-				Atom.HTML.ctx.fillStyle = '#303035';
-				Atom.HTML.ctx.fillText  ("Player: " + Atom.Data.d1.username, 176, 437);
-				Atom.HTML.ctx.fillText  ("Player: " + Atom.Data.d2.username, 176, 468);
-				Atom.HTML.ctx.fillText  ("Player: " + Atom.Data.d3.username, 176, 501);
-				Atom.HTML.ctx.fillText  ("Player: " + Atom.Data.d4.username, 176, 533);
-				Atom.HTML.ctx.fillText  ("Player: " + Atom.Data.d5.username, 176, 565);
-			},
-			UserScores: function(){
+				var p1,p2,p3,p4,p5;
+				p1 = Atom.globals.content[0];
+				p2 = Atom.globals.content[1];
+				p3 = Atom.globals.content[2];
+				p4 = Atom.globals.content[3];
+				p5 = Atom.globals.content[4];
+
 
 				Atom.HTML.ctx.font      = '18pt zekton_rg_1';
 				Atom.HTML.ctx.fillStyle = '#303035';
-				Atom.HTML.ctx.fillText  (Atom.Data.d1.score.toFixed(3), 368, 437);
-				Atom.HTML.ctx.fillText  (Atom.Data.d2.score.toFixed(3), 368, 468);
-				Atom.HTML.ctx.fillText  (Atom.Data.d3.score.toFixed(3), 368, 501);
-				Atom.HTML.ctx.fillText  (Atom.Data.d4.score.toFixed(3), 368, 533);
-				Atom.HTML.ctx.fillText  (Atom.Data.d5.score.toFixed(3), 368, 565);
+				Atom.HTML.ctx.fillText  ((p1 ? p1.object.name : ""), 176, 193);
+				Atom.HTML.ctx.fillText  ((p2 ? p2.object.name : ""), 176, 224);
+				Atom.HTML.ctx.fillText  ((p3 ? p3.object.name : ""), 176, 257);
+				Atom.HTML.ctx.fillText  ((p4 ? p4.object.name : ""), 176, 289);
+				Atom.HTML.ctx.fillText  ((p5 ? p5.object.name : ""), 176, 321);
+			},
+			GlobalScores: function(){
+				var p1,p2,p3,p4,p5;
+				p1 = Atom.globals.content[0];
+				p2 = Atom.globals.content[1];
+				p3 = Atom.globals.content[2];
+				p4 = Atom.globals.content[3];
+				p5 = Atom.globals.content[4];
+
+				Atom.HTML.ctx.font      = '18pt zekton_rg_1';
+				Atom.HTML.ctx.fillStyle = '#303035';
+				Atom.HTML.ctx.fillText  ((p1 ? p1.object.score.toFixed(2) : ""), 348, 193);
+				Atom.HTML.ctx.fillText  ((p2 ? p2.object.score.toFixed(2) : ""), 348, 224);
+				Atom.HTML.ctx.fillText  ((p3 ? p3.object.score.toFixed(2) : ""), 348, 257);
+				Atom.HTML.ctx.fillText  ((p4 ? p4.object.score.toFixed(2) : ""), 348, 289);
+				Atom.HTML.ctx.fillText  ((p5 ? p5.object.score.toFixed(2) : ""), 348, 321);
+			},
+			UserScoresUsernames: function(){
+				var p1,p2,p3,p4,p5;
+				p1 = Atom.pArray[0];
+				p2 = Atom.pArray[1];
+				p3 = Atom.pArray[2];
+				p4 = Atom.pArray[3];
+				p5 = Atom.pArray[4];
+
+				Atom.HTML.ctx.font      = '18pt zekton_rg_1';
+				Atom.HTML.ctx.fillStyle = '#303035';
+				Atom.HTML.ctx.fillText  ((p1 ? p1.Profile.name : ""), 176, 437);
+				Atom.HTML.ctx.fillText  ((p2 ? p2.Profile.name : ""), 176, 468);
+				Atom.HTML.ctx.fillText  ((p3 ? p3.Profile.name : ""), 176, 501);
+				Atom.HTML.ctx.fillText  ((p4 ? p4.Profile.name : ""), 176, 533);
+				Atom.HTML.ctx.fillText  ((p5 ? p5.Profile.name : ""), 176, 565);
+			},
+			UserScores: function(){
+				var p1,p2,p3,p4,p5;
+				p1 = Atom.pArray[0];
+				p2 = Atom.pArray[1];
+				p3 = Atom.pArray[2];
+				p4 = Atom.pArray[3];
+				p5 = Atom.pArray[4];
+
+				Atom.HTML.ctx.font      = '18pt zekton_rg_1';
+				Atom.HTML.ctx.fillStyle = '#303035';
+				Atom.HTML.ctx.fillText  ((p1 ? p1.last.toFixed(2) : ""), 348, 437);
+				Atom.HTML.ctx.fillText  ((p2 ? p2.last.toFixed(2) : ""), 348, 468);
+				Atom.HTML.ctx.fillText  ((p3 ? p3.last.toFixed(2) : ""), 348, 501);
+				Atom.HTML.ctx.fillText  ((p4 ? p4.last.toFixed(2) : ""), 348, 533);
+				Atom.HTML.ctx.fillText  ((p5 ? p5.last.toFixed(2) : ""), 348, 565);
 				
 			},
 			Background: function(){
@@ -283,102 +305,88 @@ var Atom = {
 				Atom.HTML.ctx.fillText  ('User Last Scores', 176, 400);
 			},
 			Chart: function(){
+				var point = {
+					time: 0,
+					score: 0.0
+				}
+				var p1,p2,p3,p4,p5;
+				p1 = Atom.pArray[0];
+				p2 = Atom.pArray[1];
+				p3 = Atom.pArray[2];
+				p4 = Atom.pArray[3];
+				p5 = Atom.pArray[4];
+
 				for(var i = 0; i < 100; i++){
-					var pl = Atom.pArray[0];
-					if(Atom.pArray[0]){
-						var length = pl.solutions.length;
-						Atom.Data.d1.username = Atom.pArray[0].Profile.id;
-						if(length > 0){
-							if((pl.solutions.length - 1) >= i)
-							Atom.HTML.chart.datasets[0].setPointData(i, pl.solutions[i].time, pl.solutions[i].score, 1);
-							else{
 
-								Atom.HTML.chart.datasets[0].setPointData(i, pl.solutions[length-1 < 0 ? 0 : length-1].time, pl.solutions[length-1 < 0 ? 0 : length-1].score, 1);
+					if(p1){//Does p1 Exist?
+						if(p1.solutions.length > 0){//Does p1 have any solutions
+							if(p1.solutions.length > i ){//Verify p1 has enough data points
+								point.time = p1.solutions[i].time;
+								point.score = p1.solutions[i].score;	
 							}
-						}
-						
-
-							
+							else{ //Duplciate al points to last avalible solution
+								point.time = p1.solutions[p1.solutions.length-1].time;
+								point.score = p1.solutions[p1.solutions.length-1].score;
+							}
+						}	
 					}
-					if(Atom.pArray[1]){
-						var p2 = Atom.pArray[1];
-						var length = p2.solutions.length;
-						Atom.Data.d1.username = Atom.pArray[1].Profile.id;
-						if(length > 0){
-							if((p2.solutions.length - 1) >= i && length > 0)
-								Atom.HTML.chart.datasets[1].setPointData(i, p2.solutions[i].time, p2.solutions[i].score, 1);
-							else
-								Atom.HTML.chart.datasets[1].setPointData(i, p2.solutions[length-1 < 0 ? 0 : length-1].time, p2.solutions[length-1 < 0 ? 0 : length-1].score, 1);
-						}
-					}else if(pl){
-						if((pl.solutions.length - 1) >= i)
-							Atom.HTML.chart.datasets[1].setPointData(i, pl.solutions[i].time, pl.solutions[i].score, 1);
-						else if(pl.solutions.length >0){
-
-							Atom.HTML.chart.datasets[1].setPointData(i, pl.solutions[length-1 < 0 ? 0 : length-1].time, pl.solutions[length-1 < 0 ? 0 : length-1].score, 1);
-						}
+					Atom.HTML.chart.datasets[0].setPointData(i, point.time, point.score, 1);
+					
+					if(p2){
+						if(p2.solutions.length > 0){//Does player have any solutions
+							if(p2.solutions.length > i ){//Verify player has enough data points
+								point.time = p2.solutions[i].time;
+								point.score = p2.solutions[i].score;	
+							}
+							else{ //Duplciate al points to last avalible solution
+								point.time = p2.solutions[p2.solutions.length-1].time;
+								point.score = p2.solutions[p2.solutions.length-1].score;
+							}
+						}	
 					}
-
-					if(Atom.pArray[2]){
-						var p3 = Atom.pArray[2];
-						var length = pl.solutions.length;
-						Atom.Data.d1.username = Atom.pArray[2].Profile.id;
-						if(length > 0){
-							if((p3.solutions.length - 1) >= i)
-								Atom.HTML.chart.datasets[2].setPointData(i, p3.solutions[i].time, p3.solutions[i].score, 1);
-							else
-								Atom.HTML.chart.datasets[2].setPointData(i, p3.solutions[length-1 < 0 ? 0 : length-1].time, p3.solutions[length-1 < 0 ? 0 : length-1].score, 1);
-						}
-					}else if(pl){
-						if((pl.solutions.length - 1) >= i)
-							Atom.HTML.chart.datasets[2].setPointData(i, pl.solutions[i].time, pl.solutions[i].score, 1);
-						else if(pl.solutions.length >0){
-
-							Atom.HTML.chart.datasets[2].setPointData(i, pl.solutions[length-1 < 0 ? 0 : length-1].time, pl.solutions[length-1 < 0 ? 0 : length-1].score, 1);
-						}
+					Atom.HTML.chart.datasets[1].setPointData(i, point.time, point.score, 1);
+					
+					if(p3){
+						if(p3.solutions.length > 0){//Does player have any solutions
+							if(p3.solutions.length > i ){//Verify player has enough data points
+								point.time = p3.solutions[i].time;
+								point.score = p3.solutions[i].score;	
+							}
+							else{ //Duplciate al points to last avalible solution
+								point.time = p3.solutions[p3.solutions.length-1].time;
+								point.score = p3.solutions[p3.solutions.length-1].score;
+							}
+						}	
 					}
+					Atom.HTML.chart.datasets[2].setPointData(i, point.time, point.score, 1);
 
-
-					if(Atom.pArray[3]){
-						var p4 = Atom.pArray[3];
-						var length = p4.solutions.length;
-						Atom.Data.d1.username = Atom.pArray[3].Profile.id;
-						if(length > 0){
-							if((p4.solutions.length - 1) >= i )
-								Atom.HTML.chart.datasets[3].setPointData(i, p4.solutions[i].time, p4.solutions[i].score, 1);
-							else
-								Atom.HTML.chart.datasets[3].setPointData(i, p4.solutions[length-1 < 0 ? 0 : length-1].time, p4.solutions[length-1 < 0 ? 0 : length-1].score, 1);
-						}
+					if(p4){
+						if(p4.solutions.length > 0){//Does player have any solutions
+							if(p4.solutions.length > i ){//Verify player has enough data points
+								point.time = p4.solutions[i].time;
+								point.score = p4.solutions[i].score;	
+							}
+							else{ //Duplciate al points to last avalible solution
+								point.time = p4.solutions[p4.solutions.length-1].time;
+								point.score = p4.solutions[p4.solutions.length-1].score;
+							}
+						}	
 					}
-					else if(pl){
-						if((pl.solutions.length - 1) >= i)
-							Atom.HTML.chart.datasets[3].setPointData(i, pl.solutions[i].time, pl.solutions[i].score, 1);
-						else if(pl.solutions.length >0){
+					Atom.HTML.chart.datasets[3].setPointData(i, point.time, point.score, 1);
 
-							Atom.HTML.chart.datasets[3].setPointData(i, pl.solutions[length-1 < 0 ? 0 : length-1].time, pl.solutions[length-1 < 0 ? 0 : length-1].score, 1);
-						}
+					if(p5){
+						if(p5.solutions.length > 0){//Does player have any solutions
+							if(p5.solutions.length > i ){//Verify player has enough data points
+								point.time = p5.solutions[i].time;
+								point.score = p5.solutions[i].score;	
+							}
+							else{ //Duplciate al points to last avalible solution
+								point.time = p5.solutions[p5.solutions.length-1].time;
+								point.score = p5.solutions[p5.solutions.length-1].score;
+							}
+						}	
 					}
-
-					if(Atom.pArray[4]){
-						var p5 = Atom.pArray[4];
-						var length = p5.solutions.length;
-						Atom.Data.d1.username = Atom.pArray[4].Profile.id;
-						if(length > 0){
-							if((p5.solutions.length - 1) >= i)
-								Atom.HTML.chart.datasets[4].setPointData(i, p5.solutions[i].time, p5.solutions[i].score, 1);
-							else
-								Atom.HTML.chart.datasets[4].setPointData(i, p5.solutions[length-1 < 0 ? 0 : length-1].time, p5.solutions[length-1 < 0 ? 0 : length-1].score, 1);
-						}
-					}
-					else if(pl){
-						if((pl.solutions.length - 1) >= i)
-							Atom.HTML.chart.datasets[4].setPointData(i, pl.solutions[i].time, pl.solutions[i].score, 1);
-						else if(pl.solutions.length >0){
-
-							Atom.HTML.chart.datasets[4].setPointData(i, pl.solutions[length-1 < 0 ? 0 : length-1].time, pl.solutions[length-1 < 0 ? 0 : length-1].score, 1);
-						}
-					}
-						
+					Atom.HTML.chart.datasets[4].setPointData(i, point.time, point.score, 1);
 				}
 				Atom.HTML.chart.update();
 				
@@ -394,15 +402,16 @@ var Atom = {
 
 			Atom.HTML.canvas.width = 1280;
 			Atom.Draw.Data.Background();
-			//Atom.Draw.Data.GlobalScoreNames()
-			//Atom.Draw.Data.GlobalScores();
+			Atom.Draw.Data.GlobalScoreNames()
+			Atom.Draw.Data.GlobalScores();
 			Atom.Draw.Data.UserScoresUsernames();
 			Atom.Draw.Data.UserScores();
 			Atom.Draw.Data.Chart();
 
 			
 		}
-		if((time - Atom.timeSinceNetworkTraffic) > Atom.networkUpdateInterval){
+		var keepAlive = (time - Atom.timeSinceNetworkTraffic) > Atom.networkUpdateInterval ;
+		if(Atom.active && keepAlive ){
 			Atom.timeSinceNetworkTraffic = time;
 
 			var pkt = new CDiCEPacket();
@@ -449,6 +458,7 @@ var CSolution = function(pkt){
 		problemID: pkt.int2,
 		time: pkt.iArray[0],
 		score: pkt.float1, 
+		name: pkt.string2
 	}
 }
 var CPlayer = function(){
@@ -786,3 +796,126 @@ CMap.prototype.toString = function() {
         string += ']';
         return string;
 };
+
+//Priority Queue - https://github.com/STRd6/PriorityQueue.js
+            // var queue = PriorityQueue({low: true});
+        var CPriorityQueue = function(options) {
+            var contents = [];
+        
+            var sorted = false;
+            var sortStyle;
+        
+            if(options && options.low) {
+              sortStyle = prioritySortLow;
+            } else {
+              sortStyle = prioritySortHigh;
+            }
+        
+            /**
+             * @private
+             */
+            var sort = function() {
+              contents.sort(sortStyle);
+              sorted = true;
+            };
+        
+            var self = {
+            	content: contents,
+            	sort: sort,
+              /**
+               * Removes and returns the next element in the queue.
+               * @member PriorityQueue
+               * @return The next element in the queue. If the queue is empty returns
+               * undefined.
+               *
+               * @see PrioirtyQueue#top
+               */
+              pop: function() {
+                if(!sorted) {
+                  sort();
+                }
+        
+                var element = contents.pop();
+        
+                if(element) {
+                  return element.object;
+                } else {
+                  return undefined;
+                }
+              },
+        
+              /**
+               * Returns but does not remove the next element in the queue.
+               * @member PriorityQueue
+               * @return The next element in the queue. If the queue is empty returns
+               * undefined.
+               *
+               * @see PriorityQueue#pop
+               */
+              top: function() {
+                if(!sorted) {
+                  sort();
+                }
+        
+                var element = contents[contents.length - 1];
+        
+                if(element) {
+                  return element.object;
+                } else {
+                  return undefined;
+                }
+              },
+        
+              /**
+               * @member PriorityQueue
+               * @param object The object to check the queue for.
+               * @returns true if the object is in the queue, false otherwise.
+               */
+              includes: function(object) {
+                for(var i = contents.length - 1; i >= 0; i--) {
+                  if(contents[i].object === object) {
+                    return true;
+                  }
+                }
+        
+                return false;
+              },
+        
+              /**
+               * @member PriorityQueue
+               * @returns the current number of elements in the queue.
+               */
+              size: function() {
+                return contents.length;
+              },
+        
+              /**
+               * @member PriorityQueue
+               * @returns true if the queue is empty, false otherwise.
+               */
+              empty: function() {
+                return contents.length === 0;
+              },
+        
+              /**
+               * @member PriorityQueue
+               * @param object The object to be pushed onto the queue.
+               * @param priority The priority of the object.
+               */
+              push: function(object, priority) {
+                contents.push({object: object, priority: priority});
+                sorted = false;
+              },
+              clear: function(){
+                return contents.length = 0;
+              }
+            };
+        
+            return self;
+        }
+        var prioritySortLow = function(a, b) {
+          return b.priority - a.priority;
+        };
+        var prioritySortHigh = function(a, b) {
+          return a.priority - b.priority;
+        };
