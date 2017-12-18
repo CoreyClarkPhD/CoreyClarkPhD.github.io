@@ -1,5 +1,8 @@
 mixerAuth();
 
+var ls = window.localStorage;
+
+
 var container = document.getElementById('container');
 var containerBottom = document.getElementById('container-frame-bottom');
 var containerTop = document.getElementById('container-frame-top');
@@ -28,36 +31,50 @@ communitySelector.addEventListener('change', function(e){
         communityImageCSS = "view-center-image-bmt";
         communityGoalImage.className = 'view-right-field-top-image ' + communityImageCSS;
         communityNameDiv.innerHTML = "balanced";
+        ls.setItem('communityImageCSS', communityImageCSS);
+        ls.setItem('communityName', communityNameDiv.innerHTML);
+
     } 
     else if(communitySelector.value == "2"){
         containerViewCenter.className = "view-center view-center-image-dire expand";
         communityImageCSS = "view-center-image-dire";
         communityGoalImage.className = 'view-right-field-top-image ' + communityImageCSS;
         communityNameDiv.innerHTML = "Direwolf20";
+        ls.setItem('communityImageCSS', communityImageCSS);
+        ls.setItem('communityName', communityNameDiv.innerHTML);
     }
     else if(communitySelector.value == "3"){
         containerViewCenter.className = "view-center view-center-image-tangotek expand";
         communityImageCSS = "view-center-image-tangotek";
         communityGoalImage.className = 'view-right-field-top-image ' + communityImageCSS;
         communityNameDiv.innerHTML = "tango tek";
+        ls.setItem('communityImageCSS', communityImageCSS);
+        ls.setItem('communityName', communityNameDiv.innerHTML);
+        
     }
     else if(communitySelector.value == "4"){
         containerViewCenter.className = "view-center view-center-image-impulse expand";
         communityImageCSS = "view-center-image-impulse";
         communityGoalImage.className = 'view-right-field-top-image ' + communityImageCSS;
         communityNameDiv.innerHTML = "ImpulseSV";
+        ls.setItem('communityImageCSS', communityImageCSS);
+        ls.setItem('communityName', communityNameDiv.innerHTML);
     }
     else if(communitySelector.value == "5"){
         containerViewCenter.className = "view-center view-center-image-ghost expand";
         communityImageCSS = "view-center-image-ghost";
         communityGoalImage.className = 'view-right-field-top-image ' + communityImageCSS;
         communityNameDiv.innerHTML = "GhostfromTexas";
+        ls.setItem('communityImageCSS', communityImageCSS);
+        ls.setItem('communityName', communityNameDiv.innerHTML);
     }
     else {
         containerViewCenter.className = "view-center view-center-image-bmt expand";
         communityImageCSS = "view-center-image-bmt";
         communityGoalImage.className = 'view-right-field-top-image ' + communityImageCSS;
         communityNameDiv.innerHTML = "balanced";
+        ls.setItem('communityImageCSS', communityImageCSS);
+        ls.setItem('communityName', communityNameDiv.innerHTML);
     }
 }, false);
 
@@ -202,3 +219,16 @@ containerTop.onclick = function(e){
         container.classList.remove('close');
     }
 }
+
+var init = function(){
+    if(ls.getItem('communityImageCSS')){
+        communityImageCSS = ls.getItem('communityImageCSS');
+        communityGoalImage.className = 'view-right-field-top-image ' + communityImageCSS;
+    }
+
+    if(ls.getItem('communityName')){
+        containerViewCenter.className = 'view-center ' + communityImageCSS + ' close';
+    }
+}
+
+init();
