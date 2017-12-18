@@ -1,0 +1,512 @@
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  /* background-color:rgba(0, 0, 0, 0.5) */
+  
+}
+
+body{
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.hide {
+  /* display: none; */
+  width: 0px;
+  height: 0px;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.sans-serif{
+  font-family: Sans-Serif;
+  color: white;
+}
+
+/* 
+    Frame Boarders
+ */
+
+.top {
+  height: 33px;
+  width: 256px;
+  /* border-top: 18px solid #044aec00; */
+  /* border-left: 26px solid transparent; */
+  /* border-right: 26px solid transparent; */
+  position: absolute;
+  top: 0px;
+  background: url('../images/top.png');
+  background-size: cover;
+}
+
+.left {
+  height: 256px;
+  width: 33px;
+  /* border-bottom: 18px solid #04ec1600; */
+  /* border-left: 26px solid #00ff40; */
+  /* border-top: 18px solid transparent; */
+  /* top: 0px; */
+  left: 0px;
+  position: absolute;
+  background: url("../images/left.png");
+  background-size: cover;
+}
+
+.right {
+  height: 256px;
+  width: 33px;
+  /* border-right: 26px solid #deec04; */
+  /* border-top: 18px solid transparent; */
+  /* border-bottom: 18px solid transparent; */
+  position: absolute;
+  /* top: 0; */
+  right: 0;
+  background: url("../images/right.png");
+  background-size: cover;
+}
+
+.bottom {
+  height: 33px;
+  width: 256px;
+  /* border-bottom: 18px solid #ec3504; */
+  /* border-left: 26px solid transparent; */
+  /* border-right: 26px solid transparent; */
+  position: absolute;
+  bottom: -1px;
+  background: url("../images/bottom.png");
+  background-size: cover;
+}
+
+/* 
+        Data Views
+ */
+
+.view-right {
+  width: 0px;
+  height: 193px;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 31px;
+  left: 224px;
+  overflow: hidden;
+}
+
+.view-right.expand{
+  transition: 0.5s;
+  width: 460px !important;
+  direction: rtl;
+}
+
+.view-left {
+  width: 0px;
+  height: 195px;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 31px;
+  right: 223px;
+}
+
+.view-left.expand {
+  transition: 0.5s;
+  width: 176px !important;
+  direction: rtl;
+}
+
+.view-bottom {
+  width: 192px;
+  height: 0px;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 224px;
+  overflow: hidden;
+  left: 33px;
+}
+
+.view-bottom.expand{
+  transition: 0.5s;
+  height: 212px !important;
+}
+
+.view-bottom-field {
+ width: 80px;
+ height: 80px;
+ position: absolute;
+}
+.view-bottom-field.top_position {
+  top: 13px;
+  left: 9px;
+}
+
+.view-bottom-field.middle_position {
+  top: 13px;
+  left: 101px;
+}
+
+.view-bottom-field.bottom_position {
+  top: 108px;
+  left: 9px;
+}
+
+.view-bottom-field.right_position {
+  top: 108px;
+  left: 101px;
+}
+
+.wiley-image{
+  background: url(../images/wileywizardicon.png) no-repeat;
+  /* background-position: center; */
+  background-size: cover;
+}
+
+.defender-image {
+  background: url(../images/defender.png);
+  background-size: cover;
+}
+
+.childs-image {
+  background: url(../images/ChildsPlay.png);
+  background-size: cover;
+}
+
+.srg-image {
+  background: url('../images/srg.png');
+  background-size: cover;
+}
+
+
+.view-center {
+  background-size: 58%;
+  width: 191px;
+  height: 192px;
+  position: absolute;
+  top: 32px;
+  left: 25px;
+}
+
+.view-center-image-bmt {
+  background: rgba(0, 0, 0, 0.8) url(../images/BALANCEDIcon.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.view-center-image-tangotek {
+  background: rgba(0, 0, 0, 0.8) url(../images/tangotek.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.view-center-image-ghost {
+  background: rgba(0, 0, 0, 0.8) url(../images/TexasGhost01.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.view-center-image-dire {
+  background: rgba(0, 0, 0, 0.8) url(../images/dire.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.view-center-image-impulse {
+  background: rgba(0, 0, 0, 0.8) url(../images/TexasGhost01.png);
+  background-position: center;
+  background-size: cover;
+}
+
+
+.view-center.expand {
+  transition: 0.5s;
+  left: 208px !important;
+}
+
+.view-center.close {
+  transition: 0.5s;
+  left: 33px;
+}
+
+/* 
+      Container Animations
+ */
+
+.container {
+  width: 257px;
+  height: 255px;
+  /* background: url("../images/Background.png"); */
+  /* background: #000000ad; */
+  /* background-color:rgba(0, 0, 0, 0.8); */
+  position: relative;
+  /* overflow: hidden; */
+  top: -50;
+}
+
+.container.expandRight {
+  /* -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s; */
+  transition: 0.5s;
+  width: 717px !important;
+}
+
+.container.expandLeft {
+  /* -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s; */
+  transition: 0.5s;
+  width: 431px !important;
+  direction: rtl;
+}
+
+.container.close {
+  /* -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s; */
+  transition: 0.5s;
+  top:  0;
+  left: 0;
+  width: 257px !important;
+  height: 255px !important;
+  direction: ltr;
+}
+
+.container.expandBottom{
+  transition: 0.5s;
+  height: 466px !important;
+}
+
+.container.expandTop{
+  transition: 0.5s;
+  /* top: 296px !important; */
+  /* height: 296px !important; */
+}
+
+
+.view-right-field {
+  height: 44px;
+  width: 269px;
+  background-color: rgb(13,30,50);
+  right: 88px;
+  position: absolute;
+  overflow: hidden;
+  /* box-shadow: inset -5px -5px 5px #888; */
+  }
+
+
+.view-right-field-top {
+  top: 20px;
+}
+
+.view-right-field-bottom {
+  top: 113px;
+}
+
+.view-right-field-top-image {width: 44px;height: 44px;top: 20px;left: 42px;position: absolute;}
+.community-goal-image {background: url('../images/BALANCEDIcon.png');background-size: cover;background-position: center;}
+
+.view-right-field-bottom-image {
+  width: 44px;
+  height: 44px;
+  top: 113px;
+  left: 42px;
+  position: absolute;
+}
+
+.user-goal-image {background: url('../images/clark.jpg');background-size: cover;}
+
+
+.progress-bar{
+  height: 100%;
+  position: absolute;
+  left: 0;
+  /* box-shadow: inset 0 0 5px 5px #888; */
+}
+
+.progress-bar-community-color {
+  background-color: rgba(216,181,63,1); 
+}
+
+.progress-bar-user-color {
+  background-color: rgba(62,160,174,1); 
+}
+
+.view-right-top-buttons-container {
+  background: url('../images/top-button-fields.png');
+  width: 435px;
+  height: 0px;
+  top: 0px;
+  left: 13px;
+  position: absolute;
+}
+
+.view-right-top-buttons-container.expand {
+  height: 48px;
+  top: -49px;
+  transition: 0.5s;
+}
+.view-right-bar-image {
+  background: url('../images/edge.png');
+  width: 460px;
+  height: 8px;
+  position: absolute;
+  background-size: cover;
+}
+.view-right-bar-top {top: 0px;}
+
+.view-right-bar-bottom {bottom: 0px;}
+
+.heart-image{
+  background: url('../images/heart.png');
+  height: 44px;
+  width: 44px;
+  position: absolute;
+  top: 111px;
+  background-size: cover;
+  right: 27px;
+}
+
+.time-image{
+  background: url('../images/time.png');
+  height: 44px;
+  width: 44px;
+  position: absolute;
+  top: 20px;
+  right: 27px;
+  background-size: cover;
+}
+
+.community-name {
+  position: absolute;
+  left: 104px;
+  top: 71px;
+}
+
+.user-name {
+  position: absolute;
+  left: 104px;
+  top: 163px;
+}
+
+.user-value {
+  position: absolute;
+  right: 88px;
+  top: 163px;
+}
+
+.community-value {
+  position: absolute;
+  right: 88px;
+  top: 71px;
+}
+
+.mute {
+ padding-left: 19px;
+ font-size: x-large;
+}
+
+.settings {
+  top: 32px;
+  left: 7px;
+  position: absolute;
+  color: white;
+}
+
+
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #2c3e50;
+  background-image: none;
+}
+/* Custom Select */
+.styled-select {
+  /* background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0; */
+  height: 29px;
+  overflow: hidden;
+  text-align: left;
+  width: 240px;
+}
+
+.styled-select select {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  padding: 5px; /* If you add too much padding here, the options won't show in IE */
+  width: 268px;
+}
+.styled-select:hover {
+  border-top-color: #28597a;
+  background: #28597a;
+  color: #ccc;
+  }
+.styled-select:active {
+  border-top-color: #1b435e;
+  background: #1b435e;
+  }
+
+.semi-square {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.blue    {background-color: rgb(45,75,105);}
+.blue select    { color: #fff; }
+
+.select-position {
+  position: absolute;
+  top: 68px;
+  left: 6px;
+  width: 158px;
+}
+
+.button {
+  /* border-top: 1px solid #84898c; */
+  background: rgb(45,75,105);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 5px;
+  /* -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0; */
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  /* box-shadow: rgba(0,0,0,1) 0 1px 0; */
+  /* text-shadow: rgba(0,0,0,.4) 0 1px 0; */
+  color: white;
+  font-size: 13px;
+  font-family: Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+  text-align: center;
+  top: 76px;
+  left: -1px;
+  position: absolute;
+  width: 136px;
+  height: 21px;
+  padding: 5px 11px;
+  }
+.button:hover {
+  border-top-color: #28597a;
+  background: #28597a;
+  color: #ccc;
+  }
+.button:active {
+  border-top-color: #1b435e;
+  background: #1b435e;
+  }

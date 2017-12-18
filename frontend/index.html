@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" style="-webkit-app-region: drag">
+    <!--  -->
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HEWMEN: Cell</title>
+
+    <!-- Custom styles for this template -->
+    <link href="css/frontend.css" rel="stylesheet">
+
+    <!-- https://lokesh-coder.github.io/pretty-checkbox/#more -->
+    <link href="css/pretty-checkbox.min.css" rel="stylesheet">
+
+  </head>
+
+  <body >
+    <div id="container" class='container' style="">
+        <div id="container-view-center" class='view-center view-center-image-bmt close'></div>
+        <div id="container-view-right" class='view-right hide'>
+            <div id='community-name' class="community-name uppercase bold sans-serif">balanced</div>
+            <div id='user-name' class="user-name uppercase bold sans-serif">default</div>
+            <div id='community-goal-value' class="community-value uppercase sans-serif">1000 / 800</div>
+            <div id='user-goal-value' class="user-value uppercase sans-serif">100 / 30</div>
+            <!-- <div id='top-buttons' class="view-right-top-buttons-container"></div> -->
+            <div id='community-goal-image' class='view-right-field-top-image community-goal-image'></div>
+            <div id="community-goal-progress-bar" class='view-right-field view-right-field-top'>
+              <div id="progress-community-bar" class='progress-bar progress-bar-community-color' style="width: 75%;"></div>
+            </div>
+            <div id='user-goal-image' class='view-right-field-bottom-image user-goal-image'></div>
+            <div id="user-goal-progress-bar" class='view-right-field view-right-field-bottom'>
+              <div id="progress-user-bar" class='progress-bar progress-bar-user-color' style="width: 33%;" ></div>
+            </div>
+            <div id="user-progress-bar-image" class="heart-image"></div>
+            <div id="community-progress-bar-image" class="time-image"></div>
+            <!-- <div id='expand-bar-top' class="view-right-bar-top view-right-bar-image"></div>
+            <div id='expand-bar-bottom' class="view-right-bar-bottom view-right-bar-image"></div> -->
+        </div>
+        <div id="container-view-left" class='view-left hide'>
+          <div id="ui" class='settings'>
+              <div class="pretty p-icon p-round p-jelly mute">
+                  <input id='mute' type="checkbox" />
+                  <div class="state p-primary">
+                      <i class="icon mdi mdi-check"></i>
+                      <label class='mute'>Mute</label>
+                  </div>
+              </div>
+              <div id='login-button' class='button uppercase'>Log In Mixer</div>
+          </div>
+          <div class="styled-select blue semi-square select-position">
+              <select id='community-selector'>
+                  <option>Select Community</option>
+                  <option value="1">BALANCED</option>
+                  <option value="2">Direwolf20</option>
+                  <option value="3">TangoTek</option>
+                  <option value="4">ImpulseSV</option>
+                  <option value="5">GhostfromTexas</option>
+              </select>
+          </div>
+        </div>
+        <div id="container-view-bottom" class='view-bottom hide'>
+          <div id='wiley-wizard' class='view-bottom-field wiley-image top_position'></div>
+          <div id='defender' class='view-bottom-field defender-image middle_position'></div>
+          <div id='childs-play' class='view-bottom-field childs-image bottom_position'></div>
+          <div id='srg' class='view-bottom-field srg-image right_position' onclick="window.open('https://specialreservegames.com/', '_blank')"></div>
+        </div>
+        <div id="container-frame-top" class='top'></div>
+        <div id="container-frame-left" class='left'></div>
+        <div id="container-frame-right" class='right'></div>
+        <div id="container-frame-bottom" class='bottom'></div>
+    </div>
+      
+    <!-- JavaScript -->
+    <script src="script/mixer.js"></script>
+    <script src="script/frontend.js"></script>
+    
+
+  </body>
+
+</html>
