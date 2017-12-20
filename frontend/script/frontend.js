@@ -1,4 +1,4 @@
-mixerAuth();
+//mixerAuth();
 
 var ls = window.localStorage;
 
