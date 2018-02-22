@@ -1,0 +1,268 @@
+<head>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+    <div id="myDiv">
+        <!-- Plotly chart will be drawn inside this DIV -->
+    </div>
+    <script>
+        var DataSet = {
+            x: [],
+            Manual: {
+                upper: [],
+                lower: []
+            },
+            Auto: {
+                upper: [],
+                lower: []
+            },
+            Mean: {
+                upper: [],
+                lower: []
+            },
+            Error: {
+                Upper: {
+                    auto: [],
+                    manual: [],
+                    Percent: {
+                        auto: [],
+                        manual: []
+                    }
+                },
+                Lower: {
+                    auto: [],
+                    manual: [],
+                    Percent: {
+                        auto: [],
+                        manual: []
+                    }
+                },
+                Auto: {
+                    upper: [],
+                    lower: [],
+                    Percent: {
+                        upper: [],
+                        lower: []
+                    }
+                }
+            }
+
+        };
+       function makeplot() {
+                Plotly.d3.csv("Image6.csv", function(data){ processData(data) } );
+
+            };
+
+            function processData(rows) {
+
+                console.log(rows);
+
+                DataSet.x = [];
+                 for( var i = 0; i < rows.length; i++){
+                     DataSet.x.push(Number(rows[i].Pixel));
+
+                     DataSet.Manual.upper.push(1 * ( 496 + Number(rows[i].UpperManual)));
+                     DataSet.Manual.lower.push(1 * ( 496 + Number(rows[i].BottomManual)));
+                     DataSet.Auto.upper.push(1 * ( 496 + Number(rows[i].UpperAuto)));
+                     DataSet.Auto.lower.push(1 * ( 496 + Number(rows[i].BottomAuto)));
+                     DataSet.Mean.upper.push(1 * ( 496 + Number(rows[i].UpperMean)));
+                     DataSet.Mean.lower.push(1 * ( 496 +  Number(rows[i].BottomMean)));
+
+                     DataSet.Error.Upper.auto.push(Number(rows[i].ErrorUpperAuto));
+                     DataSet.Error.Upper.manual.push(Number(rows[i].ErrorUpperManual));
+                     DataSet.Error.Lower.auto.push(Number(rows[i].ErrorBottomAuto));
+                     DataSet.Error.Lower.manual.push(Number(rows[i].ErrorBottomManual));
+                     DataSet.Error.Upper.Percent.auto.push(100 * Number(rows[i].PercentErrorUpperAuto));
+                     DataSet.Error.Upper.Percent.manual.push(100 * Number(rows[i].PercentErrorUpperManual));
+                     DataSet.Error.Lower.Percent.auto.push(100 * Number(rows[i].PercentErrorBottomAuto));
+                     DataSet.Error.Lower.Percent.manual.push(100 * Number(rows[i].PercentErrorBottomManual));
+
+                     DataSet.Error.Auto.upper.push(DataSet.Auto.upper[i] - DataSet.Manual.upper[i]);
+                     DataSet.Error.Auto.lower.push(DataSet.Auto.lower[i] - DataSet.Manual.lower[i]);
+                    DataSet.Error.Auto.Percent.upper.push(100 * (DataSet.Auto.upper[i] - DataSet.Manual.upper[i]) / 496);
+                    DataSet.Error.Auto.Percent.lower.push(100 * (DataSet.Auto.lower[i] - DataSet.Manual.lower[i]) / 496);
+
+                 }
+
+
+                makePlotly( DataSet.x, DataSet.Manual.lower, DataSet.Mean.lower, DataSet.Error.Lower.manual);
+            }
+
+            function makePlotly( x, y, standard_deviation ){
+                var plotDiv = document.getElementById("plot");
+
+                
+                var manualUpper =     {
+                        x: DataSet.x,
+                        y: DataSet.Manual.upper,
+                        type: 'scatter',
+                        mode: 'lines',
+                        name: 'Manual Upper',
+                        opacity: 0.5,
+                        //xaxis: 'x'
+                    };
+                var meanUpper = {
+                        x: DataSet.x,
+                        y: DataSet.Mean.upper,
+                        fill: 'tonexty',
+                        type: 'scatter',
+                        mode: 'lines',
+                        name: 'Mean Upper',
+                        opacity: 0.5
+                    };
+                var manualLower =   {
+                        x: DataSet.x,
+                        y: DataSet.Manual.lower,
+                        type: 'scatter',
+                        mode: 'lines',
+                        name: 'Manual Lower',
+                        opacity: 0.5
+                    };
+                var meanLower =    {
+                        x: DataSet.x,
+                        y: DataSet.Mean.lower,
+                        fill: 'tonexty',
+                        type: 'scatter',
+                        mode: 'lines',
+                        name: 'Mean Lower',
+                        opacity: 0.5
+                    };
+                var percentErrorLowerManual =    {
+                        x: DataSet.x,
+                        y: DataSet.Error.Lower.Percent.manual,
+                        fill: 'none',
+                        type: 'bar',
+                        // mode: 'lines',
+                        name: 'Error Lower',
+                        opacity: 0.5,
+                       // xaxis: 'x2',
+                        yaxis: 'y2'
+                    };
+                var percentErrorUpperManual =    {
+                        x: DataSet.x,
+                        y: DataSet.Error.Upper.Percent.manual,
+                        fill: 'none',
+                        type: 'bar',
+                        // mode: 'lines',
+                        name: 'Error Upper',
+                        opacity: 0.5,
+                        //xaxis: 'x2',
+                        yaxis: 'y2'
+                    };
+                var percentErrorAutoManualLower =    {
+                        x: DataSet.x,
+                        y: DataSet.Error.Auto.Percent.lower,
+                        fill: 'none',
+                        type: 'bar',
+                        // mode: 'lines',
+                        name: 'Error Lower Auto v Man',
+                        opacity: 0.5,
+                        //xaxis: 'x2',
+                        yaxis: 'y2'
+                    };
+                var errorLowerManual =    {
+                        x: DataSet.x,
+                        y: DataSet.Error.Lower.manual,
+                        fill: 'none',
+                        type: 'bar',
+                        // mode: 'lines',
+                        name: 'Error Lower',
+                        opacity: 0.5,
+                       // xaxis: 'x2',
+                        yaxis: 'y2'
+                    };
+                var errorUpperManual =    {
+                        x: DataSet.x,
+                        y: DataSet.Error.Upper.manual,
+                        fill: 'none',
+                        type: 'bar',
+                        // mode: 'lines',
+                        name: 'Error Upper',
+                        opacity: 0.5,
+                        //xaxis: 'x2',
+                        yaxis: 'y2'
+                    };
+                var errorAutoManualLower  =  {
+                        x: DataSet.x,
+                        y: DataSet.Error.Auto.lower,
+                        fill: 'none',
+                        type: 'bar',
+                        // mode: 'lines',
+                        name: 'Error Lower Auto v Man',
+                        opacity: 0.5,
+                        //xaxis: 'x2',
+                        yaxis: 'y2'
+                    }
+                
+               
+                var traces = [];
+                traces.push(manualUpper);
+                traces.push(meanUpper);
+                traces.push(manualLower);
+                traces.push(meanLower);
+                //traces.push(percentErrorLowerManual);
+                //traces.push(percentErrorUpperManual);
+                //traces.push(percentErrorAutoManualLower);
+                traces.push(errorLowerManual);
+                traces.push(errorUpperManual);
+                traces.push(errorAutoManualLower);
+
+                // {"x":0,"y":0.5,"layer":"below","sizex":1,"sizey":1,"height":1,"width":1,"opacity":0.25,"source": image6,"xanchor":"left","xref":"paper","yanchor":"middle","yref":"y0.5"}],"margin":{"r":50,"t":100,"b":50,"l":50},"title":"Analysis Image 6\nTotal Tests: 17\tUnique Testers: 17","width":768,"xaxis":{"autotick":true,"ticks":"","gridcolor":"rgba(102, 102, 102, 0.4)","gridwidth":1,"linecolor":"#000","range":[0,768]},"yaxis":{"autotick":true,"scaleanchor":"x","ticks":"","gridcolor":"rgba(102, 102, 102, 0.4)","gridwidth":1,"linecolor":"#000","zeroline":false,"range":[-496,0]}
+                
+                var layout = {
+                    title: "Final Manual vs Mean, with Error",
+                    width: 1024,
+                    height: 768,
+                    margin:{
+                        r:50,
+                        t:100,
+                        b:150,
+                        l:50
+                    },
+                    // images:[{x:0,
+                    //             y:0.5,
+                    //             layer:"below",
+                    //             sizex:1,
+                    //             sizey:1,
+                    //             height:1,
+                    //             width:1,
+                    //             opacity:0.25,
+                    //             source:image6,
+                    //             xanchor: "left",
+                    //             xref: "paper",
+                    //             yanchor: "middle",
+                    //             yref: "y0.5"}],
+                    xaxis: {
+                        range: [175,525]
+                    },
+                    yaxis: {
+                        domain: [0.3,1],
+                        range: [300, 340]
+                    },
+                    xaxis2: {
+                        //domain: [200, 500],
+                        anchor: 'y2'
+                    },
+                    yaxis2: {
+                        //range: [-2,2],
+                        range: [-20,20],
+                        domain: [0,0.2],
+                        //overlaying: 'y',
+                        //side: 'bottom'
+                    }
+
+                }
+
+
+                Plotly.newPlot('myDiv', traces, layout);
+            };
+
+            makeplot();
+
+
+        
+    </script>
+</body>
