@@ -156,7 +156,7 @@ gtl = {
     //domain: 'http://172.20.10.2:8000',
     //domain: 'http://127.0.0.1:8000',
     //domain:'http://gametheorylabs.com:8000',
-    domain: 'http://pso.coreyclarkphd.com:8000',
+    domain: 'http://demo.coreyclarkphd.com:8000',
     Modal: {
         Show: function(){window.location = "#openModal";},
         Hide: function(){window.location = "#closeModal";}
