@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+    <style>
+        body { padding-bottom: 50px; } 
+    </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+        <!-- Sidebar -->
+        <div class="col-auto px-0">
+            <div id="sidebar" class="collapse collapse-horizontal border-end">
+                <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                  <ul class="list-unstyled ps-0">
+                    <li class="mb-1">
+                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#llm-collapse" aria-expanded="false">
+                        <a href="#" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-robot"></i> <span>LLM</span></a>
+                      </button>
+                      <div class="collapse" id="llm-collapse" >
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Model</a></li>
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">IP</a></li>
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Port</a></li>
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">API Key</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mb-1">
+                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#database-collapse" aria-expanded="false">
+                        <a href="#" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-database"></i> <span>Database</span></a>
+                      </button>
+                      <div class="collapse" id="database-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">IP</a></li>
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Port</a></li>
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Username</a></li>
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Password</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="mb-1">
+                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#settings-collapse" aria-expanded="false">
+                        <a href="#" class="list-group-item border-end-0 d-inline-block text-truncate" data-bs-parent="#sidebar"><i class="bi bi-gear"></i> <span>Settings</span></a>
+                      </button>
+                      <div class="collapse" id="settings-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                          <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Auto Execute</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+         <!-- Main Content -->
+        <main class="col-10 ps-md-2 pt-2">
+            <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
+            <!-- Accordion for Main Content -->
+            <div class="accordion accordion-icon-toggle" id="accordionPanelsStayOpenExample">
+              <!-- SQL Query -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+                    SQL Query
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <pre><code id="sqlquery" class="language-sql">
+SELECT 
+    AVG(s.salary) AS average_salary,
+    (SELECT salary FROM (
+        SELECT s.salary, ROW_NUMBER() OVER (ORDER BY s.salary) AS row_num, COUNT(*) OVER () AS total
+        FROM salaries s
+        JOIN dept_manager dm ON s.emp_no = dm.emp_no
+        JOIN departments d ON dm.dept_no = d.dept_no
+        WHERE d.dept_name = 'Research'
+        AND s.from_date <= CURRENT_DATE AND s.to_date > CURRENT_DATE
+    ) AS sub
+    WHERE sub.row_num IN (FLOOR((total + 1) / 2), FLOOR((total + 2) / 2))
+    LIMIT 1) AS median_salary,
+    MAX(s.salary) AS highest_salary,
+    MIN(s.salary) AS lowest_salary
+FROM salaries s
+JOIN dept_manager dm ON s.emp_no = dm.emp_no
+JOIN departments d ON dm.dept_no = d.dept_no
+WHERE d.dept_name = 'Research'
+AND s.from_date <= CURRENT_DATE AND s.to_date > CURRENT_DATE;
+                    </code></pre>
+                  </div>
+                </div>
+              </div>
+              <!-- Response -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    Database Response
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                  <div id="sqlresponse" class="accordion-body">
+                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  </div>
+                </div>
+              </div>
+              <!-- Log -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    Agent Log
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                  <div id="agentlog" class="accordion-body">
+                    <strong>It appears that the MySQL version you are using does not support the PERCENTILE_CONT function for calculating the median. MySQL doesn't have a built-in function for median, so we'll need to use a different approach. Let's modify the query to use a subquery for calculating the median:
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Chat Input -->
+          <div class="fixed-bottom p-3">
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Enter your message..." value="Can you get the average, median, high and low salaries for managers in Research department">
+                  <button class="btn btn-primary" type="button">Send</button>
+              </div>
+          </div>
+        </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/sql.min.js"></script>
+
+<script></script>
+  <script>
+      hljs.highlightAll();
+      document.getElementById('sqlresponse').innerHTML =
+      marked.parse('| Average Salary | Median Salary | Highest Salary | Lowest Salary |\n' +
+'|--------------------|--------------------|--------------------|--------------------|\n' +
+'| $91,318.50     | $79,393.00    | $103,244.00    | $79,393.00    |');
+  </script>
+</body>
+</html>
