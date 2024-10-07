@@ -21,21 +21,29 @@ h1 {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: relative;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 button {
     padding: 8px 15px;
-    margin: 0 5px;
     border: 1px solid #ccc;
     background-color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
     border-radius: 4px;
+    font-size: 14px;
 }
 
 button:hover {
     background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 button:focus {
@@ -43,10 +51,73 @@ button:focus {
     box-shadow: 0 0 0 2px rgba(75, 192, 192, 0.5);
 }
 
-#resetZoom {
+button.active {
+    background-color: #4bc0c0;
+    color: white;
+}
+
+.ma-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.ma-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ma-control label {
+    font-size: 14px;
+    color: #333;
+}
+
+.ma-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #4bc0c0;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.ma-checkbox:checked {
+    background-color: #4bc0c0;
+}
+
+.ma-checkbox:checked::before {
+    content: '✓';
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+}
+
+.ma-select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.ma-input {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#resetZoom {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 5px 10px;
